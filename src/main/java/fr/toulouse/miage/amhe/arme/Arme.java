@@ -10,15 +10,13 @@ package fr.toulouse.miage.amhe.arme;
  */
 public class Arme {
 
-    private int rapidité;
+
     private String nom;
 
-    public Arme(String nom, int rapidité) {
+    public Arme(String nom) {
         this.nom = nom;
-        this.rapidité = rapidité;
+
     }
 
-    public int getRapidité(){
-        return this.rapidité;
-    }
+
 }
