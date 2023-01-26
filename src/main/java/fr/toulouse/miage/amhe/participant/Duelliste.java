@@ -24,5 +24,6 @@ public class Duelliste extends Participant {
         int valeur = r.nextInt(3);
         return points[valeur];
     }
+    //sodomite
 
 }
