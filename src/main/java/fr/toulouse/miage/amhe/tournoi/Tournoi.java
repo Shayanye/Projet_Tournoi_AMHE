@@ -15,4 +15,5 @@ public class Tournoi {
 
     private Arme CategorieArme;
 
+    private int prout;
 }
