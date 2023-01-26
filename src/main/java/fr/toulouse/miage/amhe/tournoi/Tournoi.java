@@ -5,15 +5,37 @@
 package fr.toulouse.miage.amhe.tournoi;
 import fr.toulouse.miage.amhe.arme.Arme;
 /**
- * Classe abstraite représentant un tournoi
+ * Classe abstraite qui permet de représenter un tournoi
  *
- * @author valen
+ * @author Charles
  */
-/**
- * /**Classe abstraite représentant un tournoi*/
-public class Tournoi {
 
-    private Arme CategorieArme;
+public abstract class Tournoi {
 
-    private int prout;
+    private String arme;
+    private int nbParticipant;
+    
+    public Tournoi(int nbParticipant, String arme) throws Exception{
+    	try {
+    		if(nbParticipant % 2 != 0) {
+        		Exception e = new Exception("Le nombre de participant n'est pas une puissance de 2");
+        		throw e;
+        	}
+        }
+    	catch (Exception e){
+    		System.out.println(e);
+    	}
+    	
+    	
+    	
+    	
+    	this.nbParticipant = nbParticipant;
+    	this.arme = arme;
+    }
+     
+    
+    public int getNbParticipant() {
+    	return this.nbParticipant;
+    }
+    
 }

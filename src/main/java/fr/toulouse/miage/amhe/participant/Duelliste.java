@@ -18,6 +18,8 @@ public class Duelliste extends Participant {
     public Duelliste(String nom, Arme arme) {
         super(nom, arme);
     }
+    
+    
 
     public int attaquer() {
         Random r = new Random();
