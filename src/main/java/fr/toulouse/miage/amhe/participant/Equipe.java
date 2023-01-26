@@ -25,6 +25,6 @@ public class Equipe extends Participant {
     public void ajouterMembre(String nom){
         Equipe.add(new Duelliste(nom,arme));
     }
-//sodom
+
 
 }
