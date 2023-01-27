@@ -12,6 +12,7 @@ import fr.toulouse.miage.amhe.participant.Duelliste;
 public class MancheJoueur extends Manche {
     private Duelliste premier;
     private Duelliste deuxieme;
+    private int tada;
 
     public MancheJoueur(Duelliste duelliste1, Duelliste duelliste2) {
         if (duelliste1.getRapidité() > duelliste2.getRapidité()) {
