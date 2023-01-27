@@ -4,22 +4,23 @@
  */
 package fr.toulouse.miage.amhe.participant;
 
-import fr.toulouse.miage.amhe.arme.Arme;
-
 import java.util.Random;
 
 /**
  * @author valen
  */
-public class Duelliste extends Participant {
+public class Duelliste {
     protected int rapidité;
-    private static final int[] points = {5, 3, 1};
+    private String nom;
+    private String arme;
+    public Duelliste(String nom, String arme)
+    {
 
-    public Duelliste(String nom, Arme arme) {
-        super(nom, arme);
+        this.nom=nom;
+        this.arme=arme;
         this.rapidité = new Random().nextInt(10) + 1;
-
     }
+    private static final int[] points = {5, 3, 1};
 
     public int attaquer() {
         Random r = new Random();
@@ -31,4 +32,10 @@ public class Duelliste extends Participant {
         return this.rapidité;
     }
 
+    public String getNom() {
+        return this.nom;
+    }
+    public String getArme(){
+        return this.arme;
+    }
 }

@@ -11,5 +11,5 @@ import fr.toulouse.miage.amhe.participant.*;
 public abstract class Manche {
     protected int score1;
     protected int score2;
-    public abstract Participant jouerManche();
+
 }

@@ -5,7 +5,6 @@
 package fr.toulouse.miage.amhe.tournoi;
 
 import fr.toulouse.miage.amhe.participant.Duelliste;
-import fr.toulouse.miage.amhe.participant.Participant;
 
 /**
  * @author valen
@@ -25,8 +24,8 @@ public class MancheJoueur extends Manche {
     }
 
 
-    @Override
-    public Participant jouerManche() {
+
+    public Duelliste jouerManche() {
         while (score1 < 15 & score2 < 15) {
             this.score1 = this.score1 + premier.attaquer();
             this.score2 = this.score2 + deuxieme.attaquer();

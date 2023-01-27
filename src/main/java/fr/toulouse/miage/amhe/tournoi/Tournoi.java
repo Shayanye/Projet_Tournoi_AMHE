@@ -4,8 +4,6 @@
  */
 package fr.toulouse.miage.amhe.tournoi;
 
-import fr.toulouse.miage.amhe.arme.Arme;
-
 /**
  * Classe abstraite représentant un tournoi
  *
@@ -14,6 +12,5 @@ import fr.toulouse.miage.amhe.arme.Arme;
 
 public class Tournoi {
 
-    private Arme CategorieArme;
 
 }
