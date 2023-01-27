@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.toulouse.miage.amhe.tournoi;
-import fr.toulouse.miage.amhe.arme.Arme;
 /**
  * Classe abstraite qui permet de représenter un tournoi
  *

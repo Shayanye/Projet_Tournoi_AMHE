@@ -19,7 +19,7 @@ public class Solo extends Tournoi{
 	/**
 	 * Constructeur de tournoi solo
 	 */
-	public Solo(int nbParticipant, String arme){
+	public Solo(int nbParticipant, String arme) throws  Exception{
 		super(nbParticipant, arme);
 		//this.duellistes = new Duelliste(this.getNbParticipant());
 		//il me faut un constructeur de Duelliste qui prend en paramètre un int (nbParticipant) et qui me créer un tableau de duelliste de cette taille.
