@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fr.toulouse.miage.amhe.HelloController">
+<VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="690.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="691.0">
+        <Button fx:id="creerTournoi" layoutX="221.0" layoutY="129.0" onAction="#CreerTournoi" prefHeight="50.0" prefWidth="100.0" text="Créer un Tournoi" textOverrun="WORD_ELLIPSIS" AnchorPane.topAnchor="129.0">
+            <font>
+                <Font name="Candara Light" size="12.0" />
+            </font>
+        </Button>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+        <Label fx:id="welcomeText" alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="177.0" text="Tournoi_AMHE">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <padding>
+                <Insets top="1.0" />
+            </padding>
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Button layoutX="432.0" layoutY="129.0" mnemonicParsing="false" onAction="#onHelloButtonClick" prefHeight="50.0" prefWidth="112.0" text="Historique des tournois" textAlignment="CENTER">
+            <font>
+                <Font size="9.0" />
+            </font>
+        </Button>
+    </AnchorPane>
 </VBox>
