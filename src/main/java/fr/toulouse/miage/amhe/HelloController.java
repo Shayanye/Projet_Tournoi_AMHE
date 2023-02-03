@@ -44,4 +44,16 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
 
+    @FXML
+    protected void RetourAccueilSolo() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage) retourAccueilSolo.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
+    @FXML
+    private Button validerNbPartSolo;
+
+    @FXML
+    private Button retourAccueilSolo;
+
 }
