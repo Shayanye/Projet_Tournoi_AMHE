@@ -12,7 +12,7 @@ public class CreerTournoi extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root =FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
-        Scene scene = new Scene(root, 300, 200);
+        Scene scene = new Scene(root, 500, 500);
         stage.setTitle("Tournoi_AMHE");
         stage.setScene(scene);
         stage.show();

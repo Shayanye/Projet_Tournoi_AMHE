@@ -7,9 +7,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Objects;
+
 
 public class HelloController {
 
@@ -23,14 +29,21 @@ public class HelloController {
     @FXML
     private RadioButton nb_4;
     @FXML
-    ObservableList<Integer> list
-            = FXCollections.observableArrayList(8, 16, 4);
+    private Button validerNbPartSolo;
     @FXML
-    private ComboBox<Integer> nb_participants = new ComboBox<>(list);
+    private Button retourRentrerParticipant;
+
+    @FXML
+    private Button retourAccueilSolo;
+
+
 
 
     @FXML
     private Label welcomeText;
+
+    public HelloController() throws FileNotFoundException {
+    }
 
     @FXML
     protected void onHelloButtonClick() {
@@ -38,7 +51,7 @@ public class HelloController {
     }
 
     @FXML
-    protected void CreerTournoi() throws Exception {
+    protected void Go_to_CreerTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
         Stage window = (Stage) creerTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
@@ -50,10 +63,23 @@ public class HelloController {
         Stage window = (Stage) retourAccueilSolo.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
-    @FXML
-    private Button validerNbPartSolo;
 
     @FXML
-    private Button retourAccueilSolo;
+    protected void returnToCreerTournoi() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
+    @FXML
+    protected void goToRentrerParticipant() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants.fxml")));
+        Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
+
+
+
+
+
 
 }
