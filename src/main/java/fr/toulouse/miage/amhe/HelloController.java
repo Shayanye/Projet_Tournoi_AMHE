@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class HelloController {
 
-
+    private Tournoi tournoi;
     @FXML
     private Button creerTournoi;
 
@@ -45,14 +45,13 @@ public class HelloController {
     @FXML
     private Button retourAccueilSolo;
 
-    public Tournoi creation_tournoi() throws Exception {
+    public void creation_tournoi() throws Exception {
         int nb_part = 0;
         if(Group_nb.getSelectedToggle()!=null){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
             nb_part=Integer.valueOf(button.getText());
         }
-        Tournoi Tournoi=new Solo(nb_part,NomTournoi.getText(),ArmeTournoi.getText());
-        return Tournoi;
+        tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
     }
 
 
