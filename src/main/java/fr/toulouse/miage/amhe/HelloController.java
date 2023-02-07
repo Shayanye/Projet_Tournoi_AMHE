@@ -22,14 +22,16 @@ public class HelloController {
 
     @FXML
     private Button creerTournoi;
+
     @FXML
-    private ToggleGroup Group_nb;
+    private ToggleGroup Group_nb=new ToggleGroup();
     @FXML
-    private RadioButton nb_16;
+    private RadioButton nb_16=new RadioButton("16");
+
     @FXML
-    private RadioButton nb_8;
+    private RadioButton nb_8=new RadioButton("8");
     @FXML
-    private RadioButton nb_4;
+    private RadioButton nb_4=new RadioButton("4");
     @FXML
     private Button validerNbPartSolo;
     @FXML
@@ -38,19 +40,16 @@ public class HelloController {
     @FXML
     private Button retourAccueilSolo;
 
+    public void creation_tournoi(){
+        int nb_part;
+        if(Group_nb.getSelectedToggle()!=null){
+            RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
 
-
-
-    @FXML
-    private Label welcomeText;
-
-    public HelloController() throws Exception {
+        }
     }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+
+
 
     @FXML
     protected void Go_to_CreerTournoi() throws Exception {
