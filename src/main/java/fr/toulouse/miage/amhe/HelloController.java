@@ -79,6 +79,16 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
 
+    @FXML
+    protected void goToRentrerParticipant4() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("rentrer_participants_4.fxml")));
+        Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
+
+
+
+
 
 
 
