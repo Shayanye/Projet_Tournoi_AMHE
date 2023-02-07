@@ -1,7 +1,7 @@
 package fr.toulouse.miage.amhe;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import fr.toulouse.miage.amhe.*;
+import fr.toulouse.miage.amhe.tournoi.Solo;
+import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,6 +23,8 @@ public class HelloController {
     @FXML
     private Button creerTournoi;
     @FXML
+    private ToggleGroup Group_nb;
+    @FXML
     private RadioButton nb_16;
     @FXML
     private RadioButton nb_8;
@@ -42,7 +44,7 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
-    public HelloController() throws FileNotFoundException {
+    public HelloController() throws Exception {
     }
 
     @FXML
