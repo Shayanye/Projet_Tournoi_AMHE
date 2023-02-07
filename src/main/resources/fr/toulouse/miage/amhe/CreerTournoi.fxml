@@ -48,7 +48,7 @@
       </effect>
    </Button>
    <Label layoutX="250.0" layoutY="64.0" text="Veuillez rentrer le nom de votre Tournoi" />
-   <TextField layoutX="275.0" layoutY="115.0" />
+   <TextField fx:id="NomTournoi" layoutX="275.0" layoutY="115.0" />
    <Label layoutX="250.0" layoutY="160.0" text="Veuillez rentrer l'arme utilisée dans le tournoi" />
-   <TextField layoutX="275.0" layoutY="200.0" />
+   <TextField fx:id="ArmeTournoi" layoutX="275.0" layoutY="200.0" />
 </AnchorPane>
