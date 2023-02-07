@@ -11,10 +11,11 @@ package fr.toulouse.miage.amhe.tournoi;
 
 public abstract class Tournoi {
 
+	private String nom;
     private String arme;
     private int nbParticipant;
     
-    public Tournoi(int nbParticipant, String arme) throws Exception{
+    public Tournoi(int nbParticipant, String arme, String nom) throws Exception{
     	try {
     		if(nbParticipant % 2 != 0) {
         		Exception e = new Exception("Le nombre de participant n'est pas une puissance de 2");
@@ -27,7 +28,7 @@ public abstract class Tournoi {
     	
     	
     	
-    	
+    	this.nom=nom;
     	this.nbParticipant = nbParticipant;
     	this.arme = arme;
     }
