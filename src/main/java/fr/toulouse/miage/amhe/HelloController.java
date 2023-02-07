@@ -24,6 +24,11 @@ public class HelloController {
     private Button creerTournoi;
 
     @FXML
+    private TextField ArmeTournoi;
+
+    @FXML
+    private TextField NomTournoi;
+    @FXML
     private ToggleGroup Group_nb=new ToggleGroup();
     @FXML
     private RadioButton nb_16=new RadioButton("16");
@@ -40,12 +45,13 @@ public class HelloController {
     @FXML
     private Button retourAccueilSolo;
 
-    public void creation_tournoi(){
-        int nb_part;
+    public void creation_tournoi() throws Exception {
+        int nb_part = 0;
         if(Group_nb.getSelectedToggle()!=null){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
-
+            nb_part=Integer.valueOf(button.getText());
         }
+        Solo Tournoi=new Solo(nb_part,NomTournoi.getText(),ArmeTournoi.getText());
     }
 
 
