@@ -55,8 +55,6 @@ public class HelloController {
     }
 
 
-
-
     @FXML
     protected void Go_to_CreerTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
