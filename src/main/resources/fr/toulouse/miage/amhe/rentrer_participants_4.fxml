@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
    <children>
-      <Button layoutX="440.0" layoutY="325.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="82.0" text="Valider" />
+      <Button layoutX="440.0" layoutY="325.0" mnemonicParsing="false" onAction="#goToLancementTournoi4" prefHeight="36.0" prefWidth="82.0" text="Valider" />
       <Text layoutX="343.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P4 :" />
       <Text layoutX="52.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1 :" />
       <TextField layoutX="83.0" layoutY="100.0" />

@@ -96,7 +96,12 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
 
-
+    @FXML
+    protected void goToLancementTournoi4() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi_4")));
+        Stage window = (Stage) retourAccueilSolo.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
 
 
 
