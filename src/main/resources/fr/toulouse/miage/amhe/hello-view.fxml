@@ -32,7 +32,7 @@
                 <Font size="24.0" />
             </font>
         </Label>
-        <Button layoutX="411.0" layoutY="226.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="112.0" text="Historique des tournois" textAlignment="CENTER">
+        <Button layoutX="411.0" layoutY="226.0" mnemonicParsing="false"  prefHeight="50.0" prefWidth="112.0" text="Historique des tournois" textAlignment="CENTER">
             <font>
                 <Font size="9.0" />
             </font>
