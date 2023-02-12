@@ -24,6 +24,8 @@ public class HelloController {
     private Button creerTournoi;
 
     @FXML
+    private Button goSolo;
+    @FXML
     private TextField ArmeTournoi;
 
     @FXML
@@ -39,6 +41,9 @@ public class HelloController {
     private RadioButton nb_4=new RadioButton("4");
     @FXML
     private Button validerNbPartSolo;
+
+    @FXML
+    private Button retourChoixTypeTournoi;
     @FXML
     private Button retourRentrerParticipant;
 
@@ -70,6 +75,12 @@ public class HelloController {
     }
 
     @FXML
+    protected void goToChoixTypeTournoi() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
+        Stage window = (Stage) goSolo.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
+    @FXML
     protected void returnToCreerTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
         Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
@@ -82,6 +93,12 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
 
+    @FXML
+    protected void retourChoixTypeTournoi() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
+        Stage window = (Stage) retourChoixTypeTournoi.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
     @FXML
     protected void goToRentrerParticipant4() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("rentrer_participants_4.fxml")));
@@ -98,8 +115,8 @@ public class HelloController {
 
     @FXML
     protected void goToLancementTournoi4() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi_4")));
-        Stage window = (Stage) retourAccueilSolo.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
+        Stage window = (Stage) retourChoixTypeTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
 

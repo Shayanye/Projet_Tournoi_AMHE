@@ -38,7 +38,7 @@
          </Lighting>
       </effect>
    </Button>
-   <Button id="retourAccueilSolo" fx:id="retourAccueilSolo" layoutX="47.0" layoutY="344.0" mnemonicParsing="false" onAction="#RetourAccueilSolo" prefHeight="34.0" prefWidth="80.0" text="Retour">
+   <Button fx:id="retourChoixTypeTournoi" onAction="#retourChoixTypeTournoi" layoutX="47.0" layoutY="344.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" text="Retour">
       <font>
          <Font name="System Bold" size="13.0" />
       </font>
