@@ -50,13 +50,18 @@ public class HelloController {
     @FXML
     private Button retourAccueilSolo;
 
-    public void creation_tournoi() throws Exception {
+    public void creation_tournoi_solo() throws Exception {
         int nb_part = 0;
-        if(Group_nb.getSelectedToggle()!=null){
+
+        if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
-            nb_part=Integer.valueOf(button.getText());
+            nb_part = Integer.valueOf(button.getText());
+            tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_"+button.getText()+".fxml")));
+            Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
+            window.setScene(new Scene(root, 750, 500));
         }
-        tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
+
     }
 
 
@@ -86,12 +91,14 @@ public class HelloController {
         Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
-    @FXML
+    /*@FXML
     protected void goToRentrerParticipant() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_16.fxml")));
         Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+     */
+
 
     @FXML
     protected void retourChoixTypeTournoi() throws Exception {
@@ -101,14 +108,14 @@ public class HelloController {
     }
     @FXML
     protected void goToRentrerParticipant4() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("rentrer_participants_4.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
         Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
 
     @FXML
     protected void goToRentrerParticipant8() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("rentrer_participants_8.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_8.fxml")));
         Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }

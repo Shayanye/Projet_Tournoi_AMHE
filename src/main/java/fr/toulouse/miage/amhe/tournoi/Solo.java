@@ -25,8 +25,12 @@ public class Solo extends Tournoi{
 		//il me faut un constructeur de Duelliste qui prend en paramètre un int (nbParticipant) et qui me créer un tableau de duelliste de cette taille.
 		this.duellistes = new ArrayList<>(this.getNbParticipant());
 		this.manches = new ArrayList<>(this.getNbParticipant() / 2);
-		
-		
+
+
+	}
+
+	public void addParticipant(Duelliste d){
+		this.duellistes.add(d);
 	}
 	
 }
