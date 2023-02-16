@@ -46,4 +46,6 @@ public class Duelliste {
         return this.arme;
     }
 
+
+
 }

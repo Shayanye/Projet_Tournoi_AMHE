@@ -13,8 +13,7 @@
             <Font name="Marlett" size="23.0" />
          </font>
       </Text>
-      <Button layoutX="407.0" layoutY="312.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Lancer" />
-      <Button layoutX="146.0" layoutY="312.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Retour" />
+      <Button fx:id= "retourRentrer_participants" onAction="#RetourRentrer_participants" layoutX="146.0" layoutY="312.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Retour" />
       <Text layoutX="271.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
          <font>
             <Font size="18.0" />

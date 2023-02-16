@@ -30,13 +30,7 @@ public class Solo extends Tournoi{
 	}
 
 	public void addParticipant(Duelliste d){
-
 		this.duellistes.add(d);
-	}
-
-	public void addManche(Duelliste d1,Duelliste d2){
-
-		this.manches.add(new MancheJoueur(d1,d2));
 	}
 
 	public ArrayList<Duelliste> getListeDuelliste(){
@@ -44,9 +38,8 @@ public class Solo extends Tournoi{
 	}
 
 	public void AfficherDuellistes(){
-		for(Duelliste d : duellistes){
-			System.out.println(d.getNom());
+		for(Duelliste d1: duellistes){
+			System.out.println(d1.getNom());
 		}
 	}
-	
 }
