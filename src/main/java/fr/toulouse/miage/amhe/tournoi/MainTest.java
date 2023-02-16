@@ -30,11 +30,11 @@ public class MainTest {
         MancheJoueur mj3 = new MancheJoueur(mj1.jouerManche(), mj2.jouerManche());
 
         //ajout des manches
-        tournoiSolo.addManches(mj1);
-        tournoiSolo.addManches(mj2);
+       // tournoiSolo.addManches(mj1);
+       // tournoiSolo.addManches(mj2);
 
         //jouer manches
-        mj3.jouerManche();
+        //mj3.jouerManche();
 
     }
 }
