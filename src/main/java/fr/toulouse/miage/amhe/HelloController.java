@@ -113,7 +113,7 @@ public class HelloController {
 
     @FXML
     protected void retourChoixTypeTournoi() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoia.fxml")));
         Stage window = (Stage) retourChoixTypeTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
