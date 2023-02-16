@@ -40,6 +40,7 @@ public class MancheJoueur extends Manche {
         }
     }
 
+
     public int getScore1() {
 
         return this.score1;

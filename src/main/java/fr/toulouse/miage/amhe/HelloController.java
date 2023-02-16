@@ -1,6 +1,5 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
-import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
@@ -65,6 +64,16 @@ public class HelloController {
     private Button retourAccueilSolo;
 
     @FXML
+    private Button valider_4_participants;
+
+    @FXML
+    private Button retourRentrer_participants_4;
+
+    @FXML
+    private RadioButton radioButton_selectionne;
+
+    @FXML
+    private TextArea console_lancement;
     public void creation_tournoi_solo() throws Exception {
         int nb_part;
 
