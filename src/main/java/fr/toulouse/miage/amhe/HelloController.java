@@ -50,14 +50,22 @@ public class HelloController {
     @FXML
     private Button retourAccueilSolo;
 
+    @FXML
+    private Button valider_4_participants;
+
+    @FXML
+    private Button retourRentrer_participants_4;
+
+    @FXML
+    private RadioButton radioButton_selectionne;
     public void creation_tournoi_solo() throws Exception {
         int nb_part = 0;
 
         if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
-            RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
-            nb_part = Integer.valueOf(button.getText());
+           this.radioButton_selectionne = (RadioButton) Group_nb.getSelectedToggle();
+            nb_part = Integer.valueOf(radioButton_selectionne.getText());
             tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_"+button.getText()+".fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_"+this.radioButton_selectionne.getText()+".fxml")));
             Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
             window.setScene(new Scene(root, 750, 500));
         }
@@ -122,12 +130,17 @@ public class HelloController {
 
     @FXML
     protected void goToLancementTournoi4() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
-        Stage window = (Stage) retourChoixTypeTournoi.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi.fxml")));
+        Stage window = (Stage) valider_4_participants.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
 
-
+    @FXML
+    protected void RetourRentrer_participants() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
 
 
 
