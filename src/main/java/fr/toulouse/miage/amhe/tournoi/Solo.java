@@ -33,6 +33,10 @@ public class Solo extends Tournoi{
 
 		this.duellistes.add(d);
 	}
+	public void addManches(Manche m ){
+		this.manches.add(m);
+	}
+
 
 	public ArrayList<Duelliste> getListeDuelliste(){
 		return duellistes;

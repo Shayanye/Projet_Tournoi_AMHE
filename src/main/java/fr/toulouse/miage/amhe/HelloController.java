@@ -75,6 +75,10 @@ public class HelloController {
 
     @FXML
     private TextArea console_lancement;
+
+    @FXML
+    private Button retourRentrer_participants;
+
     public void creation_tournoi_solo() throws Exception {
         int nb_part;
 
@@ -163,6 +167,12 @@ public class HelloController {
         Stage window = (Stage) remplirTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
         tournoi.AfficherDuellistes();
+    }
+    @FXML
+    protected void Retour_lancement_tournoi() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        Stage window = (Stage) retourRentrer_participants.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
     }
 
 
