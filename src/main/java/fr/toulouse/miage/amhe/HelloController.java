@@ -1,5 +1,6 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
+import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
