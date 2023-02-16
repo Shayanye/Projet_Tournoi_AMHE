@@ -33,6 +33,7 @@ public abstract class Tournoi {
     }
 
     public String toString(){
+
         return this.arme + this.nom;
     }
 

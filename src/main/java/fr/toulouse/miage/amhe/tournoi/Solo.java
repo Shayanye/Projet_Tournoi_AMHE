@@ -52,9 +52,5 @@ public class Solo extends Tournoi{
 		return manches;
 	}
 
-	public void AfficherManches(){
-		for(Manche m1: manches){
-			System.out.println(m1.toString());
-		}
-	}
+
 }

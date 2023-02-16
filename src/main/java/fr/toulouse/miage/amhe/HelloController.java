@@ -87,7 +87,6 @@ public class HelloController {
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
             nb_part = Integer.parseInt(button.getText());
             this.tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
-            System.out.println(tournoi.toString());
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
             Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
             window.setScene(new Scene(root, 750, 500));
@@ -113,7 +112,6 @@ public class HelloController {
                 tournoi.getListeManches().add(new MancheJoueur(tournoi.getListeDuelliste().get(i),tournoi.getListeDuelliste().get(i+1) ));
                 i=i+2;
             }
-
             goToLancementTournoi4();
         }
 
@@ -143,6 +141,7 @@ public class HelloController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
         Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
+        this.tournoi=null;
     }
 
 
