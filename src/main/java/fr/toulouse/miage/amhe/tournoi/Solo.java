@@ -32,8 +32,5 @@ public class Solo extends Tournoi{
 	public void addParticipant(Duelliste d){
 		this.duellistes.add(d);
 	}
-
-	public void addManches(Manche m){
-		this.manches.add(m);
-	}
+	
 }
