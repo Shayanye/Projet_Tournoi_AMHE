@@ -47,4 +47,14 @@ public class Solo extends Tournoi{
 			System.out.println(d1.getNom());
 		}
 	}
+
+	public ArrayList<Manche> getListeManches(){
+		return manches;
+	}
+
+	public void AfficherManches(){
+		for(Manche m1: manches){
+			System.out.println(m1.toString());
+		}
+	}
 }

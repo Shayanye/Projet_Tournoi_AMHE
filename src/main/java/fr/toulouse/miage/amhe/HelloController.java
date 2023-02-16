@@ -1,6 +1,7 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
 import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.tournoi.MancheJoueur;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
@@ -107,6 +108,12 @@ public class HelloController {
         if(tournoi.getListeDuelliste().size()!=tournoi.getNbParticipant()){
             BoucleRentrerParticipant4();
         }else{
+            int i=0;
+            while( i <  tournoi.getNbParticipant()){
+                tournoi.getListeManches().add(new MancheJoueur(tournoi.getListeDuelliste().get(i),tournoi.getListeDuelliste().get(i+1) ));
+                i=i+2;
+            }
+
             goToLancementTournoi4();
         }
 
