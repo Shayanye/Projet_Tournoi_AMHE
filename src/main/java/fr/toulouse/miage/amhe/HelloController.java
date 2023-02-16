@@ -160,7 +160,7 @@ public class HelloController {
 
     @FXML
     protected void goToLancementTournoi4() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi_4.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi.fxml")));
         Stage window = (Stage) remplirTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
         tournoi.AfficherDuellistes();
