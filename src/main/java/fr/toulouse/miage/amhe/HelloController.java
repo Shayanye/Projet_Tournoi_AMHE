@@ -133,13 +133,7 @@ public class HelloController {
         Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
-    /*@FXML
-    protected void goToRentrerParticipant() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_16.fxml")));
-        Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
-        window.setScene(new Scene(root, 750, 500));
-    }
-     */
+
 
 
     @FXML
@@ -161,12 +155,7 @@ public class HelloController {
             window.setScene(new Scene(root, 750, 500));
     }
 
-    @FXML
-    protected void goToRentrerParticipant8() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_8.fxml")));
-        Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
-        window.setScene(new Scene(root, 750, 500));
-    }
+
 
     @FXML
     protected void goToLancementTournoi4() throws Exception {
