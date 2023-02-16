@@ -58,13 +58,16 @@ public class HelloController {
 
     @FXML
     private RadioButton radioButton_selectionne;
+
+    @FXML
+    private TextArea console_lancement;
     public void creation_tournoi_solo() throws Exception {
         int nb_part = 0;
 
         if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
-           this.radioButton_selectionne = (RadioButton) Group_nb.getSelectedToggle();
+            this.radioButton_selectionne = (RadioButton) Group_nb.getSelectedToggle();
             nb_part = Integer.valueOf(radioButton_selectionne.getText());
-            tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
+            this.tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_"+this.radioButton_selectionne.getText()+".fxml")));
             Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
             window.setScene(new Scene(root, 750, 500));
@@ -141,6 +144,11 @@ public class HelloController {
         Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+
+
+
+
+
 
 
 
