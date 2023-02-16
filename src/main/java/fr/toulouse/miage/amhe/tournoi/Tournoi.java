@@ -24,9 +24,17 @@ public abstract class Tournoi {
      
     
     public int getNbParticipant() {
-    	return this.nbParticipant;
+
+        return this.nbParticipant;
     }
 
+    public String getArme(){
+        return arme;
+    }
+
+    public String toString(){
+        return this.arme + this.nom;
+    }
 
     
 }

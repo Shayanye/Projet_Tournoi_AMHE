@@ -32,10 +32,10 @@ public class MancheJoueur extends Manche {
             this.score2 = this.score2 + deuxieme.attaquer();
         }
         if (score1 > 15) {
-            System.out.println(premier.getNom()+ "vs" + deuxieme.getNom()+" : "+" le joueur "+premier.getNom()+" a gagné");
+            System.out.println(premier.getNom()+ " vs " + deuxieme.getNom()+" : "+" le joueur "+premier.getNom()+" a gagné");
             return premier;
         } else {
-            System.out.println(premier.getNom()+ "vs" + deuxieme.getNom()+" : "+" le joueur "+deuxieme.getNom()+" a gagné");
+            System.out.println(premier.getNom()+ " vs " + deuxieme.getNom()+" : "+" le joueur "+deuxieme.getNom()+" a gagné");
             return deuxieme;
         }
     }

@@ -7,28 +7,28 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
    <children>
       <Button fx:id="retourRentrerParticipant" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#returnToCreerTournoi" prefHeight="34.0" prefWidth="76.0" text="Retour" />
-      <TextField layoutX="226.0" layoutY="274.0" />
-      <TextField layoutX="422.0" layoutY="274.0" />
-      <TextField layoutX="422.0" layoutY="36.0" />
-      <TextField layoutX="423.0" layoutY="364.0" />
-      <TextField layoutX="226.0" layoutY="78.0" />
-      <TextField layoutX="423.0" layoutY="78.0" />
-      <TextField layoutX="226.0" layoutY="121.0" />
-      <TextField layoutX="423.0" layoutY="121.0" />
-      <TextField layoutX="225.0" layoutY="36.0" />
-      <TextField layoutX="226.0" layoutY="175.0" />
-      <TextField layoutX="423.0" layoutY="175.0" />
-      <TextField layoutX="422.0" layoutY="324.0" />
-      <TextField layoutX="226.0" layoutY="229.0" />
-      <TextField layoutX="423.0" layoutY="229.0" />
-      <TextField layoutX="226.0" layoutY="324.0" />
+      <TextField fx:id="P1" layoutX="226.0" layoutY="274.0" />
+      <TextField fx:id="P2" layoutX="422.0" layoutY="274.0" />
+      <TextField fx:id="P3" layoutX="422.0" layoutY="36.0" />
+      <TextField fx:id="P4" layoutX="423.0" layoutY="364.0" />
+      <TextField fx:id="P5" layoutX="226.0" layoutY="78.0" />
+      <TextField fx:id="P6" layoutX="423.0" layoutY="78.0" />
+      <TextField fx:id="P7" layoutX="226.0" layoutY="121.0" />
+      <TextField fx:id="P8" layoutX="423.0" layoutY="121.0" />
+      <TextField fx:id="P9" layoutX="225.0" layoutY="36.0" />
+      <TextField fx:id="P10" layoutX="226.0" layoutY="175.0" />
+      <TextField fx:id="P11" layoutX="423.0" layoutY="175.0" />
+      <TextField fx:id="P12" layoutX="422.0" layoutY="324.0" />
+      <TextField fx:id="P13" layoutX="226.0" layoutY="229.0" />
+      <TextField fx:id="P15" layoutX="423.0" layoutY="229.0" />
+      <TextField fx:id="16" layoutX="226.0" layoutY="324.0" />
       <Label layoutX="14.0" prefHeight="60.0" prefWidth="117.0" text="Tournoi_AMHE">
          <font>
             <Font name="Droid Sans" size="17.0" />
          </font>
       </Label>
       <Label layoutX="190.0" layoutY="36.0" prefHeight="25.0" prefWidth="36.0" text="   P1 : " />
-      <Button layoutX="108.0" layoutY="347.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="76.0" text="Valider" />
+      <Button layoutX="108.0" layoutY="347.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="76.0" text="Valider" onMouseClicked="#remplirTournoi" />
       <Label layoutX="194.0" layoutY="82.0" text="  P2 :" />
       <Label layoutX="194.0" layoutY="125.0" text="  P3 :" />
       <Label layoutX="194.0" layoutY="179.0" text="  P4 :" />

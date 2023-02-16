@@ -1,5 +1,6 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
+import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
@@ -19,7 +20,20 @@ import java.util.Objects;
 
 public class HelloController {
 
-    private Tournoi tournoi;
+    @FXML
+    private Button remplirTournoi;
+    @FXML
+    private TextField P1;
+    @FXML
+    private TextField P2;
+    @FXML
+    private TextField P3;
+    @FXML
+    private TextField P4;
+
+
+    @FXML
+    private static Solo tournoi;
     @FXML
     private Button creerTournoi;
 
@@ -50,14 +64,16 @@ public class HelloController {
     @FXML
     private Button retourAccueilSolo;
 
+    @FXML
     public void creation_tournoi_solo() throws Exception {
-        int nb_part = 0;
+        int nb_part;
 
         if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
-            nb_part = Integer.valueOf(button.getText());
-            tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_"+button.getText()+".fxml")));
+            nb_part = Integer.parseInt(button.getText());
+            this.tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
+            System.out.println(tournoi.toString());
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
             Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
             window.setScene(new Scene(root, 750, 500));
         }
@@ -65,6 +81,22 @@ public class HelloController {
     }
 
 
+    /* Remplis le tournoi et boucle sur la page d'insertion tant qu'on a pas tous les joueurs du tournoi et après on part sur le lancement */
+    @FXML
+    protected void remplirTournoi() throws Exception {
+        if( !P1.getText().isEmpty() && !P1.getText().isEmpty() && !P1.getText().isEmpty() && !P1.getText().isEmpty()) {
+            this.tournoi.addParticipant(new Duelliste(P1.getText(), this.tournoi.getArme()));
+            this.tournoi.addParticipant(new Duelliste(P2.getText(), this.tournoi.getArme()));
+            this.tournoi.addParticipant(new Duelliste(P3.getText(), this.tournoi.getArme()));
+            this.tournoi.addParticipant(new Duelliste(P4.getText(), this.tournoi.getArme()));
+        }
+        if(tournoi.getListeDuelliste().size()!=tournoi.getNbParticipant()){
+            BoucleRentrerParticipant4();
+        }else{
+            goToLancementTournoi4();
+        }
+
+    }
     @FXML
     protected void Go_to_CreerTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
@@ -112,6 +144,12 @@ public class HelloController {
         Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+    @FXML
+        protected void BoucleRentrerParticipant4() throws Exception {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
+            Stage window = (Stage) remplirTournoi.getScene().getWindow();
+            window.setScene(new Scene(root, 750, 500));
+    }
 
     @FXML
     protected void goToRentrerParticipant8() throws Exception {
@@ -122,9 +160,10 @@ public class HelloController {
 
     @FXML
     protected void goToLancementTournoi4() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
-        Stage window = (Stage) retourChoixTypeTournoi.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi_4.fxml")));
+        Stage window = (Stage) remplirTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
+        tournoi.AfficherDuellistes();
     }
 
 
