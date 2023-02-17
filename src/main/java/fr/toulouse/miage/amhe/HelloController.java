@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -25,6 +26,7 @@ public class HelloController {
 
     @FXML
     private Button remplirTournoi;
+
     @FXML
     private TextField P1;
     @FXML
@@ -82,6 +84,9 @@ public class HelloController {
     @FXML
     private Button retourRentrer_participants;
 
+    @FXML
+    private Button retourAccueilLancement;
+
     public void creation_tournoi_solo() throws Exception {
         int nb_part;
 
@@ -108,6 +113,7 @@ public class HelloController {
         }
         if(tournoi.getListeDuelliste().size()!=tournoi.getNbParticipant()){
             BoucleRentrerParticipant4();
+
         }else{
             int i=0;
             while( i <  tournoi.getNbParticipant()){
@@ -187,16 +193,14 @@ public class HelloController {
     protected void Affichage_tournoi()throws Exception{
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
+        lancer_tournoi.setDisable(true);
+    }
 
-
-
-
-
-
-
-
-
-
+    @FXML
+    protected void Retour_Accueil_Lancement()throws Exception{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage) retourAccueilLancement.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
     }
 
 
