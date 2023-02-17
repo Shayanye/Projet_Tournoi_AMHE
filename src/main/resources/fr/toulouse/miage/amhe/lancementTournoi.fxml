@@ -13,6 +13,6 @@
       </Text>
       <Button fx:id="lancer_tournoi" layoutX="406.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#Affichage_tournoi" prefHeight="33.0" prefWidth="66.0" text="Lancer" />
       <Button fx:id="retourRentrer_participants" layoutX="128.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#Retour_lancement_tournoi" prefHeight="33.0" prefWidth="66.0" text="Retour" />
-      <TextArea fx:id="console_lancement" disable="true" editable="true" layoutX="22.0" layoutY="87.0" prefHeight="196.0" prefWidth="559.0" />
+      <TextArea fx:id="console_lancement" disable="false" editable="false" layoutX="22.0" layoutY="87.0" prefHeight="196.0" prefWidth="559.0" />
    </children>
 </AnchorPane>
