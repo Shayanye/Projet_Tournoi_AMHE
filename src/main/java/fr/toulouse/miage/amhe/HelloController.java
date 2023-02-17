@@ -187,6 +187,7 @@ public class HelloController {
     protected void Affichage_tournoi()throws Exception{
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
+        lancer_tournoi.setDisable(true);
 
 
 
