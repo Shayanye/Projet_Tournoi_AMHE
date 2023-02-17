@@ -82,6 +82,9 @@ public class HelloController {
     @FXML
     private Button retourRentrer_participants;
 
+    @FXML
+    private Button retourAccueilLancement;
+
     public void creation_tournoi_solo() throws Exception {
         int nb_part;
 
@@ -188,16 +191,13 @@ public class HelloController {
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
         lancer_tournoi.setDisable(true);
+    }
 
-
-
-
-
-
-
-
-
-
+    @FXML
+    protected void Retour_Accueil_Lancement()throws Exception{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage) retourAccueilLancement.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
     }
 
 
