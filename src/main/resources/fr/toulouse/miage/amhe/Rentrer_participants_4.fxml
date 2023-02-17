@@ -8,13 +8,13 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
    <children>
       <Button fx:id="remplirTournoi" layoutX="440.0" layoutY="325.0" mnemonicParsing="false" onAction="#remplirTournoi" prefHeight="36.0" prefWidth="82.0" text="Valider" />
-      <Text layoutX="343.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P4 :" />
-      <Text layoutX="52.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1 :" />
+      <Text fx:id="labelPart4" layoutX="343.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P4 :" />
+      <Text fx:id="labelPart1" layoutX="52.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1 :" />
       <TextField fx:id="P1" layoutX="83.0" layoutY="100.0" />
-      <Text layoutX="45.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rentrez les 4 participants:" />
+      <Text layoutX="45.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rentrer les 4 participants:" />
       <TextField fx:id="P2" layoutX="83.0" layoutY="159.0" />
-      <Text layoutX="47.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" P2 :" />
-      <Text layoutX="345.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P3 :" />
+      <Text fx:id="p1" layoutX="47.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" P2 :" />
+      <Text fx:id="labelPart3" layoutX="345.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P3 :" />
       <TextField fx:id="P3" layoutX="373.0" layoutY="99.0" />
       <TextField fx:id="P4" layoutX="373.0" layoutY="158.0" />
       <Button fx:id="retourRentrerParticipant" layoutX="57.0" layoutY="322.0" mnemonicParsing="false" onAction="#returnToCreerTournoi" prefHeight="42.0" prefWidth="73.0" text="Retour" />

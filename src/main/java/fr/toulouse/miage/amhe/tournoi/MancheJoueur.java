@@ -29,6 +29,7 @@ public class MancheJoueur extends Manche {
     }
 
     public String toString() {
+
         return this.premier.getNom() + " VS " + this.deuxieme.getNom() + ": ";
     }
 

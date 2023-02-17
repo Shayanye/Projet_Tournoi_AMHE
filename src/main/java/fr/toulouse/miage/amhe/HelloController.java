@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -25,6 +26,7 @@ public class HelloController {
 
     @FXML
     private Button remplirTournoi;
+
     @FXML
     private TextField P1;
     @FXML
@@ -108,6 +110,7 @@ public class HelloController {
         }
         if(tournoi.getListeDuelliste().size()!=tournoi.getNbParticipant()){
             BoucleRentrerParticipant4();
+
         }else{
             int i=0;
             while( i <  tournoi.getNbParticipant()){
