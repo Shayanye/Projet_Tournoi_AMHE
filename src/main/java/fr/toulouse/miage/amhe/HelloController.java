@@ -221,6 +221,19 @@ public class HelloController {
         Stage window = (Stage) retourHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+    @FXML
+    protected void RetourHistorique() throws Exception{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Historique.fxml")));
+        Stage window = (Stage) retourAffichageHistorique.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
+
+    @FXML
+    protected void RetourAccueilHistorique() throws Exception{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage)  retour_Accueil_Lancement_Historique.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
 
     @FXML
     protected void goToAffichageHistorique() throws Exception {
@@ -228,6 +241,13 @@ public class HelloController {
         Stage window = (Stage) goAffichageHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+
+    @FXML
+    private Button retourAffichageHistorique;
+    @FXML
+    private Button retour_Accueil_Lancement_Historique;
+    @FXML
+    private TextArea console_historique = new TextArea();
 
 
 
