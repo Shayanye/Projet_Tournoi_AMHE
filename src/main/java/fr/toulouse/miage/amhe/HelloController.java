@@ -1,10 +1,7 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
 import fr.toulouse.miage.amhe.participant.Duelliste;
-import fr.toulouse.miage.amhe.tournoi.Manche;
-import fr.toulouse.miage.amhe.tournoi.MancheJoueur;
-import fr.toulouse.miage.amhe.tournoi.Solo;
-import fr.toulouse.miage.amhe.tournoi.Tournoi;
+import fr.toulouse.miage.amhe.tournoi.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -87,6 +84,9 @@ public class HelloController {
 
     @FXML
     private Button retourAccueilLancement;
+
+    @FXML
+    private static Historique historique;
 
     public void creation_tournoi_solo() throws Exception {
         int nb_part;
@@ -194,7 +194,15 @@ public class HelloController {
     protected void Affichage_tournoi()throws Exception{
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
+        this.historique = new Historique(this.tournoi);
         lancer_tournoi.setDisable(true);
+    }
+
+    @FXML
+    protected void Acces_Ancien_Tournoi(Historique historique) throws Exception{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage) retourAccueilLancement.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
     }
 
     @FXML
