@@ -1,10 +1,7 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
 import fr.toulouse.miage.amhe.participant.Duelliste;
-import fr.toulouse.miage.amhe.tournoi.Manche;
-import fr.toulouse.miage.amhe.tournoi.MancheJoueur;
-import fr.toulouse.miage.amhe.tournoi.Solo;
-import fr.toulouse.miage.amhe.tournoi.Tournoi;
+import fr.toulouse.miage.amhe.tournoi.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -87,6 +84,15 @@ public class HelloController {
 
     @FXML
     private Button retourAccueilLancement;
+
+    @FXML
+    private Button goHistorique;
+
+    @FXML
+    private Button retourHistorique;
+
+
+
 
     @FXML
     private static Historique historique;
