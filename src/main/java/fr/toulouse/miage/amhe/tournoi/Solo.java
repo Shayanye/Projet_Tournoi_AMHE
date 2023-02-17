@@ -16,6 +16,8 @@ public class Solo extends Tournoi{
 	private ArrayList<Duelliste> duellistes;
 	private ArrayList<MancheJoueur> manches;
 
+	private ArrayList<MancheJoueur> manches_effectuees;
+
 
 	
 	/**
@@ -27,6 +29,7 @@ public class Solo extends Tournoi{
 		//il me faut un constructeur de Duelliste qui prend en paramètre un int (nbParticipant) et qui me créer un tableau de duelliste de cette taille.
 		this.duellistes = new ArrayList<>(this.getNbParticipant());
 		this.manches = new ArrayList<>(this.getNbParticipant()-1);
+		this.manches_effectuees  = new ArrayList<>();
 
 
 	}
@@ -91,7 +94,8 @@ public class Solo extends Tournoi{
 				journal += this.manches.get(j).toString();
 				Duelliste joueurGagnant = this.manches.get(j).jouerManche();
 				gagnants.add(joueurGagnant);
-				journal += "le joueur " + joueurGagnant.getNom() + " a gagné\n";
+				journal += "le joueur " + joueurGagnant.getNom() + " a gagné sur un score de : " +this.manches.get(j).getScore1()+" a " +this.manches.get(j).getScore2()+"\n";
+				this.manches_effectuees.add(this.manches.get(j));
 
 
 			}
@@ -112,9 +116,9 @@ public class Solo extends Tournoi{
 				journal += "\n*"+this.manches.get(it).toString()+"\n";
 			}*/
 		}
-		/*for (int it = 0; it < this.manches.size(); it++) {
-			journal += "\n*"+this.manches.get(it).toString()+"\n";
-		}*/
+		for (int it = 0; it < this.manches_effectuees.size(); it++) {
+			journal += "\n*"+this.manches_effectuees.get(it).toString()+"\n";
+		}
 
 		journal += "\n\n\nLe gagnant du tournoi : " +this.getNom()+ " est " +gagnants.get(0).getNom();
 
