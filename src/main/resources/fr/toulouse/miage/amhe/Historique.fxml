@@ -20,7 +20,7 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <Button layoutX="408.0" layoutY="257.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="75.0" text="Afficher" />
+      <Button fx:id="goAffichageHistorique" layoutX="408.0" layoutY="257.0" mnemonicParsing="false" onAction="#goToAffichageHistorique" prefHeight="39.0" prefWidth="75.0" text="Afficher" />
       <Button fx:id="retourHistorique" layoutX="81.0" layoutY="257.0" mnemonicParsing="false" onAction="#RetourAccueil" prefHeight="39.0" prefWidth="75.0" text="Retour" />
    </children>
 </AnchorPane>

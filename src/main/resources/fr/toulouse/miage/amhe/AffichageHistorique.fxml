@@ -13,17 +13,6 @@
         </Text>
         <Button fx:id="retourRentrer_participants" layoutX="128.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#Retour_lancement_tournoi" prefHeight="33.0" prefWidth="66.0" text="Retour" />
         <TextArea fx:id="console_lancement" disable="false" editable="false" layoutX="22.0" layoutY="87.0" prefHeight="196.0" prefWidth="559.0" />
-        <Button fx:id="retourAccueilLancement" layoutX="413.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#Retour_Accueil_Lancement" prefHeight="33.0" prefWidth="66.0" text="Accueil" />
+        <Button fx:id="retourAccueilLancement" layoutX="413.0" layoutY="312.0" mnemonicParsing="false"  prefHeight="33.0" prefWidth="66.0" text="Accueil" />
     </children>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fr.toulouse.miage.amhe.HelloController"
-            prefHeight="400.0" prefWidth="600.0">
-
 </AnchorPane>

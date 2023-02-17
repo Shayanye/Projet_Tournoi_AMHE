@@ -90,8 +90,8 @@ public class HelloController {
 
     @FXML
     private Button retourHistorique;
-
-
+    @FXML
+    private Button goAffichageHistorique;
 
 
     @FXML
@@ -222,7 +222,12 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
 
-
+    @FXML
+    protected void goToAffichageHistorique() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AffichageHistorique.fxml")));
+        Stage window = (Stage) goAffichageHistorique.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
 
 
 
