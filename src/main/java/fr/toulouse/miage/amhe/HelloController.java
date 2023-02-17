@@ -74,10 +74,10 @@ public class HelloController {
     private Button lancer_tournoi;
 
     @FXML
-    private Button retourRentrer_participants_4;
+    private Button retourHistorique;
 
     @FXML
-    private RadioButton radioButton_selectionne;
+    private Button goHistorique;
 
     @FXML
     private  TextArea console_lancement = new TextArea();
@@ -162,12 +162,6 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
     @FXML
-    protected void goToRentrerParticipant4() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
-        Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
-        window.setScene(new Scene(root, 750, 500));
-    }
-    @FXML
         protected void BoucleRentrerParticipant4() throws Exception {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
             Stage window = (Stage) remplirTournoi.getScene().getWindow();
@@ -197,15 +191,20 @@ public class HelloController {
         lancer_tournoi.setDisable(true);
     }
 
+
     @FXML
-    protected void Retour_Accueil_Lancement()throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
-        Stage window = (Stage) retourAccueilLancement.getScene().getWindow();
+    protected void goToHistorique() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Historique.fxml")));
+        Stage window = (Stage) goHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
 
-
-
+    @FXML
+    protected void RetourAccueil() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage) retourHistorique.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
 
 
 
