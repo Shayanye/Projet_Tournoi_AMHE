@@ -1,6 +1,7 @@
 package fr.toulouse.miage.amhe.tournoi;
 
 import java.util.ArrayList;
+import java.lang.Math;
 
 import fr.toulouse.miage.amhe.participant.Duelliste;
 /**
@@ -13,8 +14,9 @@ public class Solo extends Tournoi{
 	//private Manche[] manches;
 	//private Duelliste duellistes;
 	private ArrayList<Duelliste> duellistes;
-	private ArrayList<Manche> manches;
-	
+	private ArrayList<MancheJoueur> manches;
+
+
 	
 	/**
 	 * Constructeur de tournoi solo
@@ -30,27 +32,99 @@ public class Solo extends Tournoi{
 	}
 
 	public void addParticipant(Duelliste d){
-
-		this.duellistes.add(d);
+		if(this.duellistes.size() < this.getNbParticipant()) {
+			this.duellistes.add(d);
+		}
 	}
-	public void addManches(Manche m ){
+	public void addManches(MancheJoueur m ){
 		this.manches.add(m);
 	}
 
+	public void delManches(int i){
+		this.manches.remove(i);
+	}
+
+
 
 	public ArrayList<Duelliste> getListeDuelliste(){
-		return duellistes;
+		return this.duellistes;
 	}
 
-	public void AfficherDuellistes(){
-		for(Duelliste d1: duellistes){
-			System.out.println(d1.getNom());
+	public String AfficherDuellistes(){
+		String msg ="";
+		for(Duelliste d1: this.duellistes){
+			msg+=d1.getNom()+"\n";
 		}
+		return msg;
 	}
 
-	public ArrayList<Manche> getListeManches(){
-		return manches;
+	public ArrayList<MancheJoueur> getListeManches(){
+		return this.manches;
 	}
+
+	private int calculTourAEffectuer(){
+		int nbParticipant = this.getNbParticipant();
+		int i = 1;
+		while(i < 5){
+			if(Math.pow(2, i) == nbParticipant){
+				break;
+			}
+			i++;
+
+		}
+		return i;
+	}
+
+
+	public String jouerToutesLesManches(){
+		ArrayList<Duelliste> gagnants = new ArrayList<>();
+		String journal = "";
+		int tour_a_effectuer = this.calculTourAEffectuer();
+		int tour = 1;
+		int nbManches = 0;
+
+		for(int i = 0; i<tour_a_effectuer; i++) {
+			nbManches = this.manches.size();
+			journal += "\n\nTour " + tour + "\n";
+			tour++;
+			for (int j = 0; j < nbManches; j++) {
+				journal += this.manches.get(j).toString();
+				Duelliste joueurGagnant = this.manches.get(j).jouerManche();
+				gagnants.add(joueurGagnant);
+				journal += "le joueur " + joueurGagnant.getNom() + " a gagné\n";
+
+
+			}
+			/*for (int it = 0; it < gagnants.size(); it++) {
+				journal += "\n**"+gagnants.get(it).getNom()+"\n";
+			}*/
+
+			int tailleGagnants = gagnants.size();
+			for (int g = 0; g < tailleGagnants /2; g++) {
+				this.addManches(new MancheJoueur(gagnants.get(0), gagnants.get(1)));
+				this.delManches(0);
+				this.delManches(0);
+				gagnants.remove(0);
+				gagnants.remove(0);
+
+			}
+			/*for (int it = 0; it < this.manches.size(); it++) {
+				journal += "\n*"+this.manches.get(it).toString()+"\n";
+			}*/
+		}
+		/*for (int it = 0; it < this.manches.size(); it++) {
+			journal += "\n*"+this.manches.get(it).toString()+"\n";
+		}*/
+
+		journal += "\n\n\n\nLe gagnant du tournoi : " +this.getNom()+ " est " +gagnants.get(0).getNom();
+
+		return journal;
+
+	}
+
+
+
+
 
 
 }

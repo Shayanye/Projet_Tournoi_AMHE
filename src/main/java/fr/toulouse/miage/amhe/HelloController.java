@@ -1,6 +1,7 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
 import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.tournoi.Manche;
 import fr.toulouse.miage.amhe.tournoi.MancheJoueur;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.net.StandardSocketOptions;
 import java.util.Objects;
 
 
@@ -66,7 +68,7 @@ public class HelloController {
     private Button retourAccueilSolo;
 
     @FXML
-    private Button valider_4_participants;
+    private Button lancer_tournoi;
 
     @FXML
     private Button retourRentrer_participants_4;
@@ -75,7 +77,7 @@ public class HelloController {
     private RadioButton radioButton_selectionne;
 
     @FXML
-    private TextArea console_lancement;
+    private  TextArea console_lancement = new TextArea();
 
     @FXML
     private Button retourRentrer_participants;
@@ -86,7 +88,7 @@ public class HelloController {
         if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
             nb_part = Integer.parseInt(button.getText());
-            this.tournoi = new Solo(nb_part, NomTournoi.getText(), ArmeTournoi.getText());
+            this.tournoi = new Solo(nb_part,  ArmeTournoi.getText(), NomTournoi.getText());
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
             Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
             window.setScene(new Scene(root, 750, 500));
@@ -179,6 +181,22 @@ public class HelloController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
         Stage window = (Stage) retourRentrer_participants.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
+    }
+
+    @FXML
+    protected void Affichage_tournoi()throws Exception{
+        console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
+        console_lancement.appendText(this.tournoi.jouerToutesLesManches());
+
+
+
+
+
+
+
+
+
+
     }
 
 

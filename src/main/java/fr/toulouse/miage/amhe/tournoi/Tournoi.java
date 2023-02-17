@@ -29,12 +29,16 @@ public abstract class Tournoi {
     }
 
     public String getArme(){
+
         return arme;
     }
 
     public String toString(){
 
         return this.arme + this.nom;
+    }
+    public String getNom(){
+        return this.nom;
     }
 
     
