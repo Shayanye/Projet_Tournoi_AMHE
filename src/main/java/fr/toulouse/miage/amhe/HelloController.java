@@ -92,7 +92,12 @@ public class HelloController {
     private Button retourHistorique;
     @FXML
     private Button goAffichageHistorique;
-
+    @FXML
+    private Button retourAffichageHistorique;
+    @FXML
+    private Button retour_Accueil_Lancement_Historique;
+    @FXML
+    private TextArea console_historique = new TextArea();
 
     @FXML
     private static Historique historique;
@@ -192,6 +197,12 @@ public class HelloController {
         Stage window = (Stage) retourRentrer_participants.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+    @FXML
+    protected void Retour_Accueil_Lancement() throws Exception{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Stage window = (Stage) retourAccueilLancement.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
+    }
 
     @FXML
     protected void Affichage_tournoi()throws Exception{
@@ -201,12 +212,12 @@ public class HelloController {
         lancer_tournoi.setDisable(true);
     }
 
-    @FXML
+    /*@FXML
     protected void Acces_Ancien_Tournoi(Historique historique) throws Exception{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
-        Stage window = (Stage) retourAccueilLancement.getScene().getWindow();
+        Stage window = (Stage) .getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
-    }
+    }*/
 
     @FXML
     protected void goToHistorique() throws Exception {
@@ -242,12 +253,7 @@ public class HelloController {
         window.setScene(new Scene(root, 750, 500));
     }
 
-    @FXML
-    private Button retourAffichageHistorique;
-    @FXML
-    private Button retour_Accueil_Lancement_Historique;
-    @FXML
-    private TextArea console_historique = new TextArea();
+
 
 
 
