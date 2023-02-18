@@ -218,6 +218,11 @@ public class HelloController {
         Stage window = (Stage) .getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }*/
+    @FXML
+    protected void Affichage_Console_Historique() throws Exception{
+        console_historique.setText(this.historique.toString());
+
+    }
 
     @FXML
     protected void goToHistorique() throws Exception {
