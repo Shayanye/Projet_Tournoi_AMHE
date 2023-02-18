@@ -11,7 +11,6 @@ import fr.toulouse.miage.amhe.participant.Duelliste;
  */
 public class Solo extends Tournoi{
 
-	//private Manche[] manches;
 	//private Duelliste duellistes;
 	private ArrayList<Duelliste> duellistes;
 	private ArrayList<MancheJoueur> manches;
