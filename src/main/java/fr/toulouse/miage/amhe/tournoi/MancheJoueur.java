@@ -35,8 +35,11 @@ public class MancheJoueur extends Manche {
 
 
     public Duelliste jouerManche() {
-        while (score1 < 15 & score2 < 15) {
+        while (this.score1 < 15 & this.score2 < 15) {
             this.score1 = this.score1 + premier.attaquer();
+            if(this.score1 > 15){
+                return premier;
+            }
             this.score2 = this.score2 + deuxieme.attaquer();
         }
         if (score1 > 15) {
