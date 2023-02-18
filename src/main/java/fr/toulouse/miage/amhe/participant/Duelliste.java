@@ -10,17 +10,16 @@ import java.util.Random;
  *
  * @author valen
  */
-public class Duelliste {
+public class Duelliste extends Participant{
 
     private static final int[] points = {5, 3, 1};
-    private String arme;
+
     private int rapidité;
-    private String nom;
+
     private Random rand = new Random();
 
     public Duelliste(String nom, String arme) {
-       this.nom = nom;
-       this.arme = arme;
+       super(nom,arme);
        this.rapidité = this.rand.nextInt(10)+1;
     }
     
