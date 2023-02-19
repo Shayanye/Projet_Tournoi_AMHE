@@ -1,6 +1,7 @@
 package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.*;
 import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,8 @@ public class HelloController {
 
     @FXML
     private Button remplirTournoi;
+    @FXML
+    private Button remplirTournoiEquipe;
 
 
     @FXML
@@ -34,14 +37,19 @@ public class HelloController {
     @FXML
     private TextField P4;
 
-
     @FXML
-    private static Solo tournoi;
+    private TextField nomEquipe;
+    private static int choix;
+    @FXML
+    private static Tournoi tournoi;
     @FXML
     private Button creerTournoi;
 
     @FXML
     private Button goSolo;
+
+    @FXML
+    private Button Button_Equipe;
     @FXML
     private TextField ArmeTournoi;
 
@@ -57,7 +65,7 @@ public class HelloController {
     @FXML
     private RadioButton nb_4=new RadioButton("4");
     @FXML
-    private Button validerNbPartSolo;
+    private Button validerNbPart;
 
     @FXML
     private Button retourChoixTypeTournoi;
@@ -102,16 +110,23 @@ public class HelloController {
     @FXML
     private static Historique historique;
 
-    public void creation_tournoi_solo() throws Exception {
+    public void creation_tournoi() throws Exception {
         int nb_part;
 
         if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
             nb_part = Integer.parseInt(button.getText());
-            this.tournoi = new Solo(nb_part,  ArmeTournoi.getText(), NomTournoi.getText());
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
-            Stage window = (Stage) validerNbPartSolo.getScene().getWindow();
-            window.setScene(new Scene(root, 750, 500));
+            if(choix==0) {
+                this.tournoi = new Solo(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
+                Stage window = (Stage) validerNbPart.getScene().getWindow();
+                window.setScene(new Scene(root, 750, 500));
+            }else if (choix==1){
+                this.tournoi = new TournoiEquipe(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4_Equipe.fxml")));
+                Stage window = (Stage) validerNbPart.getScene().getWindow();
+                window.setScene(new Scene(root, 750, 500));
+            }
         }
 
     }
@@ -121,29 +136,56 @@ public class HelloController {
     @FXML
     protected void remplirTournoi() throws Exception {
         if( !P1.getText().isEmpty() && !P1.getText().isEmpty() && !P1.getText().isEmpty() && !P1.getText().isEmpty()) {
-            this.tournoi.addParticipant(new Duelliste(P1.getText(), this.tournoi.getArme()));
-            this.tournoi.addParticipant(new Duelliste(P2.getText(), this.tournoi.getArme()));
-            this.tournoi.addParticipant(new Duelliste(P3.getText(), this.tournoi.getArme()));
-            this.tournoi.addParticipant(new Duelliste(P4.getText(), this.tournoi.getArme()));
+            if(tournoi instanceof Solo) {
+                this.tournoi.addParticipant(new Duelliste(P1.getText(), this.tournoi.getArme()));
+                this.tournoi.addParticipant(new Duelliste(P2.getText(), this.tournoi.getArme()));
+                this.tournoi.addParticipant(new Duelliste(P3.getText(), this.tournoi.getArme()));
+                this.tournoi.addParticipant(new Duelliste(P4.getText(), this.tournoi.getArme()));
+            }else if (tournoi instanceof  TournoiEquipe){
+                this.tournoi.addParticipant(new Equipe(nomEquipe.getText(), tournoi.getArme(),
+                                new Duelliste(P1.getText(), this.tournoi.getArme()),
+                                new Duelliste(P2.getText(), this.tournoi.getArme()),
+                                new Duelliste(P3.getText(), this.tournoi.getArme()),
+                                new Duelliste(P4.getText(), this.tournoi.getArme())));
+            }
         }
-        if(tournoi.getListeDuelliste().size()!=tournoi.getNbParticipant()){
+        if(tournoi.getListeParticipant().size()!=tournoi.getNbParticipant()){
             BoucleRentrerParticipant4();
 
         }else{
-            int i=0;
-            while( i <  tournoi.getNbParticipant()){
-                tournoi.getListeManches().add(new MancheJoueur(tournoi.getListeDuelliste().get(i),tournoi.getListeDuelliste().get(i+1) ));
-                i=i+2;
+            if(choix==0) {
+                int i = 0;
+                while (i < tournoi.getNbParticipant()) {
+                    tournoi.getListeManche().add(new MancheJoueur((Duelliste) tournoi.getListeParticipant().get(i), (Duelliste) tournoi.getListeParticipant().get(i + 1)));
+                    i = i + 2;
+                }
+                goToLancementTournoi4();
+            }else if(choix==1){
+                int i = 0;
+                while (i < tournoi.getNbParticipant()) {
+                    tournoi.getListeManche().add(new MancheEquipe((Equipe) tournoi.getListeParticipant().get(i), (Equipe) tournoi.getListeParticipant().get(i + 1)));
+                    i = i + 2;
+                }
+                goToLancementTournoi4Equipe();
             }
-            goToLancementTournoi4();
         }
 
     }
     @FXML
-    protected void Go_to_CreerTournoi() throws Exception {
+    protected void Go_to_CreerTournoi_Solo() throws Exception {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+            Stage window = (Stage) creerTournoi.getScene().getWindow();
+            window.setScene(new Scene(root, 750, 500));
+            choix = 0;
+
+    }
+    @FXML
+    protected void Go_to_CreerTournoi_Equipe() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
-        Stage window = (Stage) creerTournoi.getScene().getWindow();
+        Stage window = (Stage) Button_Equipe.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
+        choix = 1;
+
     }
 
     @FXML
@@ -177,9 +219,16 @@ public class HelloController {
     }
     @FXML
         protected void BoucleRentrerParticipant4() throws Exception {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
-            Stage window = (Stage) remplirTournoi.getScene().getWindow();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4_Equipe.fxml")));
+            Stage window = (Stage) remplirTournoiEquipe.getScene().getWindow();
             window.setScene(new Scene(root, 750, 500));
+    }
+
+    @FXML
+    protected void BoucleRentrerParticipant4Equipe() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4_Equipe.fxml")));
+        Stage window = (Stage) remplirTournoiEquipe.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
     }
 
 
@@ -189,7 +238,13 @@ public class HelloController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi.fxml")));
         Stage window = (Stage) remplirTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
-        tournoi.AfficherDuellistes();
+    }
+
+    @FXML
+    protected void goToLancementTournoi4Equipe() throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi.fxml")));
+        Stage window = (Stage) remplirTournoiEquipe.getScene().getWindow();
+        window.setScene(new Scene(root, 750, 500));
     }
     @FXML
     protected void Retour_lancement_tournoi() throws Exception {

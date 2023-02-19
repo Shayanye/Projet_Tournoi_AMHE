@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.toulouse.miage.amhe.tournoi;
+
+import fr.toulouse.miage.amhe.participant.Participant;
+
+import java.util.ArrayList;
+
 /**
  * Classe abstraite qui permet de représenter un tournoi
  *
@@ -11,6 +16,8 @@ package fr.toulouse.miage.amhe.tournoi;
 
 public abstract class Tournoi {
 
+    protected ArrayList<Participant> listeParticipant;
+    protected ArrayList<Manche> listeManche;
 	private String nom;
     private int nbParticipant;
 
@@ -20,6 +27,8 @@ public abstract class Tournoi {
     	this.nom=nom;
     	this.nbParticipant = nbParticipant;
         this.arme = arme;
+        this.listeParticipant = new ArrayList<>(this.getNbParticipant());
+        this.listeManche = new ArrayList<>(this.getNbParticipant()-1);
     }
      
     
@@ -55,5 +64,17 @@ public abstract class Tournoi {
         return i;
     }
 
-    
+    public abstract void addParticipant(Participant p);
+
+    public ArrayList<Participant> getListeParticipant(){
+
+        return this.listeParticipant;
+    }
+
+    public ArrayList<Manche> getListeManche(){
+
+        return this.listeManche;
+    }
+
+    public abstract String jouerToutesLesManches();
 }

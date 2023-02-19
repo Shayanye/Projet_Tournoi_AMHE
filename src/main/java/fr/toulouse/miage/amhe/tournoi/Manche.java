@@ -14,4 +14,11 @@ public abstract class Manche {
 
     public abstract Participant jouerManche();
 
+    public int getScore1(){
+        return score1;
+    }
+
+    public int getScore2(){
+        return score2;
+    }
 }

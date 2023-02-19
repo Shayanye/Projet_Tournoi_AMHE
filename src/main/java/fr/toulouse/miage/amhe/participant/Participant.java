@@ -11,7 +11,7 @@ public class Participant {
         this.arme=arme;
     }
 
-    protected String getNom(){
+    public String getNom(){
         return this.nom;
     }
 

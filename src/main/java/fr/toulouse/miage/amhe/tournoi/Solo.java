@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.participant.Participant;
+
 /**
  * Classe qui permert des créer des tournois solo
  * @author charles
@@ -12,8 +14,7 @@ import fr.toulouse.miage.amhe.participant.Duelliste;
 public class Solo extends Tournoi{
 
 	//private Duelliste duellistes;
-	private ArrayList<Duelliste> duellistes;
-	private ArrayList<MancheJoueur> manches;
+
 	private String journal;
 
 
@@ -25,43 +26,40 @@ public class Solo extends Tournoi{
 		super(nbParticipant, arme, nom);
 		//this.duellistes = new Duelliste(this.getNbParticipant());
 		//il me faut un constructeur de Duelliste qui prend en paramètre un int (nbParticipant) et qui me créer un tableau de duelliste de cette taille.
-		this.duellistes = new ArrayList<>(this.getNbParticipant());
-		this.manches = new ArrayList<>(this.getNbParticipant()-1);
 		this.journal = "";
 
 
 	}
 
-	public void addParticipant(Duelliste d){
-		if(this.duellistes.size() < this.getNbParticipant()) {
-			this.duellistes.add(d);
+	public void addParticipant(Participant d){
+		if(this.listeParticipant.size() < this.getNbParticipant() && d instanceof Duelliste) {
+			this.listeParticipant.add((Duelliste) d);
 		}
 	}
 	public void addManches(MancheJoueur m ){
-		this.manches.add(m);
+
+		this.listeManche.add(m);
 	}
 
 	public void delManches(int i){
-		this.manches.remove(i);
+		this.listeManche.remove(i);
 	}
 
 
 
-	public ArrayList<Duelliste> getListeDuelliste(){
-		return this.duellistes;
-	}
+
 
 	public String AfficherDuellistes(){
 		String msg ="";
-		for(Duelliste d1: this.duellistes){
+		for(Participant d1: this.listeParticipant){
 			msg+=d1.getNom()+"\n";
 		}
 		return msg;
 	}
 
-	public ArrayList<MancheJoueur> getListeManches(){
+	public ArrayList<Manche> getListeManches(){
 
-		return this.manches;
+		return this.listeManche;
 	}
 
 
@@ -78,14 +76,14 @@ public class Solo extends Tournoi{
 		int nbManches = 0;
 
 		for(int i = 0; i<tour_a_effectuer; i++) {
-			nbManches = this.manches.size();
+			nbManches = this.listeManche.size();
 			this.journal += "\n\nTour " + tour + "\n";
 			tour++;
 			for (int j = 0; j < nbManches; j++) {
-				this.journal += this.manches.get(j).toString();
-				Duelliste joueurGagnant = this.manches.get(j).jouerManche();
+				this.journal += this.listeManche.get(j).toString();
+				Duelliste joueurGagnant = (Duelliste) this.listeManche.get(j).jouerManche();
 				gagnants.add(joueurGagnant);
-				this.journal += "le joueur " + joueurGagnant.getNom() + " a gagné sur un score de : " +this.manches.get(j).getScore1()+" a " +this.manches.get(j).getScore2()+"\n";
+				this.journal += "le joueur " + joueurGagnant.getNom() + " a gagné sur un score de : " +this.listeManche.get(j).getScore1()+" a " +this.listeManche.get(j).getScore2()+"\n";
 
 
 			}
