@@ -3,6 +3,7 @@ import fr.toulouse.miage.amhe.*;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.*;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -109,6 +110,9 @@ public class HelloController {
 
     @FXML
     private static Historique historique;
+
+    @FXML
+    private  ComboBox<Tournoi> comboBoxHistorique= new ComboBox<>();
 
     public void creation_tournoi() throws Exception {
         int nb_part;
@@ -264,6 +268,8 @@ public class HelloController {
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
         this.historique = new Historique(this.tournoi);
+        this.historique.ajouterTournoi(this.tournoi);
+        this.comboBoxHistorique.getItems().addAll(this.historique.getHistoriqueDeTousLesTournois());
         lancer_tournoi.setDisable(true);
     }
 
@@ -312,6 +318,7 @@ public class HelloController {
         Stage window = (Stage) goAffichageHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 750, 500));
     }
+
 
 
 

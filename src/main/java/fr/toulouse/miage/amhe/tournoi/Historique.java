@@ -7,9 +7,14 @@ public class Historique {
     private ArrayList<Tournoi> historiqueDeTousLesTournois = new ArrayList<>();
 
     public Historique(Tournoi tournoi){
-
         this.tournoi = tournoi;
+    }
+
+    public void ajouterTournoi(Tournoi tournoi){
         this.historiqueDeTousLesTournois.add(tournoi);
+    }
+    public ArrayList<Tournoi> getHistoriqueDeTousLesTournois() {
+        return historiqueDeTousLesTournois;
     }
 
     public String toString(){
