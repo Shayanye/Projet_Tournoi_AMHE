@@ -141,7 +141,7 @@ public class HelloController {
                 this.tournoi.addParticipant(new Duelliste(P2.getText(), this.tournoi.getArme()));
                 this.tournoi.addParticipant(new Duelliste(P3.getText(), this.tournoi.getArme()));
                 this.tournoi.addParticipant(new Duelliste(P4.getText(), this.tournoi.getArme()));
-            }else if (tournoi instanceof  TournoiEquipe){
+            }else if (tournoi instanceof  TournoiEquipe && !nomEquipe.getText().isEmpty()){
                 this.tournoi.addParticipant(new Equipe(nomEquipe.getText(), tournoi.getArme(),
                                 new Duelliste(P1.getText(), this.tournoi.getArme()),
                                 new Duelliste(P2.getText(), this.tournoi.getArme()),
@@ -166,7 +166,7 @@ public class HelloController {
                     tournoi.getListeManche().add(new MancheEquipe((Equipe) tournoi.getListeParticipant().get(i), (Equipe) tournoi.getListeParticipant().get(i + 1)));
                     i = i + 2;
                 }
-                goToLancementTournoi4Equipe();
+                goToLancementTournoi4();
             }
         }
 
@@ -236,16 +236,16 @@ public class HelloController {
     @FXML
     protected void goToLancementTournoi4() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi.fxml")));
-        Stage window = (Stage) remplirTournoi.getScene().getWindow();
-        window.setScene(new Scene(root, 750, 500));
+        if(choix==0) {
+            Stage window = (Stage) remplirTournoi.getScene().getWindow();
+            window.setScene(new Scene(root, 750, 500));
+        }else{
+            Stage window = (Stage) remplirTournoiEquipe.getScene().getWindow();
+            window.setScene(new Scene(root, 750, 500));
+        }
     }
 
-    @FXML
-    protected void goToLancementTournoi4Equipe() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lancementTournoi.fxml")));
-        Stage window = (Stage) remplirTournoiEquipe.getScene().getWindow();
-        window.setScene(new Scene(root, 750, 500));
-    }
+
     @FXML
     protected void Retour_lancement_tournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
