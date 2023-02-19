@@ -38,7 +38,21 @@ public abstract class Tournoi {
         return this.arme + this.nom;
     }
     public String getNom(){
+
         return this.nom;
+    }
+
+    protected int calculTourAEffectuer(){
+        int nbParticipant = this.getNbParticipant();
+        int i = 1;
+        while(i < 5){
+            if(Math.pow(2, i) == nbParticipant){
+                break;
+            }
+            i++;
+
+        }
+        return i;
     }
 
     

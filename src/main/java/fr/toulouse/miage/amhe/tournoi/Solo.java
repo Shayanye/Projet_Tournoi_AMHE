@@ -60,23 +60,13 @@ public class Solo extends Tournoi{
 	}
 
 	public ArrayList<MancheJoueur> getListeManches(){
+
 		return this.manches;
 	}
 
-	private int calculTourAEffectuer(){
-		int nbParticipant = this.getNbParticipant();
-		int i = 1;
-		while(i < 5){
-			if(Math.pow(2, i) == nbParticipant){
-				break;
-			}
-			i++;
-
-		}
-		return i;
-	}
 
 	public String toString(){
+
 		return this.journal;
 	}
 
