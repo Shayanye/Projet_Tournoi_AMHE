@@ -34,4 +34,9 @@ public class MancheEquipe extends Manche{
             return this.equipe2;
         }
     }
+
+    public String toString() {
+
+        return this.equipe1.getNom() + " VS " + this.equipe2.getNom() + ": ";
+    }
 }

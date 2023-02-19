@@ -66,6 +66,14 @@ public abstract class Tournoi {
 
     public abstract void addParticipant(Participant p);
 
+    public  void addManches(Manche m){
+        this.listeManche.add(m);
+    };
+
+    public  void delManches(int index){
+        this.listeManche.remove(index);
+    };
+
     public ArrayList<Participant> getListeParticipant(){
 
         return this.listeParticipant;

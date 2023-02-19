@@ -33,18 +33,42 @@ public class TournoiEquipe  extends Tournoi {
 
     @Override
     public String jouerToutesLesManches() {
-        return null;
+        ArrayList<Equipe> gagnants = new ArrayList<>();
+        int tour_a_effectuer = this.calculTourAEffectuer();
+        int tour = 1;
+        int nbManches = 0;
+
+        for (int i = 0; i < tour_a_effectuer; i++) {
+            nbManches = this.listeManche.size();
+            this.journal += "\n\nTour " + tour + "\n";
+            tour++;
+            for (int j = 0; j < nbManches; j++) {
+                this.journal += this.listeManche.get(j).toString();
+                Equipe joueurGagnant = (Equipe) this.listeManche.get(j).jouerManche();
+                gagnants.add(joueurGagnant);
+                this.journal += "l'équipe " + joueurGagnant.getNom() + " a gagné sur un score de : " + this.listeManche.get(j).getScore1() + " a " + this.listeManche.get(j).getScore2() + "\n";
+
+
+            }
+
+            int tailleGagnants = gagnants.size();
+            for (int g = 0; g < tailleGagnants / 2; g++) {
+                this.addManches(new MancheEquipe(gagnants.get(0), gagnants.get(1)));
+                this.delManches(0);
+                this.delManches(0);
+                gagnants.remove(0);
+                gagnants.remove(0);
+
+            }
+
+        }
+        this.journal += "\n\n\nL'équipe gagnante du tournoi : " +this.getNom()+ " est " +gagnants.get(0).getNom();
+
+        return this.journal;
     }
 
-    public void addManches(MancheEquipe m ){
 
-        this.listeManche.add(m);
-    }
 
-    public void delManches(int i){
-
-        this.listeManche.remove(i);
-    }
 
 
 
