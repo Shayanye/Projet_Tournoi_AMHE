@@ -112,7 +112,7 @@ public class HelloController {
     private static Historique historique;
 
     @FXML
-    private  ComboBox<Tournoi> comboBoxHistorique= new ComboBox<>();
+    private  ComboBox<String> comboBoxHistorique= new ComboBox<>();
 
     public void creation_tournoi() throws Exception {
         int nb_part;
@@ -269,10 +269,9 @@ public class HelloController {
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
         this.historique = new Historique(this.tournoi);
         this.historique.ajouterTournoi(this.tournoi);
-        this.comboBoxHistorique.getItems().addAll(this.historique.getHistoriqueDeTousLesTournois());
+        this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
         lancer_tournoi.setDisable(true);
     }
-
     /*@FXML
     protected void Acces_Ancien_Tournoi(Historique historique) throws Exception{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
