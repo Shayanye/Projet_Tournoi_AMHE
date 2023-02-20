@@ -36,27 +36,6 @@ public class Solo extends Tournoi{
 			this.listeParticipant.add((Duelliste) d);
 		}
 	}
-	public void addManches(MancheJoueur m ){
-
-		this.listeManche.add(m);
-	}
-
-	public void delManches(int i){
-		this.listeManche.remove(i);
-	}
-
-
-
-
-
-	public String AfficherDuellistes(){
-		String msg ="";
-		for(Participant d1: this.listeParticipant){
-			msg+=d1.getNom()+"\n";
-		}
-		return msg;
-	}
-
 
 
 	public String toString(){
