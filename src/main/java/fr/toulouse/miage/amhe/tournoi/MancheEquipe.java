@@ -22,6 +22,7 @@ public class MancheEquipe extends Manche{
      */
 
 
+    @Override
     public Equipe jouerManche() {
         for (MancheJoueur manche : listeManche) {
             manche.jouerManche();

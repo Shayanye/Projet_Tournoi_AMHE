@@ -34,6 +34,7 @@ public class MancheJoueur extends Manche {
     }
 
 
+    @Override
     public Duelliste jouerManche() {
         while (this.score1 < 15 & this.score2 < 15) {
             this.score1 = this.score1 + premier.attaquer();
