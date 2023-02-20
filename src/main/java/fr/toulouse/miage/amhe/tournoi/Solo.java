@@ -57,10 +57,6 @@ public class Solo extends Tournoi{
 		return msg;
 	}
 
-	public ArrayList<Manche> getListeManches(){
-
-		return this.listeManche;
-	}
 
 
 	public String toString(){

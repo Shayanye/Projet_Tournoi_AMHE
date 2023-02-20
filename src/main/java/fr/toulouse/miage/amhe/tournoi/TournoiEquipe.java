@@ -67,21 +67,6 @@ public class TournoiEquipe  extends Tournoi {
         return this.journal;
     }
 
-
-
-
-
-
-    public ArrayList<Participant> getListeDuelliste(){
-
-        return this.listeParticipant;
-    }
-
-    public ArrayList<Manche> getListeManches(){
-
-        return this.listeManche;
-    }
-
     public String toString(){
 
         return this.journal;
