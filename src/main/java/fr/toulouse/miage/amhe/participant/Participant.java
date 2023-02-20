@@ -1,6 +1,6 @@
 package fr.toulouse.miage.amhe.participant;
 
-public class Participant {
+public abstract class Participant {
 
     protected String nom;
 
