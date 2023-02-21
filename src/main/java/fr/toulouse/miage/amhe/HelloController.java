@@ -98,7 +98,7 @@ public class HelloController {
     private TextArea console_historique = new TextArea();
 
     @FXML
-    private Historique historique = new Historique();
+    private static Historique historique = new Historique();
 
     @FXML
     private ComboBox<String> comboBoxHistorique= new ComboBox<>();

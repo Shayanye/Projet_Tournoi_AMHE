@@ -15,6 +15,6 @@
       </Text>
       <Button fx:id="goAffichageHistorique" layoutX="408.0" layoutY="257.0" mnemonicParsing="false" onAction="#goToAffichageHistorique" prefHeight="39.0" prefWidth="75.0" text="Afficher" />
       <Button fx:id="retourHistorique" layoutX="81.0" layoutY="257.0" mnemonicParsing="false" onAction="#RetourAccueil" prefHeight="39.0" prefWidth="75.0" text="Retour" />
-      <ComboBox fx:id="comboBoxHistorique" layoutX="47.0" layoutY="104.0" onAction="#remplirComboBox" onMouseClicked="#remplirComboBox" prefHeight="25.0" prefWidth="217.0" promptText="Liste des anciens tournois" />
+      <ComboBox fx:id="comboBoxHistorique" layoutX="47.0" layoutY="104.0"  onMouseClicked="#remplirComboBox" prefHeight="25.0" prefWidth="217.0" promptText="Liste des anciens tournois" />
    </children>
 </AnchorPane>
