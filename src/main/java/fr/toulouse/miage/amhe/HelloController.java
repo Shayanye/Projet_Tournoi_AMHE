@@ -69,12 +69,6 @@ public class HelloController {
     private Button lancer_tournoi;
 
     @FXML
-    private Button retourRentrer_participants_4;
-
-    @FXML
-    private RadioButton radioButton_selectionne;
-
-    @FXML
     private  TextArea console_lancement = new TextArea();
 
     @FXML
@@ -98,12 +92,15 @@ public class HelloController {
     private TextArea console_historique = new TextArea();
 
     @FXML
-    private Historique historique = new Historique();
+    private static Historique historique = new Historique();
 
     @FXML
-    private ComboBox<String> comboBoxHistorique= new ComboBox<>();
+    private ComboBox<String> comboBoxHistorique= new ComboBox();
 
+    @FXML
+    private Button afficherHistorique;
 
+    private static String combobox_value;
 
 
     public void creation_tournoi() throws Exception {
@@ -307,6 +304,7 @@ public class HelloController {
 
     @FXML
     protected void goToAffichageHistorique() throws Exception {
+        combobox_value = this.comboBoxHistorique.getValue();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AffichageHistorique.fxml")));
         Stage window = (Stage) goAffichageHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
@@ -315,14 +313,18 @@ public class HelloController {
     @FXML
     protected void remplirComboBox() throws Exception {
         for(Tournoi t : historique.getHistoriqueDeTousLesTournois()){
-            this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
+                this.comboBoxHistorique.getItems().add(t.getNom());
+
         }
     }
 
     @FXML
-    protected void recupValComboBox() throws Exception {
-        System.out.println(this.comboBoxHistorique.getValue());
+    protected void afficherHistorique() throws Exception{
+        for (Tournoi t: this.historique.getHistoriqueDeTousLesTournois()){
+            if (t.getNom()==this.combobox_value){
+                console_historique.setText("Historique du tournoi: ");
+                console_historique.appendText(t.toString());
+            }
+        }
     }
-
-
 }

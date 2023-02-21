@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
     <children>
         <Text layoutX="158.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage d'un ancien Tournoi">
             <font>
@@ -14,7 +16,6 @@
         <Button fx:id="retourAffichageHistorique" layoutX="128.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#RetourHistorique" prefHeight="33.0" prefWidth="66.0" text="Retour" />
         <TextArea fx:id="console_historique" disable="false" editable="false" layoutX="22.0" layoutY="87.0" prefHeight="196.0" prefWidth="559.0" />
         <Button fx:id="retour_Accueil_Lancement_Historique" layoutX="413.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#RetourAccueilHistorique" prefHeight="33.0" prefWidth="66.0" text="Accueil" />
+      <Button fx:id="afficherHistorique" onMouseClicked="#afficherHistorique" layoutX="266.0" layoutY="316.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Afficher" />
     </children>
 </AnchorPane>
-
-
