@@ -145,8 +145,11 @@ public class HelloController {
             }
         }
         if(tournoi.getListeParticipant().size()!=tournoi.getNbParticipant()){
-            BoucleRentrerParticipant4();
-
+            if(choix==0) {
+                BoucleRentrerParticipant4();
+            }else if(choix==1){
+                BoucleRentrerParticipant4Equipe();
+            }
         }else{
             if(choix==0) {
                 int i = 0;
