@@ -313,7 +313,11 @@ public class HelloController {
     @FXML
     protected void remplirComboBox() throws Exception {
         for(Tournoi t : historique.getHistoriqueDeTousLesTournois()){
+            if(t instanceof TournoiEquipe) {
                 this.comboBoxHistorique.getItems().add(t.getNom());
+            }else{
+                this.comboBoxHistorique.getItems().add(t.getNom());
+            }
 
         }
     }
