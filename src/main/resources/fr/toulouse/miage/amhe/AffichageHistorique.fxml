@@ -16,6 +16,6 @@
         <Button fx:id="retourAffichageHistorique" layoutX="128.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#RetourHistorique" prefHeight="33.0" prefWidth="66.0" text="Retour" />
         <TextArea fx:id="console_historique" disable="false" editable="false" layoutX="22.0" layoutY="87.0" prefHeight="196.0" prefWidth="559.0" />
         <Button fx:id="retour_Accueil_Lancement_Historique" layoutX="413.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#RetourAccueilHistorique" prefHeight="33.0" prefWidth="66.0" text="Accueil" />
-      <Button fx:id="afficherHistorique" onMouseClicked="#afficherHistorique" layoutX="266.0" layoutY="316.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Afficher" />
+      <Button fx:id="afficherHistorique" layoutX="267.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#afficherHistorique" prefHeight="33.0" prefWidth="66.0" text="Afficher" />
     </children>
 </AnchorPane>
