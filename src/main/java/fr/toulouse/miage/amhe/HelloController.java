@@ -98,6 +98,9 @@ public class HelloController {
     private TextArea console_historique = new TextArea();
 
     @FXML
+    private Historique historique = new Historique();
+
+    @FXML
     private ComboBox<String> comboBoxHistorique= new ComboBox<>();
 
 
@@ -311,7 +314,7 @@ public class HelloController {
 
     @FXML
     protected void remplirComboBox() throws Exception {
-        for(Tournoi t : historiqueTournoi.getHistoriqueDeTousLesTournois()){
+        for(Tournoi t : historique.getHistoriqueDeTousLesTournois()){
             this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
         }
     }
