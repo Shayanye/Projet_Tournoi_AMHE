@@ -214,8 +214,8 @@ public class HelloController {
     }
     @FXML
         protected void BoucleRentrerParticipant4() throws Exception {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4_Equipe.fxml")));
-            Stage window = (Stage) remplirTournoiEquipe.getScene().getWindow();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Rentrer_participants_4.fxml")));
+            Stage window = (Stage) remplirTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
 
