@@ -3,8 +3,6 @@ package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -99,8 +97,6 @@ public class HelloController {
     @FXML
     private TextArea console_historique = new TextArea();
 
-    private static Historique historiqueTournoi=new Historique();
-
     @FXML
     private ComboBox<String> comboBoxHistorique= new ComboBox<>();
 
@@ -173,10 +169,10 @@ public class HelloController {
     }
     @FXML
     protected void Go_to_CreerTournoi_Solo() throws Exception {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
-            Stage window = (Stage) creerTournoi.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        Stage window = (Stage) creerTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-            choix = 0;
+        choix = 0;
 
     }
     @FXML
@@ -263,7 +259,8 @@ public class HelloController {
     protected void Affichage_tournoi()throws Exception{
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
-        this.historiqueTournoi.ajouterTournoi(this.tournoi);
+        this.historique.ajouterTournoi(this.tournoi);
+        this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
         lancer_tournoi.setDisable(true);
     }
     /*@FXML
@@ -274,7 +271,7 @@ public class HelloController {
     }*/
     @FXML
     protected void Affichage_Console_Historique() throws Exception{
-        console_historique.setText(this.historiqueTournoi.toString());
+        console_historique.setText(this.historique.toString());
 
     }
 

@@ -64,9 +64,11 @@ public class MainTest {
 
 
         //test methode jouerManches
-        System.out.println(tournoiSolo.toString());
+        /*System.out.println(tournoiSolo.toString());
         System.out.println(tournoiSolo.jouerToutesLesManches());
-        System.out.println(tournoiSolo.toString());
+        System.out.println(tournoiSolo.toString());*/
+
+// Expected output: 42
 
 
 

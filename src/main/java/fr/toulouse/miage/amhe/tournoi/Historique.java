@@ -6,6 +6,7 @@ public class Historique {
     private Tournoi tournoi;
     private ArrayList<Tournoi> historiqueDeTousLesTournois = new ArrayList<>();
 
+
     public void ajouterTournoi(Tournoi tournoi){
         this.historiqueDeTousLesTournois.add(tournoi);
     }
