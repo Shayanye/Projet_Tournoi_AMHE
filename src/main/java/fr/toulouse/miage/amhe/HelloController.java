@@ -3,6 +3,8 @@ package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -100,7 +102,10 @@ public class HelloController {
     private static Historique historiqueTournoi=new Historique();
 
     @FXML
-    private  static ComboBox<String> comboBoxHistorique= new ComboBox<>();
+    private ComboBox<String> comboBoxHistorique= new ComboBox<>();
+
+
+
 
     public void creation_tournoi() throws Exception {
         int nb_part;
@@ -278,11 +283,6 @@ public class HelloController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Historique.fxml")));
         Stage window = (Stage) goHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-        for(Tournoi t : historiqueTournoi.getHistoriqueDeTousLesTournois()){
-            this.comboBoxHistorique.getItems().add(t.getNom());
-            System.out.println("\n\n\n\n\n\n Resultat combobox :");
-            System.out.println(t);
-        }
     }
 
     @FXML
@@ -312,7 +312,17 @@ public class HelloController {
         window.setScene(new Scene(root, 600, 400));
     }
 
+    @FXML
+    protected void remplirComboBox() throws Exception {
+        for(Tournoi t : historiqueTournoi.getHistoriqueDeTousLesTournois()){
+            this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
+        }
+    }
 
+    @FXML
+    protected void recupValComboBox() throws Exception {
+        System.out.println(this.comboBoxHistorique.getValue());
+    }
 
 
 }
