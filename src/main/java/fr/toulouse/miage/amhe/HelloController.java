@@ -18,6 +18,8 @@ public class HelloController {
     private Button remplirTournoi;
     @FXML
     private Button remplirTournoiEquipe;
+
+
     @FXML
     private TextField P1;
     @FXML
@@ -97,10 +99,12 @@ public class HelloController {
     @FXML
     private TextArea console_historique = new TextArea();
 
-    private static Historique historiqueTournoi=new Historique();
+    @FXML
+    private static Historique historique = new Historique();
 
     @FXML
-    private  static ComboBox<String> comboBoxHistorique= new ComboBox<>();
+    private  ComboBox<String> comboBoxHistorique= new ComboBox<>();
+
 
     public void creation_tournoi() throws Exception {
         int nb_part;
@@ -168,10 +172,10 @@ public class HelloController {
     }
     @FXML
     protected void Go_to_CreerTournoi_Solo() throws Exception {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
-            Stage window = (Stage) creerTournoi.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        Stage window = (Stage) creerTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-            choix = 0;
+        choix = 0;
 
     }
     @FXML
@@ -180,6 +184,7 @@ public class HelloController {
         Stage window = (Stage) Button_Equipe.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
         choix = 1;
+
 
     }
 
@@ -258,7 +263,8 @@ public class HelloController {
     protected void Affichage_tournoi()throws Exception{
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.jouerToutesLesManches());
-        this.historiqueTournoi.ajouterTournoi(this.tournoi);
+        this.historique.ajouterTournoi(this.tournoi);
+        this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
         lancer_tournoi.setDisable(true);
     }
     /*@FXML
@@ -269,7 +275,7 @@ public class HelloController {
     }*/
     @FXML
     protected void Affichage_Console_Historique() throws Exception{
-        console_historique.setText(this.historiqueTournoi.toString());
+        console_historique.setText(this.historique.toString());
 
     }
 
@@ -278,11 +284,6 @@ public class HelloController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Historique.fxml")));
         Stage window = (Stage) goHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-        for(Tournoi t : historiqueTournoi.getHistoriqueDeTousLesTournois()){
-            this.comboBoxHistorique.getItems().add(t.getNom());
-            System.out.println("\n\n\n\n\n\n Resultat combobox :");
-            System.out.println(t);
-        }
     }
 
     @FXML
