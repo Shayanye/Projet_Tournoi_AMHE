@@ -128,7 +128,7 @@ public class HelloController {
     /* Remplis le tournoi et boucle sur la page d'insertion tant qu'on a pas tous les joueurs du tournoi et après on part sur le lancement */
     @FXML
     protected void remplirTournoi() throws Exception {
-        if( !P1.getText().isEmpty() && !P1.getText().isEmpty() && !P1.getText().isEmpty() && !P1.getText().isEmpty()) {
+        if( !P1.getText().isEmpty() && !P2.getText().isEmpty() && !P3.getText().isEmpty() && !P4.getText().isEmpty()) {
             if(tournoi instanceof Solo) {
                 this.tournoi.addParticipant(new Duelliste(P1.getText(), this.tournoi.getArme()));
                 this.tournoi.addParticipant(new Duelliste(P2.getText(), this.tournoi.getArme()));
