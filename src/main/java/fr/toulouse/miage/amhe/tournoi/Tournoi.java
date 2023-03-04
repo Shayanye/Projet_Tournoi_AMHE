@@ -4,6 +4,7 @@
  */
 package fr.toulouse.miage.amhe.tournoi;
 
+import fr.toulouse.miage.amhe.manche.Manche;
 import fr.toulouse.miage.amhe.participant.Participant;
 
 import java.util.ArrayList;
@@ -16,11 +17,13 @@ import java.util.ArrayList;
 
 public abstract class Tournoi {
 
+    protected ArrayList<Participant> listeParticipantGagnant;
+    protected ArrayList<Participant> listeParticipantArentrer;
     protected ArrayList<Participant> listeParticipant;
     protected ArrayList<Manche> listeManche;
 	private String nom;
     private int nbParticipant;
-
+    protected String journal="";
     private String arme;
     
     public Tournoi(int nbParticipant, String arme, String nom) {
@@ -29,6 +32,7 @@ public abstract class Tournoi {
         this.arme = arme;
         this.listeParticipant = new ArrayList<>(this.getNbParticipant());
         this.listeManche = new ArrayList<>(this.getNbParticipant()-1);
+        this.listeParticipantGagnant=new ArrayList<>(this.getNbParticipant()-1);
     }
      
     
@@ -64,11 +68,15 @@ public abstract class Tournoi {
         return i;
     }
 
+    public void ajouterMessage(String msg){
+        this.journal=this.journal+msg;
+    }
     public abstract void addParticipant(Participant p);
 
     public  void addManches(Manche m){
         this.listeManche.add(m);
     };
+
 
     public  void delManches(int index){
         this.listeManche.remove(index);
@@ -79,9 +87,18 @@ public abstract class Tournoi {
         return this.listeParticipant;
     }
 
+    public ArrayList<Participant> getListeParticipantGagnant(){
+
+        return this.listeParticipantGagnant;
+    }
+
     public ArrayList<Manche> getListeManche(){
 
         return this.listeManche;
+    }
+
+    public ArrayList<Participant> getListeParticipantArentrer() {
+        return this.listeParticipantArentrer;
     }
 
     public abstract String jouerToutesLesManches();

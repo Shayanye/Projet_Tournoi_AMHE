@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package fr.toulouse.miage.amhe.tournoi;
+package fr.toulouse.miage.amhe.manche;
 
 import fr.toulouse.miage.amhe.participant.Duelliste;
-
-import java.util.ArrayList;
 
 /**
  * @author valen
@@ -19,6 +17,7 @@ public class MancheJoueur extends Manche {
 
 
     public MancheJoueur(Duelliste duelliste1, Duelliste duelliste2) {
+        super(duelliste1,duelliste2);
         if (duelliste1.getRapidité() > duelliste2.getRapidité()) {
             this.premier = duelliste1;
             this.deuxieme = duelliste2;
@@ -51,8 +50,6 @@ public class MancheJoueur extends Manche {
             return deuxieme;
         }
     }
-
-
 
     public int getScore1() {
 

@@ -1,4 +1,6 @@
-package fr.toulouse.miage.amhe.tournoi;
+package fr.toulouse.miage.amhe.historique;
+
+import fr.toulouse.miage.amhe.tournoi.Tournoi;
 
 import java.util.ArrayList;
 

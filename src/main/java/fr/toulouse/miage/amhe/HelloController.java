@@ -1,18 +1,63 @@
 package fr.toulouse.miage.amhe;
-
+import fr.toulouse.miage.amhe.historique.Historique;
+import fr.toulouse.miage.amhe.manche.Manche;
+import fr.toulouse.miage.amhe.manche.MancheEquipe;
+import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Equipe;
+import fr.toulouse.miage.amhe.participant.Participant;
 import fr.toulouse.miage.amhe.tournoi.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class HelloController {
+    // Rentrer_Manches.fxml
+    @FXML
+    private ComboBox<String> MG = new ComboBox();
+
+    public Tournoi getTournoi(){
+        return this.tournoi;
+    }
+
+    public int getChoix(){
+        return this.choix;
+    }
+    @FXML
+    private ComboBox<String> MP1 = new ComboBox();
+
+    @FXML
+    private  ComboBox<String> MP2 = new ComboBox();
+
+    @FXML
+    private static Text numManche=new Text();
+
+    @FXML
+    private  Label manchecb;
+    @FXML
+    private Button remplirTournoiGestion;
+
+
+    public HelloController(){
+
+    }
+
+    public HelloController(Tournoi tournoi, int choix){
+        tournoi=tournoi;
+        choix=choix;
+    }
+
+
+
+
+
 
     @FXML
     private Button remplirTournoi;
@@ -31,7 +76,7 @@ public class HelloController {
     private TextField nomEquipe;
     private static int choix;
     @FXML
-    private static Tournoi tournoi;
+    static Tournoi tournoi;
     @FXML
     private Button creerTournoi;
 
@@ -93,6 +138,8 @@ public class HelloController {
 
     @FXML
     private static Historique historique = new Historique();
+    @FXML
+    private Button gérerTournoi;
 
     @FXML
     private ComboBox<String> comboBoxHistorique= new ComboBox();
@@ -130,16 +177,16 @@ public class HelloController {
     protected void remplirTournoi() throws Exception {
         if( !P1.getText().isEmpty() && !P2.getText().isEmpty() && !P3.getText().isEmpty() && !P4.getText().isEmpty()) {
             if(tournoi instanceof Solo) {
-                this.tournoi.addParticipant(new Duelliste(P1.getText(), this.tournoi.getArme()));
-                this.tournoi.addParticipant(new Duelliste(P2.getText(), this.tournoi.getArme()));
-                this.tournoi.addParticipant(new Duelliste(P3.getText(), this.tournoi.getArme()));
-                this.tournoi.addParticipant(new Duelliste(P4.getText(), this.tournoi.getArme()));
+                tournoi.addParticipant(new Duelliste(P1.getText(), tournoi.getArme()));
+                tournoi.addParticipant(new Duelliste(P2.getText(), tournoi.getArme()));
+                tournoi.addParticipant(new Duelliste(P3.getText(), tournoi.getArme()));
+                tournoi.addParticipant(new Duelliste(P4.getText(), tournoi.getArme()));
             }else if (tournoi instanceof  TournoiEquipe && !nomEquipe.getText().isEmpty()){
-                this.tournoi.addParticipant(new Equipe(nomEquipe.getText(), tournoi.getArme(),
-                                new Duelliste(P1.getText(), this.tournoi.getArme()),
-                                new Duelliste(P2.getText(), this.tournoi.getArme()),
-                                new Duelliste(P3.getText(), this.tournoi.getArme()),
-                                new Duelliste(P4.getText(), this.tournoi.getArme())));
+                tournoi.addParticipant(new Equipe(nomEquipe.getText(), tournoi.getArme(),
+                                new Duelliste(P1.getText(), tournoi.getArme()),
+                                new Duelliste(P2.getText(), tournoi.getArme()),
+                                new Duelliste(P3.getText(), tournoi.getArme()),
+                                new Duelliste(P4.getText(), tournoi.getArme())));
             }
         }
         if(tournoi.getListeParticipant().size()!=tournoi.getNbParticipant()){
@@ -169,18 +216,22 @@ public class HelloController {
     }
     @FXML
     protected void Go_to_CreerTournoi_Solo() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        ControllerCreationTournoi CCT= new ControllerCreationTournoi(0);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreerTournoi.fxml"));
+        loader.setController(CCT);
+        Parent root = loader.load();
         Stage window = (Stage) creerTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-        choix = 0;
 
     }
     @FXML
     protected void Go_to_CreerTournoi_Equipe() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        ControllerCreationTournoi CCT= new ControllerCreationTournoi(1);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreerTournoi.fxml"));
+        loader.setController(CCT);
+        Parent root = loader.load();
         Stage window = (Stage) Button_Equipe.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-        choix = 1;
 
     }
 
@@ -202,7 +253,7 @@ public class HelloController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
         Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
-        this.tournoi=null;
+        tournoi=null;
     }
 
 
@@ -313,15 +364,22 @@ public class HelloController {
     @FXML
     protected void remplirComboBox() throws Exception {
         for(Tournoi t : historique.getHistoriqueDeTousLesTournois()){
-            if(t instanceof TournoiEquipe) {
                 this.comboBoxHistorique.getItems().add(t.getNom());
-            }else{
-                this.comboBoxHistorique.getItems().add(t.getNom());
-            }
-
         }
+
+
     }
 
+    public void GoToRentrerManche() throws IOException {
+        ControllerManche cm= new ControllerManche(tournoi,choix);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_manches_4.fxml"));
+        loader.setController(cm);
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
     @FXML
     protected void afficherHistorique() throws Exception{
         for (Tournoi t: this.historique.getHistoriqueDeTousLesTournois()){

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.ControllerCreationTournoi">
    <Label id="label_creation_tournoi" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="223.0" text ="Créez votre tournoi" >
       <font>
          <Font name="System Bold Italic" size="20.0" />
@@ -17,7 +17,7 @@
    <RadioButton id="nb_part_solo_8" fx:id="nb_8" layoutX="77.0" layoutY="115.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="8" toggleGroup="$Group_nb" />
    <RadioButton id="nb_part_solo_4" fx:id="nb_4" layoutX="77.0" layoutY="149.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="4" toggleGroup="$Group_nb" />
    <Label layoutX="14.0" layoutY="64.0" text="Choisissez votre nombre de participants" />
-   <Button id="validerNbPartSolo" fx:id="validerNbPart" layoutX="489.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#creation_tournoi" prefHeight="34.0" prefWidth="69.0" text="Valider">
+   <Button id="validerNbPart" fx:id="validerNbPart" layoutX="489.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#creation_tournoi" prefHeight="34.0" prefWidth="69.0" text="Valider">
       <font>
          <Font name="System Bold" size="13.0" />
       </font>

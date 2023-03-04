@@ -1,6 +1,8 @@
-package fr.toulouse.miage.amhe.tournoi;
+package fr.toulouse.miage.amhe.test;
 
+import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.tournoi.Solo;
 
 public class MainTest {
     public static void main(String[] args) throws Exception {

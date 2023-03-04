@@ -1,16 +1,12 @@
 package fr.toulouse.miage.amhe.tournoi;
 
-import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.manche.MancheEquipe;
 import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.participant.Participant;
 
 import java.util.ArrayList;
 
 public class TournoiEquipe  extends Tournoi {
-
-    private String journal;
-
-
 
     /**
      * Constructeur de tournoi solo
@@ -19,7 +15,7 @@ public class TournoiEquipe  extends Tournoi {
         super(nbParticipant, arme, nom);
         //this.duellistes = new Duelliste(this.getNbParticipant());
         //il me faut un constructeur de Duelliste qui prend en paramètre un int (nbParticipant) et qui me créer un tableau de duelliste de cette taille.
-        this.journal = "";
+
 
 
     }
@@ -27,7 +23,8 @@ public class TournoiEquipe  extends Tournoi {
     @Override
     public void addParticipant(Participant e){
         if(this.listeParticipant.size() < this.getNbParticipant() && e instanceof Equipe) {
-            this.listeParticipant.add((Equipe) e);
+            this.listeParticipant.add(e);
+            this.listeParticipantArentrer=this.listeParticipant;
         }
     }
 

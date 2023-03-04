@@ -1,8 +1,8 @@
 package fr.toulouse.miage.amhe.tournoi;
 
 import java.util.ArrayList;
-import java.lang.Math;
 
+import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Participant;
 
@@ -15,7 +15,6 @@ public class Solo extends Tournoi{
 
 	//private Duelliste duellistes;
 
-	private String journal;
 
 
 	
@@ -26,7 +25,6 @@ public class Solo extends Tournoi{
 		super(nbParticipant, arme, nom);
 		//this.duellistes = new Duelliste(this.getNbParticipant());
 		//il me faut un constructeur de Duelliste qui prend en paramètre un int (nbParticipant) et qui me créer un tableau de duelliste de cette taille.
-		this.journal = "";
 
 
 	}
@@ -34,6 +32,7 @@ public class Solo extends Tournoi{
 	public void addParticipant(Participant d){
 		if(this.listeParticipant.size() < this.getNbParticipant() && d instanceof Duelliste) {
 			this.listeParticipant.add((Duelliste) d);
+			this.listeParticipantArentrer=this.listeParticipant;
 		}
 	}
 
@@ -49,16 +48,15 @@ public class Solo extends Tournoi{
 		int tour_a_effectuer = this.calculTourAEffectuer();
 		int tour = 1;
 		int nbManches = 0;
-
 		for(int i = 0; i<tour_a_effectuer; i++) {
 			nbManches = this.listeManche.size();
 			this.journal += "\n\nTour " + tour + "\n";
 			tour++;
 			for (int j = 0; j < nbManches; j++) {
-				this.journal += this.listeManche.get(j).toString();
+				ajouterMessage(this.listeManche.get(j).toString());
 				Duelliste joueurGagnant = (Duelliste) this.listeManche.get(j).jouerManche();
 				gagnants.add(joueurGagnant);
-				this.journal += "le joueur " + joueurGagnant.getNom() + " a gagné sur un score de : " +this.listeManche.get(j).getScore1()+" a " +this.listeManche.get(j).getScore2()+"\n";
+				ajouterMessage("le joueur " + joueurGagnant.getNom() + " a gagné sur un score de : " +this.listeManche.get(j).getScore1()+" a " +this.listeManche.get(j).getScore2()+"\n");
 
 
 			}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"  >
+   <children>
+      <Button fx:id="remplirtournoiGestion" onMouseClicked="#remplirtournoiGestion"  layoutX="440.0" layoutY="325.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="82.0" text="Valider"/>
+      <Text fx:id="labelPart4" layoutX="130.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gagnant :" />
+      <Text fx:id="numManche" layoutX="94.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0"  />
+      <Text fx:id="p1" layoutX="288.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS" textAlignment="CENTER" wrappingWidth="23.13281250000003" />
+      <Button fx:id="retourRentrerManche" onMouseClicked="#retourLancementtournoi" layoutX="57.0" layoutY="322.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="73.0" text="Retour" />
+      <ComboBox fx:id="MP1" onMouseClicked="#verificationMP1" layoutX="130.0" layoutY="133.0" prefWidth="150.0" />
+      <ComboBox fx:id="MP2" onMouseClicked="#verificationMP2" layoutX="320.0" layoutY="133.0" prefWidth="150.0" />
+      <ComboBox  fx:id="MG" onMouseClicked="#choisirGagnant" layoutX="205.0" layoutY="251.0" prefWidth="150.0" />
+      <Label fx:id="manchecb" layoutX="23.0" layoutY="40.0" />
+   </children>
+</AnchorPane>
