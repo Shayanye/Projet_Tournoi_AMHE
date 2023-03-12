@@ -37,7 +37,6 @@ public class ControllerLancement implements Initializable {
     private  Historique historique = new Historique();
     @FXML
     private TextArea console_lancement;
-    private Tournoi  tournoi_doublon_simulation;
     private int choix;
     private Tournoi tournoi;
 
@@ -46,6 +45,18 @@ public class ControllerLancement implements Initializable {
         this.tournoi=tournoi;
     }
 
+    public void GotoSimulation() throws Exception {
+        //je crée le controller de la page sur laquelle je vais aller
+        ControllerSimulation CS = new ControllerSimulation(this.tournoi, this.choix);
+        //on "load" la page
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AffichageSimulation.fxml"));
+        //on lui donne le controler précédemment crée
+        loader.setController(CS);
+        // et là on change de page
+        Parent root = loader.load();
+        Stage window = (Stage) lancer_tournoi.getScene().getWindow();
+        window.setScene(new Scene(root, 600, 400));
+    }
 
     // Exemple qui permet d'aller sur une autre page tout en lui donnant le tournoi qu'on a crée précédemment
     public void GoToRentrerManche() throws IOException {
@@ -60,32 +71,7 @@ public class ControllerLancement implements Initializable {
         Stage window = (Stage) gérerTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
-    private void remplirTournoiSimulation(Tournoi tournoisimu) {
-        tournoisimu.getListeManche().clear();
-        int participant = 0;
-        if (this.choix == 0) {
-            while (participant < tournoisimu.getNbParticipant() - 1) {
-                tournoisimu.getListeManche().add(new MancheJoueur((Duelliste) tournoisimu.getListeParticipant().get(participant), (Duelliste) tournoisimu.getListeParticipant().get(participant + 1)));
-                participant=participant+2;
-            }
-        } else {
-            while (participant < tournoisimu.getNbParticipant() - 1) {
-                tournoisimu.getListeManche().add(new MancheEquipe((Equipe) tournoisimu.getListeParticipant().get(participant), (Equipe) tournoisimu.getListeParticipant().get(participant + 1)));
-                participant=participant+2;
-            }
-        }
-    }
 
-    // A modifier car quand je clique sur simulation et que je gère le tournoi... J'ai un problème pour la dernière manche
-    @FXML
-    protected void simulation_tournoi()throws Exception{
-        console_lancement.appendText("Bienvenue dans une simulation du tournoi AMHE : "+this.tournoi.getNom()+"\n");
-        //this.tournoi_doublon_simulation=this.tournoi;
-        //remplirTournoiSimulation(tournoi_doublon_simulation);
-        //console_lancement.appendText(tournoi_doublon_simulation.jouerToutesLesManches());
-        //this.comboBoxHistorique.getItems().add(this.tournoi.getNom());
-        lancer_tournoi.setDisable(true);
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

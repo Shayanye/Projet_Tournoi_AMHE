@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
-import static fr.toulouse.miage.amhe.HelloController.tournoi;
 
 public class ControllerRemplirTournoiSolo {
 

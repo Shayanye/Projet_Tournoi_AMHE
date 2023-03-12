@@ -68,6 +68,9 @@ public abstract class Tournoi {
         return i;
     }
 
+    public void clearJournal(){
+        this.journal="";
+    }
     public void ajouterMessage(String msg){
         this.journal=this.journal+msg;
     }

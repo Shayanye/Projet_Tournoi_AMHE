@@ -49,8 +49,8 @@ public class ControllerManche implements  Initializable{
 
 
     public ControllerManche(Tournoi tournoi, int choix){
-        ControllerManche.this.tournoi =tournoi;
-        ControllerManche.choix =choix;
+        this.tournoi =tournoi;
+        this.choix =choix;
     }
 
     @FXML
