@@ -3,9 +3,13 @@ package fr.toulouse.miage.amhe.test;
 import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.tournoi.Solo;
+import fr.toulouse.miage.amhe.tournoi.Tournoi;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class MainTest {
-    public static void main(String[] args) throws Exception {
+    public static <CSVReader> void main(String[] args) throws Exception {
         //Creation du tournoi
         Solo tournoiSolo;
         try {
@@ -63,7 +67,16 @@ public class MainTest {
         tournoiSolo.addManches(new MancheJoueur(d11, d12));
         tournoiSolo.addManches(new MancheJoueur(d13,d14));
         tournoiSolo.addManches(new MancheJoueur(d15, d16));
+        FileReader reader=new FileReader("src/main/java/fr/toulouse/miage/amhe/sauvegarde/1");
+        Tournoi tournoi;
+        BufferedReader br = new BufferedReader(reader);
+        String line;
 
+        while((line= br.readLine())!=null){
+
+
+
+        }
 
         //test methode jouerManches
         /*System.out.println(tournoiSolo.toString());

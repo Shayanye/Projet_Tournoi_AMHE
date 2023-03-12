@@ -39,6 +39,7 @@ public class ControllerManche implements  Initializable{
     @FXML
     private  ComboBox<String> MP2 = new ComboBox<>();
 
+    private CréerTournoiCSV file;
     @FXML
     private  Text numManche;
 
@@ -51,6 +52,7 @@ public class ControllerManche implements  Initializable{
     public ControllerManche(Tournoi tournoi, int choix){
         this.tournoi =tournoi;
         this.choix =choix;
+        this.file=new CréerTournoiCSV(tournoi,choix);
     }
 
     @FXML
@@ -140,6 +142,11 @@ public class ControllerManche implements  Initializable{
             remplirParticipantArentrer();
         }else if(this.tournoi.getListeManche().size()==this.tournoi.getNbParticipant()-1){
             this.tournoi.ajouterMessage("Le gagnant du tournoi "+ this.tournoi.getNom()+ " est "+ this.tournoi.getListeParticipantGagnant().get(0).getNom());
+            try {
+                file.CréerFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         for(Participant p : this.tournoi.getListeParticipantArentrer()) {
             MP1.getItems().add(p.getNom());
