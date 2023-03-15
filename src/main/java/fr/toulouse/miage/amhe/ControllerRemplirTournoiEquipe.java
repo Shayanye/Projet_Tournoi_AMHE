@@ -7,14 +7,19 @@ import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import fr.toulouse.miage.amhe.tournoi.TournoiEquipe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.util.Objects;
 
-public class ControllerRemplirTournoiEquipe {
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
+
+public class ControllerRemplirTournoiEquipe implements Initializable {
 
     @FXML
     private Tournoi tournoi;
@@ -34,6 +39,8 @@ public class ControllerRemplirTournoiEquipe {
     private TextField P3;
     @FXML
     private TextField P4;
+    @FXML
+    private Text numEquipe;
 
     public ControllerRemplirTournoiEquipe(Tournoi tournoi){
         this.tournoi=tournoi;
@@ -83,5 +90,10 @@ public class ControllerRemplirTournoiEquipe {
             Parent root = loader.load();
             Stage window = (Stage) retourRentrerParticipant.getScene().getWindow();
             window.setScene(new Scene(root, 600, 400));
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+       numEquipe.setText("Rentrez l'équipe n°"+this.tournoi.getListeParticipant().size()+1+" et ses 4 participants");
     }
 }

@@ -65,10 +65,6 @@ public class HelloController {
     private static String combobox_value;
 
 
-
-
-
-
     @FXML
     protected void Go_to_CreerTournoi_Solo() throws Exception {
         ControllerCreationTournoi CCT= new ControllerCreationTournoi(0);
@@ -122,7 +118,10 @@ public class HelloController {
 
     @FXML
     protected void goToHistorique() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Historique.fxml")));
+        ControllerHistorique CH= new ControllerHistorique();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Historique.fxml"));
+        loader.setController(CH);
+        Parent root = loader.load();
         Stage window = (Stage) goHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
@@ -151,7 +150,7 @@ public class HelloController {
     protected void goToAffichageHistorique() throws Exception {
         combobox_value = this.comboBoxHistorique.getValue();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AffichageHistorique.fxml")));
-        Stage window = (Stage) goAffichageHistorique.getScene().getWindow();
+        Stage window = (Stage) goHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
 

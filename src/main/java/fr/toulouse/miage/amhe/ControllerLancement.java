@@ -102,8 +102,10 @@ public class ControllerLancement implements Initializable {
 /** fonction qui permet de retourner  à la création du tournoi**/
     @FXML
     protected void retour_lancement_tournoi() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreerTournoi.fxml"));
         ControllerCreationTournoi CCT=new ControllerCreationTournoi(this.choix);
+        loader.setController(CCT);
+        Parent root = loader.load();
         Stage window = (Stage) retourRentrer_participants.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }

@@ -30,7 +30,7 @@ public class CréerTournoiCSV {
         this.journal=tournoi.toString();
     }
 
-    // Créer un fichier CVS avec toutes les infos du tournoi ( allez voir le fichier dans sauvegarde)
+    /** Créer un fichier CVS avec toutes les infos du tournoi ( le fichier se place dans le dossier sauvegarde)**/
     public void CréerFile() throws IOException {
         if(choix==0) {
             file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegarde/" + this.tournoi.getNom()+"(Solo)", true);

@@ -47,6 +47,7 @@ public class ControllerSimulation implements Initializable{
             throw new RuntimeException(e);
         }
     }
+    /** Crée un réplicat du tournoi pour pouvoir l'utiliser en tant que simulation**/
     public ControllerSimulation(Tournoi tournoi,int choix) throws Exception {
         this.tournoi=tournoi;
         this.choix=choix;
@@ -60,6 +61,7 @@ public class ControllerSimulation implements Initializable{
         }
     }
 
+    /** permet de revenir au lancement de tournoi et de gérer**/
     @FXML
     protected void returnToLancementTournoi() throws Exception {
         this.tournoi.clearJournal();
@@ -72,11 +74,10 @@ public class ControllerSimulation implements Initializable{
         window.setScene(new Scene(root, 600, 400));
     }
 
+    /** Permet de relancer une simulation du tournoi**/
     @FXML
     protected void relancer_tournoi_simulation() throws Exception {
-        remplirTournoiSimulation();
-        affichageSimulation.appendText(this.tournoisimulation.jouerToutesLesManches());
-        this.tournoisimulation.clearJournal();
+        simulation_tournoi();
        ControllerSimulation CS= new ControllerSimulation(this.tournoi,this.choix);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AffichageSimulation.fxml"));
         loader.setController(CS);
@@ -84,13 +85,17 @@ public class ControllerSimulation implements Initializable{
         Stage window = (Stage) lancerSimulation.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
+
+    /** nettoie les manches de la simulation**/
     @FXML
     protected void simulation_tournoi()throws Exception{
         this.tournoisimulation.getListeManche().clear();
         remplirTournoiSimulation();
         affichageSimulation.appendText(this.tournoisimulation.jouerToutesLesManches());
+        this.tournoisimulation.clearJournal();
     }
 
+    /** rempli le tournoi de simulation**/
     private void remplirTournoiSimulation() {
         int participant = 0;
         if (this.choix == 0) {
