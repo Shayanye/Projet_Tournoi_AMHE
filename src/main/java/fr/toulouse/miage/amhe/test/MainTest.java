@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class MainTest {
+
     public static <CSVReader> void main(String[] args) throws Exception {
         //Creation du tournoi
         Solo tournoiSolo;
@@ -71,7 +72,6 @@ public class MainTest {
         Tournoi tournoi;
         BufferedReader br = new BufferedReader(reader);
         String line;
-
         while((line= br.readLine())!=null){
 
 
