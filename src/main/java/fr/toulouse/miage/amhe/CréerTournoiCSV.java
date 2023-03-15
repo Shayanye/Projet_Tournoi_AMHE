@@ -32,7 +32,7 @@ public class CréerTournoiCSV {
 
     // Créer un fichier CVS avec toutes les infos du tournoi ( allez voir le fichier dans sauvegarde)
     public void CréerFile() throws IOException {
-        file=new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegarde/"+this.tournoi.getNom()+choix,true);
+        file=new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegarde/"+this.tournoi.getNom(),true);
         file.append("NbParticipants,Arme,Nom");
         file.append(separator);
         file.append(String.valueOf(this.tournoi.getNbParticipant()));

@@ -40,11 +40,14 @@ public class ControllerLancement implements Initializable {
     private int choix;
     private Tournoi tournoi;
 
+
+    /** Crée un Controller pour la page Lancement.tournoi qui prend en paramètre un tournoi et le choix du type de tournoi**/
     public ControllerLancement(Tournoi tournoi, int choix){
         this.choix = choix;
         this.tournoi=tournoi;
     }
 
+    /** Fonction qui permet de créer un Controller de la page Simulation et de se diriger vers cette dernière **/
     public void GotoSimulation() throws Exception {
         //je crée le controller de la page sur laquelle je vais aller
         ControllerSimulation CS = new ControllerSimulation(this.tournoi, this.choix);
@@ -58,6 +61,7 @@ public class ControllerLancement implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
+    /** Fonction qui permet d'allez vers la page pour rentrer les manches du tournoi**/
     // Exemple qui permet d'aller sur une autre page tout en lui donnant le tournoi qu'on a crée précédemment
     public void GoToRentrerManche() throws IOException {
         //je crée le controller de la page sur laquelle je vais aller
@@ -73,6 +77,8 @@ public class ControllerLancement implements Initializable {
     }
 
 
+
+    /**Fonction qui se lance dès l'arrivée sur la page, permettant d'afficher le résumé du tournoi**/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         console_lancement.clear();
@@ -83,6 +89,8 @@ public class ControllerLancement implements Initializable {
         }
     }
 
+
+    /** Fonction qui permet de retourner à l'accueil de l'application**/
     @FXML
     protected void retour_Accueil_Lancement() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
@@ -90,9 +98,12 @@ public class ControllerLancement implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
+
+/** fonction qui permet de retourner  à la création du tournoi**/
     @FXML
     protected void retour_lancement_tournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreerTournoi.fxml")));
+        ControllerCreationTournoi CCT=new ControllerCreationTournoi(this.choix);
         Stage window = (Stage) retourRentrer_participants.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }

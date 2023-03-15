@@ -31,8 +31,8 @@ public class Solo extends Tournoi{
 
 	public void addParticipant(Participant d){
 		if(this.listeParticipant.size() < this.getNbParticipant() && d instanceof Duelliste) {
-			this.listeParticipant.add((Duelliste) d);
-			this.listeParticipantArentrer=this.listeParticipant;
+			this.listeParticipant.add(d);
+			this.listeParticipantArentrer.add(d);
 		}
 	}
 

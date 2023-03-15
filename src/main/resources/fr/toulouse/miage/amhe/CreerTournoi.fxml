@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.ControllerCreationTournoi">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
    <Label id="label_creation_tournoi" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="223.0" text ="Créez votre tournoi" >
       <font>
          <Font name="System Bold Italic" size="20.0" />

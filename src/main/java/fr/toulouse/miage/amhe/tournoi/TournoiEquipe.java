@@ -24,7 +24,7 @@ public class TournoiEquipe  extends Tournoi {
     public void addParticipant(Participant e){
         if(this.listeParticipant.size() < this.getNbParticipant() && e instanceof Equipe) {
             this.listeParticipant.add(e);
-            this.listeParticipantArentrer=this.listeParticipant;
+            this.listeParticipantArentrer.add(e);
         }
     }
 

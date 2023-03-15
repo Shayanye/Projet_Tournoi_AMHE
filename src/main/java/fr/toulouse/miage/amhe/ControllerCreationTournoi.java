@@ -17,9 +17,6 @@ import java.util.Objects;
 
 public class ControllerCreationTournoi {
     private int choix;
-    public ControllerCreationTournoi(int choix){
-        this.choix=choix;
-    }
     @FXML
     private ToggleGroup Group_nb=new ToggleGroup();
     @FXML
@@ -41,6 +38,14 @@ public class ControllerCreationTournoi {
     private TextField NomTournoi;
     @FXML
     private Tournoi tournoi;
+
+    /** Crée un controller avec le choix du type de tournoi passé en paramètre **/
+    public ControllerCreationTournoi(int choix){
+
+        this.choix=choix;
+    }
+
+    /** Fonction qui crée un tournoi selon le type choisi, représenté par le choix passé en paramètre du constructeur**/
     public void creation_tournoi() throws Exception {
         int nb_part;
 
@@ -48,6 +53,7 @@ public class ControllerCreationTournoi {
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
             nb_part = Integer.parseInt(button.getText());
             if(choix==0) {
+                // On créer un tournoi solo et on se dirige vers la page pour rentrer des Duellistes
                 tournoi = new Solo(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
                 ControllerRemplirTournoiSolo CRTS= new ControllerRemplirTournoiSolo(tournoi);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_participants_4.fxml"));
@@ -56,6 +62,7 @@ public class ControllerCreationTournoi {
                 Stage window = (Stage) validerNbPart.getScene().getWindow();
                 window.setScene(new Scene(root, 600, 400));
             }else if (choix==1){
+                // On créer un tournoi Equipe et on se dirige vers la page pour rentrer des Equipes
                 tournoi = new TournoiEquipe(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
                 ControllerRemplirTournoiEquipe CRTE= new ControllerRemplirTournoiEquipe(tournoi);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_participants_4_Equipe.fxml"));
@@ -67,10 +74,13 @@ public class ControllerCreationTournoi {
         }
 
     }
+
+    /** Fonction qui permet de retour à la page du choix de type de tournoi**/
     @FXML
     protected void retourChoixTypeTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
         Stage window = (Stage) retourChoixTypeTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
+
 }

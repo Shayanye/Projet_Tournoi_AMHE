@@ -31,8 +31,9 @@ public abstract class Tournoi {
     	this.nbParticipant = nbParticipant;
         this.arme = arme;
         this.listeParticipant = new ArrayList<>(this.getNbParticipant());
+        this.listeParticipantArentrer = new ArrayList<>(this.getNbParticipant());
         this.listeManche = new ArrayList<>(this.getNbParticipant()-1);
-        this.listeParticipantGagnant=new ArrayList<>(this.getNbParticipant()-1);
+        this.listeParticipantGagnant=new ArrayList<>(this.getNbParticipant());
     }
      
     
