@@ -29,7 +29,7 @@ public class ControllerHistorique {
         dialog.setInitialDirectory(new File("src/main/java/fr/toulouse/miage/amhe/sauvegarde"));
         final File file = dialog.showOpenDialog(choix_du_tournoi.getScene().getWindow());
         if(file!=null){
-
+            System.out.println("Hello");
 
         }
     }
