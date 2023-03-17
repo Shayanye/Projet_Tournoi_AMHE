@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,0
+4,Dague,TournoiVal
+ListeJoueur
+Joueur1
+Joueur2
+Joueur3
+Joueur4
+ListeManche
+Manche1,Joueur1,Joueur2
+Manche2,Joueur3,Joueur4
+Manche3,Joueur2,Joueur4
+resultatTournoi
+le joueur Joueur2 a gagné contre le joueur Joueur1 lors de la manche 1
+le joueur Joueur4 a gagné contre le joueur Joueur3 lors de la manche 2
+le joueur Joueur4 a gagné contre le joueur Joueur2 lors de la manche 3
+Le gagnant du tournoi TournoiVal est Joueur4

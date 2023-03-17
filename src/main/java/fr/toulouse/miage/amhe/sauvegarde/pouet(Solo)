@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,0
+4,test,pouet
+ListeJoueur
+Charles
+Iaro
+Val
+Neige
+ListeManche
+Manche1,Charles,Iaro
+Manche2,Val,Neige
+Manche3,Iaro,Neige
+resultatTournoi
+le joueur Iaro a gagné contre le joueur Charles lors de la manche 1
+le joueur Neige a gagné contre le joueur Val lors de la manche 2
+le joueur Neige a gagné contre le joueur Iaro lors de la manche 3
+Le gagnant du tournoi pouet est Neige
