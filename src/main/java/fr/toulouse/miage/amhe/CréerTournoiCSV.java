@@ -37,7 +37,7 @@ public class CréerTournoiCSV {
         }else{
             file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegarde/" + this.tournoi.getNom()+"(Equipe)", true);
         }
-        file.append("NbParticipants,Arme,Nom");
+        file.append("NbParticipants,Arme,Nom,"+choix);
         file.append(separator);
         file.append(String.valueOf(this.tournoi.getNbParticipant()));
         file.append(delimiteur);

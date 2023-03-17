@@ -116,7 +116,7 @@ public class ControllerRemplirTournoiSolo implements Initializable {
         labelPart2.setText(String.valueOf(this.tournoi.getListeParticipant().size()+2));
         labelPart3.setText(String.valueOf(this.tournoi.getListeParticipant().size()+3));
         labelPart4.setText(String.valueOf(this.tournoi.getListeParticipant().size()+4));
-        nbParticipants.setText("Nombre de participants rentrés : " + this.tournoi.getListeParticipant().size()+1+", restant : "+(this.tournoi.getNbParticipant()-this.tournoi.getListeParticipant().size()+1));
+        nbParticipants.setText("Nombre de participants rentrés : " + this.tournoi.getListeParticipant().size()+", restant : "+(this.tournoi.getNbParticipant()-this.tournoi.getListeParticipant().size()));
     }
 }
 

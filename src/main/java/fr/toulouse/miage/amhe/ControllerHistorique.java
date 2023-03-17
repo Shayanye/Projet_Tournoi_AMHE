@@ -1,6 +1,13 @@
 package fr.toulouse.miage.amhe;
 
+import fr.toulouse.miage.amhe.manche.MancheEquipe;
+import fr.toulouse.miage.amhe.manche.MancheJoueur;
+import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.participant.Equipe;
+import fr.toulouse.miage.amhe.participant.Participant;
+import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
+import fr.toulouse.miage.amhe.tournoi.TournoiEquipe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,8 +16,10 @@ import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
+import java.io.*;
 import java.util.Objects;
+
+import static java.lang.Integer.parseInt;
 
 public class ControllerHistorique {
 
@@ -23,15 +32,65 @@ public class ControllerHistorique {
     private Button retourHistorique;
 
     @FXML
-    public void choisir_fichier() {
+    public void choisir_fichier() throws Exception {
 
         FileChooser dialog = new FileChooser();
         dialog.setInitialDirectory(new File("src/main/java/fr/toulouse/miage/amhe/sauvegarde"));
-        final File file = dialog.showOpenDialog(choix_du_tournoi.getScene().getWindow());
-        if(file!=null){
-            System.out.println("Hello");
-
+        File file = dialog.showOpenDialog(choix_du_tournoi.getScene().getWindow());
+        if (file != null) {
+            choix_du_tournoi.setText(file.getName());
+            FileReader reader = new FileReader(file);
+            BufferedReader br = new BufferedReader(reader);
+            String line;
+            String[] fields;
+            line = br.readLine();
+            //choix du type de tournoi
+            if (line == "NbParticipants,Arme,Nom,0") {
+                line = br.readLine();
+                fields = line.split(",", -1);
+                this.tournoi = new Solo(parseInt(fields[0]), fields[1], fields[2]);
+            } else {
+                line = br.readLine();
+                fields = line.split(",", -1);
+                this.tournoi = new TournoiEquipe(parseInt(fields[0]), fields[1], fields[2]);
+            }
+            br.readLine();
+            while ((line = br.readLine()) != "Listemanche") {
+                if (this.tournoi instanceof Solo) {
+                    this.tournoi.getListeParticipant().add(new Duelliste(line, this.tournoi.getArme()));
+                } else if (this.tournoi instanceof TournoiEquipe) {
+                    fields = line.split(",", -1);
+                    this.tournoi.getListeParticipant().add(new Equipe(fields[0], this.tournoi.getArme(),
+                            new Duelliste(fields[1], this.tournoi.getArme()),
+                            new Duelliste(fields[2], this.tournoi.getArme()),
+                            new Duelliste(fields[3], this.tournoi.getArme()),
+                            new Duelliste(fields[4], this.tournoi.getArme())));
+                }
+                while ((line = br.readLine()) != "resultatTournoi") {
+                    fields = line.split(",", -1);
+                    if (this.tournoi instanceof Solo) {
+                        this.tournoi.getListeManche().add(new MancheJoueur((Duelliste) RecupererJoueurtournoi(fields[1]), (Duelliste) RecupererJoueurtournoi(fields[2])));
+                    } else if (this.tournoi instanceof TournoiEquipe) {
+                        fields = line.split(",", -1);
+                        this.tournoi.getListeManche().add(new MancheEquipe((Equipe) RecupererJoueurtournoi(fields[1]), (Equipe) RecupererJoueurtournoi(fields[2])));
+                    }
+                }
+                while ((line = br.readLine()) != null) {
+                    this.tournoi.ajouterMessage(line);
+                }
+            }
         }
+        System.out.println(this.tournoi.toString());
+    }
+
+
+    private Participant RecupererJoueurtournoi(String nom){
+        for(Participant p : this.tournoi.getListeParticipant()){
+            if(p.getNom()==nom){
+                return p;
+            }
+        }
+        return null;
     }
 
     @FXML
