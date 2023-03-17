@@ -3,6 +3,7 @@ package fr.toulouse.miage.amhe;
 import fr.toulouse.miage.amhe.manche.Manche;
 import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
+import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.participant.Participant;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
@@ -48,13 +49,24 @@ public class CréerTournoiCSV {
         file.append("ListeJoueur");
         file.append(separator);
         for(Participant p: this.tournoi.getListeParticipant()){
-            file.append(p.getNom());
-            file.append(separator);
-        }
+            if(p instanceof Duelliste){
+                file.append(p.getNom());
+                file.append(separator);
+            } else if (p instanceof Equipe){
+                file.append(p.getNom()) ;
+                file.append(delimiteur);
+                for(Duelliste d : ((Equipe) p).getEquipe()){
+                    file.append(d.getNom());
+                    file.append(delimiteur);
+                }
+                file.append(separator);
+            }
+
+            }
         file.append("ListeManche");
         file.append(separator);
         for(Manche m: this.tournoi.getListeManche()){
-            file.append(String.valueOf(numberM)+","+m.getP1().getNom()+","+m.getP2().getNom());
+            file.append("Manche"+(String.valueOf(numberM+1))+","+m.getP1().getNom()+","+m.getP2().getNom());
             file.append(separator);
             numberM=numberM+1;
         }

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ import static java.lang.Integer.parseInt;
 
 public class ControllerHistorique {
 
+    @FXML
+    private TextArea affichageresume;
     @FXML
     private Button goAffichageHistorique;
     private Tournoi tournoi;
@@ -45,7 +48,7 @@ public class ControllerHistorique {
             String[] fields;
             line = br.readLine();
             //choix du type de tournoi
-            if (line == "NbParticipants,Arme,Nom,0") {
+            if (line.equals("NbParticipants,Arme,Nom,0")) {
                 line = br.readLine();
                 fields = line.split(",", -1);
                 this.tournoi = new Solo(parseInt(fields[0]), fields[1], fields[2]);
@@ -55,7 +58,7 @@ public class ControllerHistorique {
                 this.tournoi = new TournoiEquipe(parseInt(fields[0]), fields[1], fields[2]);
             }
             br.readLine();
-            while ((line = br.readLine()) != "Listemanche") {
+            while (!((line = br.readLine()).equals("ListeManche"))) {
                 if (this.tournoi instanceof Solo) {
                     this.tournoi.getListeParticipant().add(new Duelliste(line, this.tournoi.getArme()));
                 } else if (this.tournoi instanceof TournoiEquipe) {
@@ -66,27 +69,30 @@ public class ControllerHistorique {
                             new Duelliste(fields[3], this.tournoi.getArme()),
                             new Duelliste(fields[4], this.tournoi.getArme())));
                 }
-                while ((line = br.readLine()) != "resultatTournoi") {
+            }
+            while (!((line = br.readLine()).equals("resultatTournoi"))) {
+                fields = line.split(",", -1);
+                if (this.tournoi instanceof Solo) {
+                    this.tournoi.getListeManche().add(new MancheJoueur((Duelliste) RecupererJoueurtournoi(fields[1]), (Duelliste) RecupererJoueurtournoi(fields[2])));
+                } else if (this.tournoi instanceof TournoiEquipe) {
                     fields = line.split(",", -1);
-                    if (this.tournoi instanceof Solo) {
-                        this.tournoi.getListeManche().add(new MancheJoueur((Duelliste) RecupererJoueurtournoi(fields[1]), (Duelliste) RecupererJoueurtournoi(fields[2])));
-                    } else if (this.tournoi instanceof TournoiEquipe) {
-                        fields = line.split(",", -1);
-                        this.tournoi.getListeManche().add(new MancheEquipe((Equipe) RecupererJoueurtournoi(fields[1]), (Equipe) RecupererJoueurtournoi(fields[2])));
-                    }
-                }
-                while ((line = br.readLine()) != null) {
-                    this.tournoi.ajouterMessage(line);
+                    this.tournoi.getListeManche().add(new MancheEquipe((Equipe) RecupererJoueurtournoi(fields[1]), (Equipe) RecupererJoueurtournoi(fields[2])));
                 }
             }
+            while ((line = br.readLine()) != null) {
+                this.tournoi.ajouterMessage(line+"\n");
+            }
         }
-        System.out.println(this.tournoi.toString());
+        affichageresume.setText(this.tournoi.toString());
     }
+
+
 
 
     private Participant RecupererJoueurtournoi(String nom){
         for(Participant p : this.tournoi.getListeParticipant()){
-            if(p.getNom()==nom){
+
+            if(p.getNom().equals(nom)){
                 return p;
             }
         }

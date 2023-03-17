@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,1
+4,2,1
+ListeJoueur
+Equipe1,joueur1,joueur2,joueur3,joueur4,
+Equipe2,joueur1,joueur2,joueur3,joueur4,
+Equipe3,joueur1,joueur2,joueur3,joueur4,
+Equipe4,Joueur1,joueur2,joueur3,joueur4,
+ListeManche
+Manche1,Equipe1,Equipe2
+Manche2,Equipe3,Equipe4
+Manche3,Equipe2,Equipe4
+resultatTournoi
+le joueur Equipe2 a gagné contre le joueur Equipe1 lors de la manche 1
+le joueur Equipe4 a gagné contre le joueur Equipe3 lors de la manche 2
+le joueur Equipe4 a gagné contre le joueur Equipe2 lors de la manche 3
+Le gagnant du tournoi 1 est Equipe4

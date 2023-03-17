@@ -4,15 +4,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="38.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historique des tournois :" wrappingWidth="286.93682861328125">
+      <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historique des tournois :" wrappingWidth="286.93682861328125">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Button fx:id="goAffichageHistorique" layoutX="408.0" layoutY="257.0" mnemonicParsing="false" onAction="#goToAffichageHistorique" prefHeight="39.0" prefWidth="75.0" text="Afficher" />
-      <Button fx:id="retourHistorique" layoutX="81.0" layoutY="257.0" mnemonicParsing="false" onAction="#RetourAccueil" prefHeight="39.0" prefWidth="75.0" text="Retour" />
-      <Button fx:id="choix_du_tournoi" onAction="#choisir_fichier" layoutX="221.0" layoutY="111.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="158.0" text="Choisir votre tournoi" />
+      <Button fx:id="retourHistorique" layoutX="74.0" layoutY="305.0" mnemonicParsing="false" onAction="#RetourAccueil" prefHeight="39.0" prefWidth="75.0" text="Retour" />
+      <Button fx:id="choix_du_tournoi" layoutX="209.0" layoutY="305.0" mnemonicParsing="false" onAction="#choisir_fichier" prefHeight="39.0" prefWidth="148.0" text="Choisir votre tournoi" />
+      <TextArea fx:id="affichageresume" layoutX="74.0" layoutY="63.0" prefHeight="220.0" prefWidth="417.0" />
    </children>
 </AnchorPane>

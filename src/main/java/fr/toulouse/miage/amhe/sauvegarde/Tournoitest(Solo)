@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,0
+4,dague,Tournoitest
+ListeJoueur
+joueur1
+joueur2
+joueur3
+joueur4
+ListeManche
+Manche1,joueur1,joueur2
+Manche2,joueur3,joueur4
+Manche3,joueur2,joueur4
+resultatTournoi
+le joueur joueur2 a gagné contre le joueur joueur1 lors de la manche 1
+le joueur joueur4 a gagné contre le joueur joueur3 lors de la manche 2
+le joueur joueur4 a gagné contre le joueur joueur2 lors de la manche 3
+Le gagnant du tournoi Tournoitest est joueur4

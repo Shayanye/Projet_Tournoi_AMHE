@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,0
+4,2,1
+ListeJoueur
+&
+é
+"
+'
+ListeManche
+Manche1,&,é
+Manche2,",'
+Manche3,é,'
+resultatTournoi
+le joueur é a gagné contre le joueur & lors de la manche 1
+le joueur ' a gagné contre le joueur " lors de la manche 2
+le joueur ' a gagné contre le joueur é lors de la manche 3
+Le gagnant du tournoi 1 est '
