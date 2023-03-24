@@ -34,6 +34,7 @@ public class ControllerHistorique {
     @FXML
     private Button retourHistorique;
 
+    /** Fonction qui selon le fichier choisi, le transforme en tournoi, le rempli avec les informations puis affiche son résumé**/
     @FXML
     public void choisir_fichier() throws Exception {
 
@@ -99,17 +100,11 @@ public class ControllerHistorique {
         return null;
     }
 
+    /** Fonction qui permet de retourner à l'accueil **/
     @FXML
     protected void RetourAccueil() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         Stage window = (Stage) retourHistorique.getScene().getWindow();
-        window.setScene(new Scene(root, 600, 400));
-    }
-
-    @FXML
-    protected void goToAffichageHistorique() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AffichageHistorique.fxml")));
-        Stage window = (Stage) goAffichageHistorique.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
 }

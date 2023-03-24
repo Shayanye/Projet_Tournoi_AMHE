@@ -25,6 +25,9 @@ public class Duelliste extends Participant{
     
     
 
+    /** Permet de donner les points gagnés par le participant à chaque attaque
+     *@return int
+     * **/
     public int attaquer() {
         int valeur = this.rand.nextInt(3);
         return points[valeur];

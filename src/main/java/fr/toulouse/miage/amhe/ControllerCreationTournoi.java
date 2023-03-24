@@ -1,5 +1,7 @@
 package fr.toulouse.miage.amhe;
 
+import fr.toulouse.miage.amhe.ControllerRemplirTournoiEquipe;
+import fr.toulouse.miage.amhe.ControllerRemplirTournoiSolo;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import fr.toulouse.miage.amhe.tournoi.TournoiEquipe;
@@ -48,13 +50,14 @@ public class ControllerCreationTournoi {
     /** Fonction qui crée un tournoi selon le type choisi, représenté par le choix passé en paramètre du constructeur**/
     public void creation_tournoi() throws Exception {
         int nb_part;
-
         if( (Group_nb.getSelectedToggle() != null) && (!this.ArmeTournoi.getText().isEmpty()) && (!this.NomTournoi.getText().isEmpty())){
             RadioButton button = (RadioButton) Group_nb.getSelectedToggle();
             nb_part = Integer.parseInt(button.getText());
             if(choix==0) {
                 // On créer un tournoi solo et on se dirige vers la page pour rentrer des Duellistes
-                tournoi = new Solo(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
+                this.tournoi = new Solo(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
+                CréerTournoiCSV file=new CréerTournoiCSV(this.tournoi,this.choix);
+                file.CreerFile();
                 ControllerRemplirTournoiSolo CRTS= new ControllerRemplirTournoiSolo(tournoi);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_participants_4.fxml"));
                 loader.setController(CRTS);
@@ -63,7 +66,9 @@ public class ControllerCreationTournoi {
                 window.setScene(new Scene(root, 600, 400));
             }else if (choix==1){
                 // On créer un tournoi Equipe et on se dirige vers la page pour rentrer des Equipes
-                tournoi = new TournoiEquipe(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
+                this.tournoi = new TournoiEquipe(nb_part, ArmeTournoi.getText(), NomTournoi.getText());
+                CréerTournoiCSV file=new CréerTournoiCSV(this.tournoi,this.choix);
+                file.CreerFile();
                 ControllerRemplirTournoiEquipe CRTE= new ControllerRemplirTournoiEquipe(tournoi);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_participants_4_Equipe.fxml"));
                 loader.setController(CRTE);

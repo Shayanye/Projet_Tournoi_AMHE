@@ -1,6 +1,5 @@
 package fr.toulouse.miage.amhe;
 
-import fr.toulouse.miage.amhe.manche.Manche;
 import fr.toulouse.miage.amhe.manche.MancheEquipe;
 import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
@@ -18,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

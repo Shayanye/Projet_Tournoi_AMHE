@@ -15,7 +15,6 @@ public class MancheJoueur extends Manche {
 
     //private String journal = "";
 
-
     public MancheJoueur(Duelliste duelliste1, Duelliste duelliste2) {
         super(duelliste1,duelliste2);
         if (duelliste1.getRapidité() > duelliste2.getRapidité()) {
@@ -33,6 +32,11 @@ public class MancheJoueur extends Manche {
     }
 
 
+    /**
+     * Détermine le gagnant de la manche
+     *
+     * @return participant1
+     */
     @Override
     public Duelliste jouerManche() {
         while (this.score1 < 15 & this.score2 < 15) {

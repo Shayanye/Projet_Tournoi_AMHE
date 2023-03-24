@@ -1,6 +1,5 @@
 package fr.toulouse.miage.amhe;
 
-import fr.toulouse.miage.amhe.manche.MancheEquipe;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
@@ -16,7 +15,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ControllerRemplirTournoiEquipe implements Initializable {
@@ -46,6 +44,9 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         this.tournoi=tournoi;
         this.choix=1;
     }
+
+
+    /** Permet de rentrer l'équipe qu'on aura inscrit puis d'appeler BouclerParticipants4 **/
     @FXML
     protected void remplirTournoi() throws Exception {
         if (tournoi instanceof TournoiEquipe && !nomEquipe.getText().isEmpty()) {
@@ -62,6 +63,7 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         }
     }
 
+    /** Permet de de boucler sur la page pour pouvoir rentrer les participants**/
     @FXML
     protected void BoucleRentrerParticipant4Equipe() throws Exception {
         ControllerRemplirTournoiEquipe CRTE= new ControllerRemplirTournoiEquipe(tournoi);
@@ -72,6 +74,7 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
+    /** Permet de se diriger vers le lancement de tournoi ainsi que la gestion**/
     @FXML
     protected void goToLancementTournoi4() throws Exception {
         ControllerLancement CL= new ControllerLancement(this.tournoi,this.choix);
@@ -82,6 +85,7 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
+    /** Permet de retourner à la création de tournoi**/
     @FXML
     protected void returnToCreerTournoi() throws Exception {
             ControllerCreationTournoi CCT= new ControllerCreationTournoi(this.choix);

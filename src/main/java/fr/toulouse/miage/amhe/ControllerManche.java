@@ -1,12 +1,9 @@
 package fr.toulouse.miage.amhe;
-import fr.toulouse.miage.amhe.historique.Historique;
-import fr.toulouse.miage.amhe.manche.Manche;
 import fr.toulouse.miage.amhe.manche.MancheEquipe;
 import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
 import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.participant.Participant;
-import fr.toulouse.miage.amhe.tournoi.*;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -155,7 +152,7 @@ public class ControllerManche implements  Initializable{
         }else if(this.tournoi.getListeManche().size()==this.tournoi.getNbParticipant()-1){
             this.tournoi.ajouterMessage("Le gagnant du tournoi "+ this.tournoi.getNom()+ " est "+ this.tournoi.getListeParticipantGagnant().get(0).getNom());
             try {
-                file.CréerFile();
+                file.CréerFileTournoiFini();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

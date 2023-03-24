@@ -32,7 +32,7 @@ public class CréerTournoiCSV {
     }
 
     /** Créer un fichier CVS avec toutes les infos du tournoi ( le fichier se place dans le dossier sauvegarde)**/
-    public void CréerFile() throws IOException {
+    public void CréerFileTournoiFini() throws IOException {
         if(choix==0) {
             file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegarde/" + this.tournoi.getNom()+"(Solo)", true);
         }else{
@@ -75,6 +75,23 @@ public class CréerTournoiCSV {
         file.append(this.tournoi.toString());
         file.close();
 
+    }
+
+    public void CreerFile() throws IOException {
+        if(choix==0) {
+            file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegardeDebut/" + this.tournoi.getNom()+"(Solo)", true);
+        }else{
+            file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegardeDebut/" + this.tournoi.getNom()+"(Equipe)", true);
+        }
+        file.append("NbParticipants,Arme,Nom,"+choix);
+        file.append(separator);
+        file.append(String.valueOf(this.tournoi.getNbParticipant()));
+        file.append(delimiteur);
+        file.append(this.tournoi.getArme());
+        file.append(delimiteur);
+        file.append(this.tournoi.getNom());
+        file.append(separator);
+        file.close();
     }
 
 }

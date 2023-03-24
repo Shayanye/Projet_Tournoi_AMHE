@@ -28,6 +28,7 @@ public class TournoiEquipe  extends Tournoi {
         }
     }
 
+    /** Permet de jouer toutes les manches pour la simulation **/
     @Override
     public String jouerToutesLesManches() {
         ArrayList<Equipe> gagnants = new ArrayList<>();

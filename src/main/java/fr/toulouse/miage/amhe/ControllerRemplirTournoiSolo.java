@@ -1,12 +1,8 @@
 package fr.toulouse.miage.amhe;
 
-import fr.toulouse.miage.amhe.manche.MancheEquipe;
-import fr.toulouse.miage.amhe.manche.MancheJoueur;
 import fr.toulouse.miage.amhe.participant.Duelliste;
-import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.Solo;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
-import fr.toulouse.miage.amhe.tournoi.TournoiEquipe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +14,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 

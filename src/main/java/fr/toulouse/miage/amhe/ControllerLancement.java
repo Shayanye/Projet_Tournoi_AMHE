@@ -1,10 +1,5 @@
 package fr.toulouse.miage.amhe;
 
-import fr.toulouse.miage.amhe.historique.Historique;
-import fr.toulouse.miage.amhe.manche.MancheEquipe;
-import fr.toulouse.miage.amhe.manche.MancheJoueur;
-import fr.toulouse.miage.amhe.participant.Duelliste;
-import fr.toulouse.miage.amhe.participant.Equipe;
 import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
@@ -31,10 +25,6 @@ public class ControllerLancement implements Initializable {
     private Button retourAccueilLancement;
     @FXML
     private Button lancer_tournoi;
-    @FXML
-    private ComboBox<String> comboBoxHistorique= new ComboBox();
-    @FXML
-    private  Historique historique = new Historique();
     @FXML
     private TextArea console_lancement;
     private int choix;
@@ -84,10 +74,7 @@ public class ControllerLancement implements Initializable {
         console_lancement.clear();
         console_lancement.setText("Bienvenue dans le tournoi AMHE : "+this.tournoi.getNom()+"\n");
         console_lancement.appendText(this.tournoi.toString());
-        if(this.tournoi.getListeManche().size()==this.tournoi.getNbParticipant()-1){
-            this.historique.ajouterTournoi(this.tournoi);
         }
-    }
 
 
     /** Fonction qui permet de retourner à l'accueil de l'application**/
