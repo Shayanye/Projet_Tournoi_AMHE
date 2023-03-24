@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,0
+4,test,TournoiLi
+ListeJoueur
+joueur1
+joueur2j
+joueur3
+joueur4
+ListeManche
+Manche1,joueur1,joueur2j
+Manche2,joueur3,joueur4
+Manche3,joueur2j,joueur4
+resultatTournoi
+le joueur joueur2j a gagné contre le joueur joueur1 lors de la manche 1
+le joueur joueur4 a gagné contre le joueur joueur3 lors de la manche 2
+le joueur joueur4 a gagné contre le joueur joueur2j lors de la manche 3
+Le gagnant du tournoi TournoiLi est joueur4
