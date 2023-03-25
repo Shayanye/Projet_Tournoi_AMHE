@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -21,7 +22,7 @@ public class ControllerRemplirTournoiSolo implements Initializable {
 
 
     private int choix;
-    private  Tournoi tournoi;
+    private Tournoi tournoi;
     @FXML
     private Text nbParticipants;
     @FXML
@@ -47,12 +48,17 @@ public class ControllerRemplirTournoiSolo implements Initializable {
     @FXML
     private Button remplirTournoi;
 
-    /** Crée un controller de la page Rentrer_Participant_4 et qui prend en paramètre le tournoi et son type**/
-    public ControllerRemplirTournoiSolo(Tournoi tournoi){
-        this.tournoi=tournoi;
-        this.choix=0;
+    /**
+     * Crée un controller de la page Rentrer_Participant_4 et qui prend en paramètre le tournoi et son type
+     **/
+    public ControllerRemplirTournoiSolo(Tournoi tournoi) {
+        this.tournoi = tournoi;
+        this.choix = 0;
     }
-    /** permet de remplir le tournoi quand les 4 champs sont remplis **/
+
+    /**
+     * permet de remplir le tournoi quand les 4 champs sont remplis
+     **/
     @FXML
     protected void remplirTournoi() throws Exception {
         if (!P1.getText().isEmpty() && !P2.getText().isEmpty() && !P3.getText().isEmpty() && !P4.getText().isEmpty()) {
@@ -62,14 +68,21 @@ public class ControllerRemplirTournoiSolo implements Initializable {
                 tournoi.addParticipant(new Duelliste(P3.getText(), tournoi.getArme()));
                 tournoi.addParticipant(new Duelliste(P4.getText(), tournoi.getArme()));
             }
-        }
-        if (tournoi.getListeParticipant().size() != tournoi.getNbParticipant()) {
-            BoucleRentrerParticipant4();
-        } else {
+            if (tournoi.getListeParticipant().size() != tournoi.getNbParticipant()) {
+                BoucleRentrerParticipant4();
+            } else {
                 goToLancementTournoi4();
 
             }
+        }else
+
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setContentText("Un ou plusieurs champs de participants ne sont pas remplis");
+            alert.showAndWait();
         }
+    }
 
 
         /** Fonction qui permet de revenir sur la page pour rentrer 4 nouveaux participants**/

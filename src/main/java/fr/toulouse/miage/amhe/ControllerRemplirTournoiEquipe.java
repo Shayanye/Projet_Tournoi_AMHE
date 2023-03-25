@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -49,17 +50,24 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
     /** Permet de rentrer l'équipe qu'on aura inscrit puis d'appeler BouclerParticipants4 **/
     @FXML
     protected void remplirTournoi() throws Exception {
-        if (tournoi instanceof TournoiEquipe && !nomEquipe.getText().isEmpty()) {
+        if (tournoi instanceof TournoiEquipe && !nomEquipe.getText().isEmpty() && !P1.getText().isEmpty()
+                && !P2.getText().isEmpty() && !P3.getText().isEmpty() && !P4.getText().isEmpty()) {
             tournoi.addParticipant(new Equipe(nomEquipe.getText(), tournoi.getArme(),
                     new Duelliste(P1.getText(), tournoi.getArme()),
                     new Duelliste(P2.getText(), tournoi.getArme()),
                     new Duelliste(P3.getText(), tournoi.getArme()),
                     new Duelliste(P4.getText(), tournoi.getArme())));
-        }
-        if (tournoi.getListeParticipant().size() != tournoi.getNbParticipant()) {
-            BoucleRentrerParticipant4Equipe();
-        } else {
-            goToLancementTournoi4();
+            if (tournoi.getListeParticipant().size() != tournoi.getNbParticipant()) {
+                BoucleRentrerParticipant4Equipe();
+            } else {
+                goToLancementTournoi4();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Un champ a été oublié");
+            alert.setHeaderText("Un champ n'a pas été rempli");
+            alert.setContentText("Veuillez remplir tous les champs");
+            alert.showAndWait();
         }
     }
 
