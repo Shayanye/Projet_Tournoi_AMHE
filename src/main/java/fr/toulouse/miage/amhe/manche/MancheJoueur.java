@@ -13,8 +13,6 @@ public class MancheJoueur extends Manche {
     private Duelliste premier;
     private Duelliste deuxieme;
 
-    //private String journal = "";
-
     public MancheJoueur(Duelliste duelliste1, Duelliste duelliste2) {
         super(duelliste1,duelliste2);
         if (duelliste1.getRapidité() > duelliste2.getRapidité()) {
@@ -47,10 +45,8 @@ public class MancheJoueur extends Manche {
             this.score2 = this.score2 + deuxieme.attaquer();
         }
         if (score1 > 15) {
-            //this.journal += premier.getNom()+ " vs " + deuxieme.getNom()+" : "+" le joueur "+premier.getNom()+" a gagné \n";
             return premier;
         } else {
-            //this.journal += premier.getNom()+ " vs " + deuxieme.getNom()+" : "+" le joueur "+deuxieme.getNom()+" a gagné \n";
             return deuxieme;
         }
     }
