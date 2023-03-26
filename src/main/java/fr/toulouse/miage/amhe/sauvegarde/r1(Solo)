@@ -1,0 +1,40 @@
+NbParticipants,Arme,Nom,0
+12,Epée,r1
+ListeJoueur
+1
+2
+3
+'
+5
+6
+7
+8
+9
+10
+11
+12
+ListeManche
+Manche1,1,2
+Manche2,3,'
+Manche3,5,6
+Manche4,7,8
+Manche5,2,'
+Manche6,6,7
+Manche7,',7
+resultatTournoi
+Le participant 1 est sorti vainqueur de la pool 
+Le participant 2 est sorti vainqueur de la pool 
+Le participant 3 est sorti vainqueur de la pool 
+Le participant ' est sorti vainqueur de la pool 
+Le participant 5 est sorti vainqueur de la pool 
+Le participant 6 est sorti vainqueur de la pool 
+Le participant 7 est sorti vainqueur de la pool 
+Le participant 8 est sorti vainqueur de la pool 
+le joueur 2 a gagné contre le joueur 1 lors de la manche 4
+le joueur ' a gagné contre le joueur 3 lors de la manche 2
+le joueur 6 a gagné contre le joueur 5 lors de la manche 3
+le joueur 7 a gagné contre le joueur 8 lors de la manche 4
+le joueur ' a gagné contre le joueur 2 lors de la manche 5
+le joueur 7 a gagné contre le joueur 6 lors de la manche 6
+le joueur 7 a gagné contre le joueur ' lors de la manche 7
+Le gagnant du tournoi r1 est 7

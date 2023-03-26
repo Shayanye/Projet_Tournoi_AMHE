@@ -82,6 +82,12 @@ public class ControllerManche implements  Initializable{
             Parent root = loader.load();
             Stage window = (Stage) remplirtournoiGestion.getScene().getWindow();
             window.setScene(new Scene(root, 600, 400));
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Champs incomplets");
+            alert.setHeaderText("Veuillez saisir tous les champs");
+            alert.setContentText("Veuillez sélectionner un participant dans chaque champ");
+            alert.showAndWait();
         }
     }
 
@@ -144,13 +150,13 @@ public class ControllerManche implements  Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // initialise les champs de texte
-        manchecb.setText("Manche "+ nombre_actuel+" sur "+(this.tournoi.getNbParticipant()-1));
+        manchecb.setText("Manche "+ nombre_actuel+" sur "+(this.tournoi.getNbVainqueursNecessairesPool()-1));
         numManche.setText("M"+nombre_actuel);
         //si la liste des participants à rentrer est vide mais qu'on a pas toutes les manches, on remplit la liste de participants avec la fonction remplirListeParticipantArentrer
-        if(this.tournoi.getListeParticipantArentrer().size()==0 && this.tournoi.getListeManche().size()!=this.tournoi.getNbParticipant()-1) {
+        if(this.tournoi.getListeParticipantArentrer().size()==0 && this.tournoi.getListeManche().size()!=this.tournoi.getNbVainqueursNecessairesPool()-1) {
             remplirParticipantArentrer();
             // sinon si il y a toutes les manches on annonce le gagnant et on crée le fichier CSV de sauvegarde
-        }else if(this.tournoi.getListeManche().size()==this.tournoi.getNbParticipant()-1){
+        }else if(this.tournoi.getListeManche().size()==this.tournoi.getNbVainqueursNecessairesPool()-1){
             this.tournoi.ajouterMessage("Le gagnant du tournoi "+ this.tournoi.getNom()+ " est "+ this.tournoi.getListeParticipantGagnant().get(0).getNom());
             try {
                 file.CréerFileTournoiFini();

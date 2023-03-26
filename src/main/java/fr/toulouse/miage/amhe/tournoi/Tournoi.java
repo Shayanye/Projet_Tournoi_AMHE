@@ -17,6 +17,11 @@ import java.util.ArrayList;
 
 public abstract class Tournoi {
 
+    public int getNbVainqueursNecessairesPool() {
+        return nbVainqueursNecessairesPool;
+    }
+
+    private int nbVainqueursNecessairesPool;
     protected ArrayList<Participant> listeParticipantGagnant;
     protected ArrayList<Participant> listeParticipantArentrer;
     protected ArrayList<Participant> listeParticipant;
@@ -32,11 +37,22 @@ public abstract class Tournoi {
         this.arme = arme;
         this.listeParticipant = new ArrayList<>(this.getNbParticipant());
         this.listeParticipantArentrer = new ArrayList<>(this.getNbParticipant());
-        this.listeManche = new ArrayList<>(this.getNbParticipant()-1);
+        initialisationListe(nbParticipant);
         this.listeParticipantGagnant=new ArrayList<>(this.getNbParticipant());
     }
      
-    
+    private void initialisationListe(int nbParticipant) {
+        if ( nbParticipant < 16 && nbParticipant>=8) {
+            this.listeManche = new ArrayList<>(7);
+            this.nbVainqueursNecessairesPool=8;
+        } else if (nbParticipant >= 16) {
+            this.listeManche = new ArrayList<>(15);
+            this.nbVainqueursNecessairesPool=16;
+        } else if (nbParticipant < 8) {
+            this.listeManche = new ArrayList<>(3);
+            this.nbVainqueursNecessairesPool=4;
+        }
+    }
     public int getNbParticipant() {
 
         return this.nbParticipant;

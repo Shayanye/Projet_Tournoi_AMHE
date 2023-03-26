@@ -57,8 +57,8 @@ public class ControllerSimulation implements Initializable{
         }else{
             this.tournoisimulation = new TournoiEquipe(this.tournoi.getNbParticipant(),this.tournoi.getArme(),this.tournoi.getNom());
         }
-        for(Participant p :this.tournoi.getListeParticipant()){
-            this.tournoisimulation.getListeParticipant().add(p);
+        for(int i=0 ; i<this.tournoi.getNbVainqueursNecessairesPool();i++){
+            this.tournoisimulation.getListeParticipant().add(this.tournoi.getListeParticipant().get(i));
         }
     }
 

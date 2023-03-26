@@ -1,0 +1,40 @@
+NbParticipants,Arme,Nom,0
+12,EpéeBocle,test2
+ListeJoueur
+j1
+J2
+J"
+J'
+J(
+J_ç
+JO
+JZOA
+EZ
+ZI
+ZRIH
+ZI
+ListeManche
+Manche1,j1,J2
+Manche2,J",J'
+Manche3,J(,J_ç
+Manche4,JO,EZ
+Manche5,J2,J'
+Manche6,J_ç,EZ
+Manche7,J',EZ
+resultatTournoi
+Le participant j1 est sorti vainqueur de la pool 
+Le participant J2 est sorti vainqueur de la pool 
+Le participant J" est sorti vainqueur de la pool 
+Le participant J' est sorti vainqueur de la pool 
+Le participant J( est sorti vainqueur de la pool 
+Le participant J_ç est sorti vainqueur de la pool 
+Le participant JO est sorti vainqueur de la pool 
+Le participant EZ est sorti vainqueur de la pool 
+le joueur J2 a gagné contre le joueur j1 lors de la manche 4
+le joueur J' a gagné contre le joueur J" lors de la manche 2
+le joueur J_ç a gagné contre le joueur J( lors de la manche 3
+le joueur EZ a gagné contre le joueur JO lors de la manche 4
+le joueur J' a gagné contre le joueur J2 lors de la manche 5
+le joueur EZ a gagné contre le joueur J_ç lors de la manche 6
+le joueur EZ a gagné contre le joueur J' lors de la manche 7
+Le gagnant du tournoi test2 est EZ

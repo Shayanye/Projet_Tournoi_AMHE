@@ -1,0 +1,21 @@
+NbParticipants,Arme,Nom,0
+5,Epée,j1
+ListeJoueur
+j1
+j2
+j3
+4
+j5
+ListeManche
+Manche1,j1,j2
+Manche2,j3,j5
+Manche3,j2,j5
+resultatTournoi
+Le participant j1 est sorti vainqueur de la pool 
+Le participant j2 est sorti vainqueur de la pool 
+Le participant j3 est sorti vainqueur de la pool 
+Le participant j5 est sorti vainqueur de la pool 
+le joueur j2 a gagné contre le joueur j1 lors de la manche 1
+le joueur j5 a gagné contre le joueur j3 lors de la manche 2
+le joueur j5 a gagné contre le joueur j2 lors de la manche 3
+Le gagnant du tournoi j1 est j5

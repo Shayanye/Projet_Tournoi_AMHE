@@ -53,18 +53,22 @@ public class ControllerLancement implements Initializable {
     }
 
     /** Fonction qui permet d'allez vers la page pour rentrer les manches du tournoi**/
-    // Exemple qui permet d'aller sur une autre page tout en lui donnant le tournoi qu'on a crée précédemment
     public void GoToRentrerManche() throws IOException {
-        //je crée le controller de la page sur laquelle je vais aller
-        ControllerManche cm = new ControllerManche(this.tournoi, choix);
-        //on "load" la page
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_manches_4.fxml"));
-        //on lui donne le controler précédemment crée
-        loader.setController(cm);
-        // et là on change de page
-        Parent root = loader.load();
-        Stage window = (Stage) gérerTournoi.getScene().getWindow();
-        window.setScene(new Scene(root, 600, 400));
+        if(this.tournoi.getListeParticipantArentrer().size()<=this.tournoi.getNbVainqueursNecessairesPool()) {
+            ControllerManche cm = new ControllerManche(this.tournoi, choix);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_manches_4.fxml"));
+            loader.setController(cm);
+            Parent root = loader.load();
+            Stage window = (Stage) gérerTournoi.getScene().getWindow();
+            window.setScene(new Scene(root, 600, 400));
+        } else{
+            ControllerPoule CP= new ControllerPoule(this.tournoi, choix);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionPoule.fxml"));
+            loader.setController(CP);
+            Parent root = loader.load();
+            Stage window = (Stage) gérerTournoi.getScene().getWindow();
+            window.setScene(new Scene(root, 600, 400));
+        }
     }
 
 

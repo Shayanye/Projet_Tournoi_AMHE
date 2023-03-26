@@ -67,7 +67,6 @@ public class ControllerCreationTournoi {
                 if (choix == 0) {
                     // On créer un tournoi solo et on se dirige vers la page pour rentrer des Duellistes
                     this.tournoi = new Solo(nb_part, choiceArme.getValue(), NomTournoi.getText());
-                    System.out.println(this.tournoi.getArme());
                     CréerTournoiCSV file = new CréerTournoiCSV(this.tournoi, this.choix);
                     file.CreerFile();
                     ControllerRemplirTournoiSolo CRTS = new ControllerRemplirTournoiSolo(tournoi);
@@ -93,6 +92,7 @@ public class ControllerCreationTournoi {
     }
 
 
+    @FXML
     private void choisir_arme() {
         if (choiceArme.getItems().isEmpty()) {
             for (int i = 0; i < armes.length; i++) {

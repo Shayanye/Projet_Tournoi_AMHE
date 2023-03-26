@@ -1,0 +1,16 @@
+NbParticipants,Arme,Nom,0
+4,Epée,test
+ListeJoueur
+1
+2
+3
+4
+ListeManche
+Manche1,1,2
+Manche2,3,4
+Manche3,2,4
+resultatTournoi
+le joueur 2 a gagné contre le joueur 1 lors de la manche 1
+le joueur 4 a gagné contre le joueur 3 lors de la manche 2
+le joueur 4 a gagné contre le joueur 2 lors de la manche 3
+Le gagnant du tournoi test est 4
