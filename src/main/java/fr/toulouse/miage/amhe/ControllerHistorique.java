@@ -31,10 +31,13 @@ public class ControllerHistorique {
     private Tournoi tournoi;
     @FXML
     private Button choix_du_tournoi;
+    /**
+     *
+     */
     @FXML
     private Button retourHistorique;
 
-    /** Fonction qui selon le fichier choisi, le transforme en tournoi, le rempli avec les informations puis affiche son résumé**/
+    /**Fonction qui selon le fichier choisi, le transforme en tournoi, le rempli avec les informations puis affiche son résumé*/
     @FXML
     public void choisir_fichier() throws Exception {
 

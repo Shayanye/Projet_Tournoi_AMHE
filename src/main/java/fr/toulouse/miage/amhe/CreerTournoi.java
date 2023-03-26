@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class CreerTournoi extends Application {
+    /**
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root =FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));

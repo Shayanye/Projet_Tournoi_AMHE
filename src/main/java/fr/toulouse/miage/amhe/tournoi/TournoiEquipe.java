@@ -20,6 +20,9 @@ public class TournoiEquipe  extends Tournoi {
 
     }
 
+    /**
+     * @param e
+     */
     @Override
     public void addParticipant(Participant e){
         if(this.listeParticipant.size() < this.getNbParticipant() && e instanceof Equipe) {

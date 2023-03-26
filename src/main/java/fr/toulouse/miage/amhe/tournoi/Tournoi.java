@@ -69,6 +69,9 @@ public abstract class Tournoi {
         return i;
     }
 
+    /**
+     *
+     */
     public void clearJournal(){
         this.journal="";
     }

@@ -23,6 +23,9 @@ public abstract class Manche {
 
     public abstract Participant jouerManche();
 
+    /**
+     * @return
+     */
     public int getScore1(){
 
         return score1;

@@ -77,6 +77,9 @@ public class CréerTournoiCSV {
 
     }
 
+    /**
+     * @throws IOException
+     */
     public void CreerFile() throws IOException {
         if(choix==0) {
             file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegardeDebut/" + this.tournoi.getNom()+"(Solo)", true);

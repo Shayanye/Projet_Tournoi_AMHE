@@ -37,7 +37,8 @@ public class ControllerLancement implements Initializable {
         this.tournoi=tournoi;
     }
 
-    /** Fonction qui permet de créer un Controller de la page Simulation et de se diriger vers cette dernière **/
+    /** Fonction qui permet de créer un Controller de la page Simulation et de se diriger vers cette dernière
+     * @throws Exception*/
     public void GotoSimulation() throws Exception {
         //je crée le controller de la page sur laquelle je vais aller
         ControllerSimulation CS = new ControllerSimulation(this.tournoi, this.choix);

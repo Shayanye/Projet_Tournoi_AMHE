@@ -53,7 +53,8 @@ public class ControllerManche implements  Initializable{
         this.file=new CréerTournoiCSV(tournoi,choix);
     }
 
-    /** Permet de remplir les manches du tournoi 1 par 1**/
+    /** Permet de remplir les manches du tournoi 1 par 1
+     * @throws IOException**/
     @FXML
     public void remplirtournoiGestion() throws IOException {
         if(!(MP2.getValue()==null) & !(MP1.getValue()==null) & !(MG.getValue()==null)) {

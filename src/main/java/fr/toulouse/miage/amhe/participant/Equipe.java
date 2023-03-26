@@ -19,6 +19,9 @@ public class Equipe extends Participant {
         return this.Equipe;
     }
 
+    /**
+     * @param d
+     */
     public void ajouterMembre(Duelliste d) {
 
         Equipe.add(d);

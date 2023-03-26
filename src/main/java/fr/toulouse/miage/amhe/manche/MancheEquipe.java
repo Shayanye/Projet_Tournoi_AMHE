@@ -2,6 +2,9 @@ package fr.toulouse.miage.amhe.manche;
 
 import fr.toulouse.miage.amhe.participant.Equipe;
 
+/**
+ *
+ */
 public class MancheEquipe extends Manche {
     private final static MancheJoueur[] listeManche = new MancheJoueur[4];
 

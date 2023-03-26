@@ -45,7 +45,10 @@ public class ControllerSimulation implements Initializable{
             throw new RuntimeException(e);
         }
     }
-    /** Crée un réplicat du tournoi pour pouvoir l'utiliser en tant que simulation**/
+    /** Crée un réplicat du tournoi pour pouvoir l'utiliser en tant que simulation
+     * @param tournoi
+     * @param choix
+     * @throws Exception**/
     public ControllerSimulation(Tournoi tournoi,int choix) throws Exception {
         this.tournoi=tournoi;
         this.choix=choix;

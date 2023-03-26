@@ -12,7 +12,6 @@ import fr.toulouse.miage.amhe.participant.Participant;
  *
  */
 public class Solo extends Tournoi{
-
 	//private Duelliste duellistes;
 
 
@@ -43,7 +42,10 @@ public class Solo extends Tournoi{
 	}
 
 
-	/** Permet de jouer toutes les manches pour la simulation **/
+	/**
+	 *  Permet de jouer toutes les manches pour la simulation
+	 *
+	 *  **/
 	public String jouerToutesLesManches(){
 		ArrayList<Duelliste> gagnants = new ArrayList<>();
 		int tour_a_effectuer = this.calculTourAEffectuer();

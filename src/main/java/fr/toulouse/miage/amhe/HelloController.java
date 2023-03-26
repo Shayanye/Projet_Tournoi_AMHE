@@ -41,7 +41,8 @@ public class HelloController {
     private Button goHistorique;
 
 
-    /** Fonction de choix type tournoi qui permet d'aller à une creation de tournoi solo**/
+    /** Fonction de choix type tournoi qui permet d'aller à une creation de tournoi solo
+     * @throws Exception**/
     @FXML
     protected void Go_to_CreerTournoi_Solo() throws Exception {
         ControllerCreationTournoi CCT= new ControllerCreationTournoi(0);

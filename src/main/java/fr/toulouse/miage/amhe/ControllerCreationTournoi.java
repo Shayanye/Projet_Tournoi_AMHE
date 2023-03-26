@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+
 public class ControllerCreationTournoi {
     private int choix;
     @FXML
@@ -32,13 +33,18 @@ public class ControllerCreationTournoi {
     @FXML
     private Tournoi tournoi;
 
-    /** Crée un controller avec le choix du type de tournoi passé en paramètre **/
+    /** Crée un controller avec le choix du type de tournoi passé en paramètre
+     *
+     *
+     * @param choix*/
     public ControllerCreationTournoi(int choix){
 
         this.choix=choix;
     }
 
-    /** Fonction qui crée un tournoi selon le type choisi, représenté par le choix passé en paramètre du constructeur**/
+    /** Fonction qui crée un tournoi selon le type choisi, représenté par le choix passé en paramètre du constructeur
+     *
+     * */
     public void creation_tournoi() throws Exception {
         int nb_part;
         if(Nbparticipant.getText().isEmpty() || NomTournoi.getText().isEmpty() || ArmeTournoi.getText().isEmpty() ){
@@ -85,7 +91,8 @@ public class ControllerCreationTournoi {
     }
 
 
-    /** Fonction qui permet de retour à la page du choix de type de tournoi**/
+    /** Fonction qui permet de retour à la page du choix de type de tournoi
+     * @throws Exception*/
     @FXML
     protected void retourChoixTypeTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));

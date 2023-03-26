@@ -47,7 +47,8 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
     }
 
 
-    /** Permet de rentrer l'équipe qu'on aura inscrit puis d'appeler BouclerParticipants4 **/
+    /** Permet de rentrer l'équipe qu'on aura inscrit puis d'appeler BouclerParticipants4
+     * @throws Exception**/
     @FXML
     protected void remplirTournoi() throws Exception {
         if (tournoi instanceof TournoiEquipe && !nomEquipe.getText().isEmpty() && !P1.getText().isEmpty()

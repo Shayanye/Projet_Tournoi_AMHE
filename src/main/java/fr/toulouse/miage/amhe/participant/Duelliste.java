@@ -7,8 +7,7 @@ package fr.toulouse.miage.amhe.participant;
 import java.util.Random;
 
 /**
- *
- * @author valen
+ * Classe qui crée un duelliste
  */
 public class Duelliste extends Participant{
 
