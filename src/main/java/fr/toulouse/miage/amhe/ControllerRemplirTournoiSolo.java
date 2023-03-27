@@ -52,16 +52,18 @@ public class ControllerRemplirTournoiSolo implements Initializable {
     private Button remplirTournoi;
 
     /**
-     * Crée un controller de la page Rentrer_Participant_4 et qui prend en paramètre le tournoi et son type
-     **/
+     * * Crée un controller de la page Rentrer_Participant_4 et qui prend en paramètre le tournoi et son type
+     * @param tournoi
+     */
     public ControllerRemplirTournoiSolo(Tournoi tournoi) {
         this.tournoi = tournoi;
         this.choix = 0;
     }
 
     /**
-     * permet de remplir le tournoi quand les 4 champs sont remplis
-     **/
+     *  permet de remplir le tournoi quand tous les champs valides sont remplis
+     * @throws Exception
+     */
     @FXML
     protected void remplirTournoi() throws Exception {
         if (!P1.getText().isEmpty() && (P2.isDisable() || !P2.getText().isEmpty()) && (P3.isDisable() || !P3.getText().isEmpty()) && (P4.isDisable() || !P4.getText().isEmpty())) {
@@ -88,7 +90,10 @@ public class ControllerRemplirTournoiSolo implements Initializable {
     }
 
 
-        /** Fonction qui permet de revenir sur la page pour rentrer 4 nouveaux participants**/
+    /**
+     *  Fonction qui permet de revenir sur la page pour rentrer 4 nouveaux participants
+     * @throws Exception
+     */
     @FXML
     protected void BoucleRentrerParticipant4() throws Exception {
         ControllerRemplirTournoiSolo CRTS= new ControllerRemplirTournoiSolo(tournoi);
@@ -99,7 +104,10 @@ public class ControllerRemplirTournoiSolo implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Fonction qui permet d'aller dans la page du lancement de tournoi et de le gérer**/
+    /**
+     * Fonction qui permet d'aller dans la page du lancement de tournoi et de le gérer
+     * @throws Exception
+     */
     @FXML
     protected void goToLancementTournoi4() throws Exception {
         ControllerLancement CL= new ControllerLancement(this.tournoi,this.choix);
@@ -109,7 +117,11 @@ public class ControllerRemplirTournoiSolo implements Initializable {
         Stage window = (Stage) remplirTournoi.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
-    /** Fonction qui permet de revenir sur la page pour créer le tournoi**/
+
+    /**
+     * Fonction qui permet de revenir sur la page pour créer le tournoi
+     * @throws Exception
+     */
     @FXML
     protected void returnToCreerTournoi() throws Exception {
         ControllerCreationTournoi CCT= new ControllerCreationTournoi(this.choix);
@@ -121,6 +133,10 @@ public class ControllerRemplirTournoiSolo implements Initializable {
         tournoi=null;
     }
 
+    /**
+     * Permet de "disable" les champs non nécessaire
+     * @param restant
+     */
     private void verif_nombre_restant(int restant){
         if(restant==3){
             P4.setDisable(true);
@@ -133,6 +149,12 @@ public class ControllerRemplirTournoiSolo implements Initializable {
             P4.setDisable(true);
         }
     }
+
+    /**
+     * Permet d'initialiser les textes
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         labelPart1.setText(String.valueOf(this.tournoi.getListeParticipant().size()+1));

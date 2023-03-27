@@ -9,6 +9,11 @@ public abstract class Participant {
 
     protected String arme;
 
+    /**
+     * Constructeur de la classe abstraite
+     * @param nom
+     * @param arme
+     */
     public Participant(String nom,String arme){
         this.nom=nom;
         this.arme=arme;

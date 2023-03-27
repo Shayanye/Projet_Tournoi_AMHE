@@ -97,7 +97,9 @@ public class ControllerCreationTournoi implements Initializable {
         }
     }
 
-
+    /**
+     * Permet de choisir l'arme du tournoi
+     */
     @FXML
     private void choisir_arme() {
         if (choiceArme.getItems().isEmpty()) {
@@ -107,7 +109,8 @@ public class ControllerCreationTournoi implements Initializable {
         }
     }
     /** Fonction qui permet de retour à la page du choix de type de tournoi
-     * @throws Exception*/
+     * @throws Exception
+     */
     @FXML
     protected void retourChoixTypeTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
@@ -115,6 +118,11 @@ public class ControllerCreationTournoi implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
+    /**
+     * Permet de donner les règles du tournoi
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         regle.setText("Les règles sont les suivantes :  Après le nombre de participants rentrés, il va y avoir une pool\n " +

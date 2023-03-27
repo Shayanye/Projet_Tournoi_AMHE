@@ -37,7 +37,10 @@ public class ControllerHistorique {
     @FXML
     private Button retourHistorique;
 
-    /**Fonction qui selon le fichier choisi, le transforme en tournoi, le rempli avec les informations puis affiche son résumé*/
+    /**
+     * Fonction qui selon le fichier choisi, le transforme en tournoi, le rempli avec les informations puis affiche son résumé
+     * @throws Exception
+     */
     @FXML
     public void choisir_fichier() throws Exception {
 
@@ -91,8 +94,11 @@ public class ControllerHistorique {
     }
 
 
-
-
+    /**
+     * Permet de récupérer le joueur du tournoi avec un nom passé en paramètre
+     * @param nom
+     * @return
+     */
     private Participant RecupererJoueurtournoi(String nom){
         for(Participant p : this.tournoi.getListeParticipant()){
 
@@ -103,7 +109,10 @@ public class ControllerHistorique {
         return null;
     }
 
-    /** Fonction qui permet de retourner à l'accueil **/
+    /**
+     * Fonction qui permet de retourner à l'accueil
+     * @throws Exception
+     */
     @FXML
     protected void RetourAccueil() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));

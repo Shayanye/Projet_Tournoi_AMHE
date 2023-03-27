@@ -21,6 +21,9 @@ public abstract class Tournoi {
         return nbVainqueursNecessairesPool;
     }
 
+    /**
+     * Donne le nombre de vainqueurs que l'on doit donner dans la pool
+     */
     private int nbVainqueursNecessairesPool;
     protected ArrayList<Participant> listeParticipantGagnant;
     protected ArrayList<Participant> listeParticipantArentrer;
@@ -30,7 +33,13 @@ public abstract class Tournoi {
     private int nbParticipant;
     protected String journal="";
     private String arme;
-    
+
+    /**
+     *
+     * @param nbParticipant
+     * @param arme
+     * @param nom
+     */
     public Tournoi(int nbParticipant, String arme, String nom) {
     	this.nom=nom;
     	this.nbParticipant = nbParticipant;
@@ -40,7 +49,12 @@ public abstract class Tournoi {
         initialisationListe(nbParticipant);
         this.listeParticipantGagnant=new ArrayList<>(this.getNbParticipant());
     }
-     
+
+    /**
+     * Permet d'initialiser la capacité de la liste des manches et le nombre de vainqueurs de la pool
+     * selon le nombre de participants
+     * @param nbParticipant
+     */
     private void initialisationListe(int nbParticipant) {
         if ( nbParticipant < 16 && nbParticipant>=8) {
             this.listeManche = new ArrayList<>(7);
@@ -72,6 +86,10 @@ public abstract class Tournoi {
         return this.nom;
     }
 
+    /**
+     * Permet de calculer le nombre de tour à effectuer ( donc chaque paquet de joueurs ayant gagné des manches)
+     * @return
+     */
     protected int calculTourAEffectuer(){
         int nbParticipant = this.getNbVainqueursNecessairesPool();
         int i = 1;

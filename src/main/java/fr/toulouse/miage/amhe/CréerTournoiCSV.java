@@ -31,7 +31,10 @@ public class CréerTournoiCSV {
         this.journal=tournoi.toString();
     }
 
-    /** Créer un fichier CVS avec toutes les infos du tournoi ( le fichier se place dans le dossier sauvegarde)**/
+    /**
+     * Créer un fichier CVS avec toutes les infos du tournoi, participants, manches, gagnant... ( le fichier se place dans le dossier sauvegarde)
+     * @throws IOException
+     */
     public void CréerFileTournoiFini() throws IOException {
         if(choix==0) {
             file = new FileWriter("src/main/java/fr/toulouse/miage/amhe/sauvegarde/" + this.tournoi.getNom()+"(Solo)", true);
@@ -78,6 +81,7 @@ public class CréerTournoiCSV {
     }
 
     /**
+     * Permet de créer un fichier contenant les variables du tournoi récemment crée (il se place dans le dossier sauvegardeDebut)
      * @throws IOException
      */
     public void CreerFile() throws IOException {

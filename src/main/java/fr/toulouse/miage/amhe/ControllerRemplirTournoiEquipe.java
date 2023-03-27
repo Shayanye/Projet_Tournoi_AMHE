@@ -47,8 +47,10 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
     }
 
 
-    /** Permet de rentrer l'équipe qu'on aura inscrit puis d'appeler BouclerParticipants4
-     * @throws Exception**/
+    /**
+     * Permet de rentrer l'équipe qu'on aura inscrit puis d'appeler BouclerParticipants4
+     * @throws Exception
+     */
     @FXML
     protected void remplirTournoi() throws Exception {
         if (tournoi instanceof TournoiEquipe && !nomEquipe.getText().isEmpty() && !P1.getText().isEmpty()
@@ -72,7 +74,10 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         }
     }
 
-    /** Permet de de boucler sur la page pour pouvoir rentrer les participants**/
+    /**
+     * Permet de de boucler sur la page pour pouvoir rentrer les participants
+     * @throws Exception
+     */
     @FXML
     protected void BoucleRentrerParticipant4Equipe() throws Exception {
         ControllerRemplirTournoiEquipe CRTE= new ControllerRemplirTournoiEquipe(tournoi);
@@ -83,7 +88,10 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Permet de se diriger vers le lancement de tournoi ainsi que la gestion**/
+    /**
+     * Permet de se diriger vers le lancement de tournoi ainsi que la gestion
+     * @throws Exception
+     */
     @FXML
     protected void goToLancementTournoi4() throws Exception {
         ControllerLancement CL= new ControllerLancement(this.tournoi,this.choix);
@@ -94,7 +102,10 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Permet de retourner à la création de tournoi**/
+    /**
+     * Permet de retourner à la création de tournoi
+     * @throws Exception
+     */
     @FXML
     protected void returnToCreerTournoi() throws Exception {
             ControllerCreationTournoi CCT= new ControllerCreationTournoi(this.choix);

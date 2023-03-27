@@ -15,10 +15,12 @@ public class Solo extends Tournoi{
 	//private Duelliste duellistes;
 
 
-
-	
 	/**
-	 * Constructeur de tournoi solo
+	 * Contructeur d'un tournoi en solo
+	 * @param nbParticipant
+	 * @param arme
+	 * @param nom
+	 * @throws Exception
 	 */
 	public Solo(int nbParticipant, String arme, String nom)  throws  Exception{
 		super(nbParticipant, arme, nom);
@@ -28,6 +30,10 @@ public class Solo extends Tournoi{
 
 	}
 
+	/**
+	 * Ajoute un participant à la liste des participants
+	 * @param d
+	 */
 	public void addParticipant(Participant d){
 		if(this.listeParticipant.size() < this.getNbParticipant() && d instanceof Duelliste) {
 			this.listeParticipant.add(d);
@@ -43,8 +49,8 @@ public class Solo extends Tournoi{
 
 
 	/**
-	 *  Permet de jouer toutes les manches pour la simulation
-	 *
+	 *  Permet de jouer toutes les manches pour la simulation et retourne le résumé
+	 * @return
 	 *  **/
 	public String jouerToutesLesManches(){
 		ArrayList<Duelliste> gagnants = new ArrayList<>();

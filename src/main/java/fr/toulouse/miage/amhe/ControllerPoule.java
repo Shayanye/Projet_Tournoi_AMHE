@@ -18,6 +18,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 public class ControllerPoule implements Initializable {
     @FXML
     private Button retourPoule;
@@ -37,25 +40,43 @@ public class ControllerPoule implements Initializable {
     private int choix;
     private Tournoi tournoi;
 
+    /**
+     *
+     * @param tournoi
+     * @param choix
+     */
     public ControllerPoule(Tournoi tournoi, int choix) {
         this.tournoi = tournoi;
         this.choix = choix;
     }
 
+    /**
+     *
+     * @param tournoi
+     * @param choix
+     * @param vainqueurs
+     */
     public ControllerPoule(Tournoi tournoi, int choix, ArrayList<Participant> vainqueurs) {
         this.tournoi = tournoi;
         this.choix = choix;
         this.vainqueurs = vainqueurs;
     }
 
+    /**
+     * Permet de remplir les comboBox avec les participants
+     * @param combo
+     */
     private void remplirComboBox(ComboBox combo) {
         for (Participant p : this.tournoi.getListeParticipantArentrer()) {
             combo.getItems().add(p.getNom());
         }
     }
 
+    /**
+     * Permet d'enlever les participants de GP1 déjà choisis dans les autres combobox
+     */
     @FXML
-    public void verifierComboGP1() {
+    private void verifierComboGP1() {
         if (GP1.getItems().contains(GP2.getValue())) {
             GP1.getItems().remove(GP2.getValue());
         }
@@ -67,8 +88,11 @@ public class ControllerPoule implements Initializable {
         }
     }
 
+    /**
+     * Permet d'enlever les participants de GP2 déjà choisis dans les autres combobox
+     */
     @FXML
-    public void verifierComboGP2() {
+    private void verifierComboGP2() {
         if (GP2.getItems().contains(GP1.getValue())) {
             GP2.getItems().remove(GP1.getValue());
         }
@@ -80,8 +104,11 @@ public class ControllerPoule implements Initializable {
         }
     }
 
+    /**
+     * Permet d'enlever les participants de GP3 déjà choisis dans les autres combobox
+     */
     @FXML
-    public void verifierComboGP3() {
+    private void verifierComboGP3() {
         if (GP3.getItems().contains(GP1.getValue())) {
             GP3.getItems().remove(GP1.getValue());
         }
@@ -93,8 +120,11 @@ public class ControllerPoule implements Initializable {
         }
     }
 
+    /**
+     * Permet d'enlever les participants de GP4 déjà choisis dans les autres combobox
+     */
     @FXML
-    public void verifierComboGP4() {
+    private void verifierComboGP4() {
         if (GP4.getItems().contains(GP1.getValue())) {
             GP4.getItems().remove(GP1.getValue());
         }
@@ -106,6 +136,10 @@ public class ControllerPoule implements Initializable {
         }
     }
 
+    /**
+     * Permet de valider les joueurs choisis et soit de revenir gérer le tournoi soit faire des simulations
+     * @throws IOException
+     */
     @FXML
     public void validerlesJoueursChoisis() throws IOException {
         if (!(GP1.getValue() == null) && !(GP1.getValue() == null) && !(GP1.getValue() == null) && !(GP1.getValue() == null)) {
@@ -117,7 +151,7 @@ public class ControllerPoule implements Initializable {
             this.tournoi.getListeParticipantArentrer().remove(RecupererJoueurtournoi(GP2.getValue()));
             this.tournoi.getListeParticipantArentrer().remove(RecupererJoueurtournoi(GP3.getValue()));
             this.tournoi.getListeParticipantArentrer().remove(RecupererJoueurtournoi(GP4.getValue()));
-            if (this.vainqueurs.size() ==this.tournoi.getNbVainqueursNecessairesPool()) {
+            if (this.vainqueurs.size() == this.tournoi.getNbVainqueursNecessairesPool()) {
                 this.tournoi.getListeParticipantArentrer().clear();
                 for (Participant p : this.vainqueurs) {
                     this.tournoi.getListeParticipantArentrer().add(p);
@@ -143,10 +177,13 @@ public class ControllerPoule implements Initializable {
         }
     }
 
-
+    /**
+     * Crée un Controller de type ControllerPOule et boucle sur la page
+     * @throws IOException
+     */
     @FXML
     private void BouclerPoule() throws IOException {
-        ControllerPoule CP= new ControllerPoule(this.tournoi,this.choix, this.vainqueurs);
+        ControllerPoule CP = new ControllerPoule(this.tournoi, this.choix, this.vainqueurs);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionPoule.fxml"));
         loader.setController(CP);
         Parent root = loader.load();
@@ -154,6 +191,11 @@ public class ControllerPoule implements Initializable {
         window.setScene(new Scene(root, 600, 400));
 
     }
+
+    /**
+     * Permet de retourner sur la page de lancement
+     * @throws IOException
+     */
     @FXML
 
     private void retourLancement() throws IOException {
@@ -164,19 +206,26 @@ public class ControllerPoule implements Initializable {
         Stage window = (Stage) retourPoule.getScene().getWindow();
         window.setScene(new Scene(root, 600, 400));
     }
-    private Participant RecupererJoueurtournoi(String nom){
-        for(Participant p : this.tournoi.getListeParticipant()){
-            if(p.getNom()==nom){
+
+    /**
+     * Permet de récupérer un joueur du tournoi grace au string passé en paramètre
+     * @param nom
+     * @return
+     */
+    private Participant RecupererJoueurtournoi(String nom) {
+        for (Participant p : this.tournoi.getListeParticipant()) {
+            if (p.getNom() == nom) {
                 return p;
             }
         }
         return null;
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.textPoule.setText("Choisissez les"+
+        this.textPoule.setText("Choisissez les" +
                 (this.tournoi.getNbVainqueursNecessairesPool())
-                +"joueurs qui vont continuer le tournoi");
+                + "joueurs qui vont continuer le tournoi");
         remplirComboBox(GP1);
         remplirComboBox(GP2);
         remplirComboBox(GP3);

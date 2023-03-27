@@ -13,6 +13,11 @@ public class MancheJoueur extends Manche {
     private Duelliste premier;
     private Duelliste deuxieme;
 
+    /**
+     * Manche entre les deux duellistes et détermine le gagnant (celui qui dépasse 15 points)
+     * @param duelliste1
+     * @param duelliste2
+     */
     public MancheJoueur(Duelliste duelliste1, Duelliste duelliste2) {
         super(duelliste1,duelliste2);
         if (duelliste1.getRapidité() > duelliste2.getRapidité()) {

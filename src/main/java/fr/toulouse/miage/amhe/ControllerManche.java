@@ -46,7 +46,11 @@ public class ControllerManche implements  Initializable{
     private Button remplirtournoiGestion;
 
 
-    /**Crée un controller de la page Rentrer_manches**/
+    /**
+     * Crée un controller de la page Rentrer_manches
+     * @param tournoi
+     * @param choix
+     */
     public ControllerManche(Tournoi tournoi, int choix){
         this.tournoi =tournoi;
         this.choix =choix;
@@ -91,7 +95,10 @@ public class ControllerManche implements  Initializable{
         }
     }
 
-    /** Fonction qui permet de récupérer le perdant de la manche**/
+    /**
+     * Fonction qui permet de récupérer le perdant de la manche
+     * @return
+     */
     private String recupererPerdant(){
         if(Objects.equals(MG.getValue(), MP1.getValue())){
             this.tournoi.ajouterMessage("le joueur "+RecupererJoueurtournoi(MP1.getValue()).getNom()+" a gagné contre le joueur "+RecupererJoueurtournoi(MP2.getValue()).getNom()+" lors de la manche "+ nombre_actuel+"\n");
@@ -102,21 +109,29 @@ public class ControllerManche implements  Initializable{
         }
     }
 
-    /** fonction qui permet d'enlever le joueur déjà sélectionné pour la manche dans la 1ère combobox **/
+    /**
+     * fonction qui permet d'enlever le joueur déjà sélectionné pour la manche dans la 1ère combobox
+     */
     public void verificationMP1() {
         if (!(MP1.getValue()==null) && !(MP2.getValue()==null )) {
             MP1.getItems().remove(MP2.getValue());
         }
     }
 
-    /** fonction qui permet d'enlever le joueur déjà sélectionné pour la manche dans la 2ème combobox**/
+    /**
+     * fonction qui permet d'enlever le joueur déjà sélectionné pour la manche dans la 2ème combobox
+     */
     public void verificationMP2(){
         if(!(MP1.getValue()==null) && !(MP1.getValue()==null)){
             MP2.getItems().remove(MP1.getValue());
         }
     }
 
-    /** Fonction qui permet de récupérer un joueur du tournoi selon la chaine de caractère passée en paramètre**/
+    /**
+     * Fonction qui permet de récupérer un joueur du tournoi selon la chaine de caractère passée en paramètre
+     * @param nom
+     * @return
+     */
     private Participant RecupererJoueurtournoi(String nom){
         for(Participant p : this.tournoi.getListeParticipant()){
             if(p.getNom()==nom){
@@ -126,7 +141,9 @@ public class ControllerManche implements  Initializable{
         return null;
     }
 
-    /** Rempli la liste des participants à rentrer par les gagnants pour le prochain tour**/
+    /**
+     * Rempli la liste des participants à rentrer par les gagnants pour le prochain tour
+     */
     private void remplirParticipantArentrer(){
         for(Participant p : this.tournoi.getListeParticipantGagnant()) {
             this.tournoi.getListeParticipantArentrer().add(p);
@@ -136,7 +153,9 @@ public class ControllerManche implements  Initializable{
         }
     }
 
-    /** Rempli la combobox du choix du gagnant par les 2 joueurs de la manche**/
+    /**
+     * Rempli la combobox du choix du gagnant par les 2 joueurs de la manche
+     */
     @FXML
     public void choisirGagnant(){
         if(!(MP2.getValue()==null) && !(MP1.getValue()==null)){

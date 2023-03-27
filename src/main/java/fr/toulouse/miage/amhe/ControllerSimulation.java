@@ -37,6 +37,11 @@ public class ControllerSimulation implements Initializable{
     private int choix;
     private Random r=new Random();
 
+    /**
+     * Permet de remplir le tournoi de simulation
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         affichageSimulation.setText("Bienvenue dans une simulation du tournoi AMHE");
@@ -54,6 +59,7 @@ public class ControllerSimulation implements Initializable{
             throw new RuntimeException(e);
         }
     }
+
     /** Crée un réplicat du tournoi pour pouvoir l'utiliser en tant que simulation
      * @param tournoi
      * @param choix
@@ -63,7 +69,10 @@ public class ControllerSimulation implements Initializable{
         this.choix=choix;
     }
 
-    /** permet de revenir au lancement de tournoi et de gérer**/
+    /**
+     * permet de revenir au lancement de tournoi et de gérer
+     * @throws Exception
+     */
     @FXML
     protected void returnToLancementTournoi() throws Exception {
         this.tournoi.clearJournal();
@@ -76,7 +85,10 @@ public class ControllerSimulation implements Initializable{
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Permet de relancer une simulation du tournoi**/
+    /**
+     * Permet de relancer une simulation du tournoi
+     * @throws Exception
+     */
     @FXML
     protected void relancer_tournoi_simulation() throws Exception {
         simulation_tournoi();
@@ -88,7 +100,10 @@ public class ControllerSimulation implements Initializable{
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** nettoie les manches de la simulation**/
+    /**
+     * nettoie les manches de la simulation
+     * @throws Exception
+     */
     @FXML
     protected void simulation_tournoi()throws Exception{
         this.tournoisimulation.getListeManche().clear();
@@ -97,7 +112,9 @@ public class ControllerSimulation implements Initializable{
         this.tournoisimulation.clearJournal();
     }
 
-    /** rempli le tournoi de simulation**/
+    /**
+     *  rempli les manches du tournoi de simulation
+     */
     private void remplirTournoiSimulation() {
         int participant = 0;
         if (this.choix == 0) {

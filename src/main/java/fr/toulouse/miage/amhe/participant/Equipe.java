@@ -6,6 +6,15 @@ public class Equipe extends Participant {
     private static final int nombre = 4;
     private final ArrayList<Duelliste> Equipe = new ArrayList<>();
 
+    /**
+     * Crée une équipe comportant 4 duellistes
+     * @param nom
+     * @param arme
+     * @param d1
+     * @param d2
+     * @param d3
+     * @param d4
+     */
     public Equipe(String nom, String arme, Duelliste d1, Duelliste d2, Duelliste d3, Duelliste d4) {
         super(nom,arme);
         this.ajouterMembre(d1);

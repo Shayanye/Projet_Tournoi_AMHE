@@ -54,7 +54,10 @@ public class HelloController {
 
     }
 
-    /** Permet de directement charger un tournoi qu'on a crée et donc de vouloir le remplir ( dans la page du choixdetypedetournoi ) **/
+    /**
+     * Permet de directement charger un tournoi qu'on a crée et donc de vouloir le remplir ( dans la page du choixdetypedetournoi )
+     * @throws Exception
+     */
     @FXML
     protected void charger_tournoi() throws Exception {
         Tournoi tournoi;
@@ -99,7 +102,11 @@ public class HelloController {
 
         }
     }
-    /** Fonction de choix type tournoi qui permet d'aller à une creation de tournoi equipe **/
+
+    /**
+     * Fonction de choix type tournoi qui permet d'aller à une creation de tournoi equipe
+     * @throws Exception
+     */
     @FXML
     protected void Go_to_CreerTournoi_Equipe() throws Exception {
         ControllerCreationTournoi CCT= new ControllerCreationTournoi(1);
@@ -111,7 +118,10 @@ public class HelloController {
 
     }
 
-    /** Permet de retourner à l'accueil pour recommencer **/
+    /**
+     * Permet de retourner à l'accueil pour recommencer
+     * @throws Exception
+     */
     @FXML
     protected void RetourAccueilSolo() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
@@ -119,7 +129,10 @@ public class HelloController {
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Fonction qui amène  à la page ChoixTypeTournoi**/
+    /**
+     * Fonction qui amène  à la page ChoixTypeTournoi
+     * @throws Exception
+     */
     @FXML
     protected void goToChoixTypeTournoi() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChoixTypeTournoi.fxml")));
@@ -127,7 +140,10 @@ public class HelloController {
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Permet d'aller dans la page Historique de l'application **/
+    /**
+     * Permet d'aller dans la page Historique de l'application
+     * @throws Exception
+     */
     @FXML
     protected void goToHistorique() throws Exception {
         ControllerHistorique CH= new ControllerHistorique();

@@ -2,12 +2,15 @@ package fr.toulouse.miage.amhe.manche;
 
 import fr.toulouse.miage.amhe.participant.Equipe;
 
-/**
- *
- */
+
 public class MancheEquipe extends Manche {
     private final static MancheJoueur[] listeManche = new MancheJoueur[4];
 
+    /**
+     * Crée une manche d'équipe avec 2 équipes et une liste de manche faisant s'affronter chaque joueur contre un de l'autre équipe
+     * @param equipe1
+     * @param equipe2
+     */
     public MancheEquipe(Equipe equipe1, Equipe equipe2) {
         super(equipe1,equipe2);
         for (int i = 0; i < 4; i++) {

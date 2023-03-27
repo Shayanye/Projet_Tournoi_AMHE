@@ -7,13 +7,13 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.toulouse.miage.amhe.HelloController">
    <children>
       <Button id="retourAccueilSolo" fx:id="retourAccueilSolo" layoutX="44.0" layoutY="314.0" mnemonicParsing="false" onAction="#RetourAccueilSolo" prefHeight="40.0" prefWidth="75.0" text="Retour" />
-      <Text layoutX="37.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez le type de tournoi que vous désirez :">
+      <Text layoutX="37.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez le type de tournoi que vous désirez ou chargez en un déjà crée :">
          <font>
             <Font name="Microsoft New Tai Lue" size="15.0" />
          </font>
       </Text>
       <Button fx:id="creerTournoi" layoutX="162.0" layoutY="167.0" mnemonicParsing="false" onAction="#Go_to_CreerTournoi_Solo" prefHeight="40.0" prefWidth="75.0" text="SOLO" />
       <Button fx:id="Button_Equipe" layoutX="365.0" layoutY="167.0" mnemonicParsing="false" onAction="#Go_to_CreerTournoi_Equipe" prefHeight="40.0" prefWidth="75.0" text="EQUIPE" />
-      <Button fx:id="charger"  onMouseClicked="#charger_tournoi" layoutX="350.0" layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Charger" />
+      <Button fx:id="charger" layoutX="340.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#charger_tournoi" prefHeight="50.0" prefWidth="125.0" text="Charger" />
    </children>
 </AnchorPane>

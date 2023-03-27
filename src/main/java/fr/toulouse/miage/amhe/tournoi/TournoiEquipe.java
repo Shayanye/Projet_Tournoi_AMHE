@@ -9,7 +9,11 @@ import java.util.ArrayList;
 public class TournoiEquipe  extends Tournoi {
 
     /**
-     * Constructeur de tournoi solo
+     * Crée un tournoi d'Equipe
+     * @param nbParticipant
+     * @param arme
+     * @param nom
+     * @throws Exception
      */
     public TournoiEquipe(int nbParticipant, String arme, String nom)  throws  Exception{
         super(nbParticipant, arme, nom);
@@ -21,6 +25,7 @@ public class TournoiEquipe  extends Tournoi {
     }
 
     /**
+     * Ajoute un participant à la liste des participants
      * @param e
      */
     @Override
@@ -31,7 +36,10 @@ public class TournoiEquipe  extends Tournoi {
         }
     }
 
-    /** Permet de jouer toutes les manches pour la simulation **/
+    /**
+     * Permet de jouer toutes les manches pour la simulation  et retourne le résumé
+     * @return
+     */
     @Override
     public String jouerToutesLesManches() {
         ArrayList<Equipe> gagnants = new ArrayList<>();

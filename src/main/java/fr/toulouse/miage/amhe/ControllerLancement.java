@@ -31,7 +31,11 @@ public class ControllerLancement implements Initializable {
     private Tournoi tournoi;
 
 
-    /** Crée un Controller pour la page Lancement.tournoi qui prend en paramètre un tournoi et le choix du type de tournoi**/
+    /**
+     * Crée un Controller pour la page Lancement.tournoi qui prend en paramètre un tournoi et le choix du type de tournoi
+     * @param tournoi
+     * @param choix
+     */
     public ControllerLancement(Tournoi tournoi, int choix){
         this.choix = choix;
         this.tournoi=tournoi;
@@ -52,7 +56,10 @@ public class ControllerLancement implements Initializable {
         window.setScene(new Scene(root, 600, 400));
     }
 
-    /** Fonction qui permet d'allez vers la page pour rentrer les manches du tournoi**/
+    /**
+     * Fonction qui permet d'allez vers la page pour rentrer les manches du tournoi
+     * @throws IOException
+     */
     public void GoToRentrerManche() throws IOException {
         if(this.tournoi.getListeParticipantArentrer().size()<=this.tournoi.getNbVainqueursNecessairesPool()) {
             ControllerManche cm = new ControllerManche(this.tournoi, choix);
@@ -72,8 +79,11 @@ public class ControllerLancement implements Initializable {
     }
 
 
-
-    /**Fonction qui se lance dès l'arrivée sur la page, permettant d'afficher le résumé du tournoi**/
+    /**
+     * Initialise la zone de texte avec le contenu du journal du tournoi
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         console_lancement.clear();
@@ -82,7 +92,10 @@ public class ControllerLancement implements Initializable {
         }
 
 
-    /** Fonction qui permet de retourner à l'accueil de l'application**/
+    /**
+     * Fonction qui permet de retourner à l'accueil de l'application
+     * @throws Exception
+     */
     @FXML
     protected void retour_Accueil_Lancement() throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
@@ -91,7 +104,10 @@ public class ControllerLancement implements Initializable {
     }
 
 
-/** fonction qui permet de retourner  à la création du tournoi**/
+    /**
+     * fonction qui permet de retourner  à la création du tournoi
+     * @throws Exception
+     */
     @FXML
     protected void retour_lancement_tournoi() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreerTournoi.fxml"));
