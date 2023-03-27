@@ -5,16 +5,22 @@ import fr.toulouse.miage.amhe.tournoi.Tournoi;
 import fr.toulouse.miage.amhe.tournoi.TournoiEquipe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 
-public class ControllerCreationTournoi {
+public class ControllerCreationTournoi implements Initializable {
 
+    @FXML
+    private Label regle;
     private int choix;
     private String[] armes={"Epée","EpéeLongue","EpéeBocle","Rapière","RapièreDague"};
     @FXML
@@ -109,4 +115,9 @@ public class ControllerCreationTournoi {
         window.setScene(new Scene(root, 600, 400));
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        regle.setText("Les règles sont les suivantes :  Après le nombre de participants rentrés, il va y avoir une pool\n " +
+                "pour sélectionner les 16, 8 ou 4 (selon le nombre de joueurs) sortants qui vont s'affronter\n " + "lors de match en 1 contre 1 pour désigner le seul vainqueur");
+    }
 }

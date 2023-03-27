@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ControllerSimulation implements Initializable{
@@ -34,12 +35,20 @@ public class ControllerSimulation implements Initializable{
     private Tournoi tournoisimulation;
     private Tournoi tournoi;
     private int choix;
-
+    private Random r=new Random();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         affichageSimulation.setText("Bienvenue dans une simulation du tournoi AMHE");
         try {
+            if(choix==0) {
+                this.tournoisimulation = new Solo(this.tournoi.getNbParticipant(),this.tournoi.getArme(),this.tournoi.getNom());
+            }else{
+                this.tournoisimulation = new TournoiEquipe(this.tournoi.getNbParticipant(),this.tournoi.getArme(),this.tournoi.getNom());
+            }
+            for(int i=0 ; i<this.tournoi.getNbVainqueursNecessairesPool();i++){
+                this.tournoisimulation.getListeParticipant().add(this.tournoi.getListeParticipant().get(r.nextInt(0,this.tournoi.getNbParticipant()-1)));
+            }
             simulation_tournoi();
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -52,14 +61,6 @@ public class ControllerSimulation implements Initializable{
     public ControllerSimulation(Tournoi tournoi,int choix) throws Exception {
         this.tournoi=tournoi;
         this.choix=choix;
-        if(choix==0) {
-            this.tournoisimulation = new Solo(this.tournoi.getNbParticipant(),this.tournoi.getArme(),this.tournoi.getNom());
-        }else{
-            this.tournoisimulation = new TournoiEquipe(this.tournoi.getNbParticipant(),this.tournoi.getArme(),this.tournoi.getNom());
-        }
-        for(int i=0 ; i<this.tournoi.getNbVainqueursNecessairesPool();i++){
-            this.tournoisimulation.getListeParticipant().add(this.tournoi.getListeParticipant().get(i));
-        }
     }
 
     /** permet de revenir au lancement de tournoi et de gérer**/
@@ -100,12 +101,12 @@ public class ControllerSimulation implements Initializable{
     private void remplirTournoiSimulation() {
         int participant = 0;
         if (this.choix == 0) {
-            while (participant <  this.tournoisimulation.getNbParticipant() - 1) {
+            while (participant <  this.tournoi.getNbVainqueursNecessairesPool()) {
                 this.tournoisimulation.getListeManche().add(new MancheJoueur((Duelliste)  this.tournoisimulation.getListeParticipant().get(participant), (Duelliste)  this.tournoisimulation.getListeParticipant().get(participant + 1)));
                 participant=participant+2;
             }
         } else {
-            while (participant <  this.tournoisimulation.getNbParticipant() - 1) {
+            while (participant <  this.tournoi.getNbVainqueursNecessairesPool()) {
                 this.tournoisimulation.getListeManche().add(new MancheEquipe((Equipe) this.tournoisimulation.getListeParticipant().get(participant), (Equipe)  this.tournoisimulation.getListeParticipant().get(participant + 1)));
                 participant=participant+2;
             }

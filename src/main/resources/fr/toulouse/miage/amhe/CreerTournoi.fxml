@@ -45,5 +45,6 @@
    <TextField fx:id="NomTournoi" layoutX="275.0" layoutY="115.0" />
    <Label layoutX="250.0" layoutY="160.0" text="veuillez choisir l'arme utilisée dans le tournoi" />
    <TextField fx:id="Nbparticipant" layoutX="87.0" layoutY="102.0" prefHeight="25.0" prefWidth="35.0" />
-   <ComboBox fx:id="choiceArme" onMouseClicked="#choisir_arme" layoutX="275.0" layoutY="187.0" prefWidth="150.0" />
+   <ComboBox fx:id="choiceArme" layoutX="275.0" layoutY="187.0" onMouseClicked="#choisir_arme" prefWidth="150.0" />
+   <Label fx:id="regle" layoutY="242.0" prefHeight="63.0" prefWidth="1013.0" text="Les règles sont les suivantes :  Après le nombre de participants rentrés, il va y avoir une pool pour disputer les 16,8 ou 4 places restantes pour désigner le vainqueur lors de match en 1 contre 1" />
 </AnchorPane>

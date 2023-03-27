@@ -80,9 +80,7 @@ public class Solo extends Tournoi{
 				journal += "\n*"+this.manches.get(it).toString()+"\n";
 			}*/
 		}
-
 		this.journal += "\n\n\nLe gagnant du tournoi : " +this.getNom()+ " est " +gagnants.get(0).getNom();
-
 		return this.journal;
 
 	}

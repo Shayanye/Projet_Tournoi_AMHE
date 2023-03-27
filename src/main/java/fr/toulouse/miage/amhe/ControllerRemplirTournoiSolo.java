@@ -64,7 +64,7 @@ public class ControllerRemplirTournoiSolo implements Initializable {
      **/
     @FXML
     protected void remplirTournoi() throws Exception {
-        if (!P1.getText().isEmpty() && !P2.getText().isEmpty() && !P3.getText().isEmpty() && !P4.getText().isEmpty()) {
+        if (!P1.getText().isEmpty() && (P2.isDisable() || !P2.getText().isEmpty()) && (P3.isDisable() || !P3.getText().isEmpty()) && (P4.isDisable() || !P4.getText().isEmpty())) {
             if (tournoi instanceof Solo) {
                 tournoi.addParticipant(new Duelliste(P1.getText(), tournoi.getArme()));
                 tournoi.addParticipant(new Duelliste(P2.getText(), tournoi.getArme()));
@@ -121,6 +121,18 @@ public class ControllerRemplirTournoiSolo implements Initializable {
         tournoi=null;
     }
 
+    private void verif_nombre_restant(int restant){
+        if(restant==3){
+            P4.setDisable(true);
+        }else if(restant==2){
+            P3.setDisable(true);
+            P4.setDisable(true);
+        }else if(restant==1){
+            P2.setDisable(true);
+            P3.setDisable(true);
+            P4.setDisable(true);
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         labelPart1.setText(String.valueOf(this.tournoi.getListeParticipant().size()+1));
@@ -128,6 +140,7 @@ public class ControllerRemplirTournoiSolo implements Initializable {
         labelPart3.setText(String.valueOf(this.tournoi.getListeParticipant().size()+3));
         labelPart4.setText(String.valueOf(this.tournoi.getListeParticipant().size()+4));
         nbParticipants.setText("Nombre de participants rentrés : " + this.tournoi.getListeParticipant().size()+", restant : "+(this.tournoi.getNbParticipant()-this.tournoi.getListeParticipant().size()));
+        verif_nombre_restant(this.tournoi.getNbParticipant()-this.tournoi.getListeParticipant().size());
     }
 }
 

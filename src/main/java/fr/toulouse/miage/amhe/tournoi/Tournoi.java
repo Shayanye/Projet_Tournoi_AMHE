@@ -73,7 +73,7 @@ public abstract class Tournoi {
     }
 
     protected int calculTourAEffectuer(){
-        int nbParticipant = this.getNbParticipant();
+        int nbParticipant = this.getNbVainqueursNecessairesPool();
         int i = 1;
         while(i < 5){
             if(Math.pow(2, i) == nbParticipant){
