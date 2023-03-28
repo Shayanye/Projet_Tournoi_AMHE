@@ -168,6 +168,9 @@ public class ControllerManche implements  Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(nombre_actuel>this.tournoi.getNbVainqueursNecessairesPool()-1){
+            nombre_actuel=nombre_actuel-1;
+        }
         // initialise les champs de texte
         manchecb.setText("Manche "+ nombre_actuel+" sur "+(this.tournoi.getNbVainqueursNecessairesPool()-1));
         numManche.setText("M"+nombre_actuel);
