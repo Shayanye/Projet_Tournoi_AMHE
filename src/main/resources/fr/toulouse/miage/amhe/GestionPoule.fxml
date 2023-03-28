@@ -13,7 +13,7 @@
       <ComboBox fx:id="GP2" layoutX="331.0" layoutY="88.0" onMouseClicked="#verifierComboGP2" prefWidth="150.0" />
       <ComboBox fx:id="GP3" layoutX="67.0" layoutY="216.0" onMouseClicked="#verifierComboGP3" prefWidth="150.0" />
       <Label fx:id="manchecb" layoutX="23.0" layoutY="40.0" />
-      <ComboBox fx:id="GP4" layoutX="331.0" layoutY="216.0" onMouseClicked="verifierComboGP4" prefWidth="150.0" />
+      <ComboBox fx:id="GP4" layoutX="331.0" layoutY="216.0" onMouseClicked="#verifierComboGP4" prefWidth="150.0" />
       <Text fx:id="textPoule" layoutX="34.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez les 16 joueurs qui vont continuer le tournoi" />
       <Text fx:id="numManche1" layoutX="439.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1.0" />
    </children>

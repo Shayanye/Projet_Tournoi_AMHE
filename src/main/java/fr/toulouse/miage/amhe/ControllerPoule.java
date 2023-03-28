@@ -223,9 +223,9 @@ public class ControllerPoule implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.textPoule.setText("Choisissez les" +
+        this.textPoule.setText("Choisissez les " +
                 (this.tournoi.getNbVainqueursNecessairesPool())
-                + "joueurs qui vont continuer le tournoi");
+                + " joueurs qui vont continuer le tournoi");
         remplirComboBox(GP1);
         remplirComboBox(GP2);
         remplirComboBox(GP3);
