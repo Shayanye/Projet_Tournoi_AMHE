@@ -1,0 +1,79 @@
+Manifest-Version: 1.0
+Main-Class: fr.toulouse.miage.amhe.CreerTournoi
+Class-Path: j2html-1.6.0.jar opensaml-messaging-api-4.0.1.jar stax2-api-
+ 3.1.4.jar jln-response-code-0.1.6.jar opensaml-xmlsec-impl-4.0.1.jar ft
+ ypes-vals_sjs0.6_2.10-0.1.17.jar datarouter-util-0.0.119.jar opensaml-s
+ oap-api-4.0.1.jar opensaml-storage-api-4.0.1.jar controlsfx-11.1.2.jar 
+ datarouter-path-node-0.0.119.jar opencensus-api-0.31.1.jar disruptor-3.
+ 4.4.jar spring-core-6.0.3.jar datarouter-virtual-node-0.0.119.jar log4j
+ -jcl-2.17.1.jar stax-ex-1.8.1.jar jln-log-0.1.6.jar scala-library-2.12.
+ 2.jar reflections-0.10.2.jar gravitee-policy-override-http-method-1.3.0
+ .jar datarouter-bytes-0.0.119.jar commons-lang3-3.12.0.jar javax.inject
+ -1.jar javax.mail-1.6.2.jar datarouter-scanner-0.0.119.jar junit-dep-4.
+ 10.jar javassist-3.28.0-GA.jar datarouter-instrumentation-0.0.119.jar l
+ og4j-to-slf4j-2.13.3.jar ftypes-array_2.11-0.0.1.jar failureaccess-1.0.
+ 1.jar tools-exception-0.23.jar opensaml-profile-api-4.0.1.jar log4j-api
+ -2.13.3.jar jakarta.xml.bind-api-2.3.2.jar javafx-graphics-19.0.2.1-win
+ .jar guice-servlet-5.1.0.jar log4j-slf4j-impl-2.17.1.jar config-1.4.1.j
+ ar datarouter-exception-0.0.119.jar opensaml-soap-impl-4.0.1.jar dataro
+ uter-trace-0.0.119.jar commons-beanutils-core-1.8.3.jar spring-boot-2.3
+ .1.RELEASE.jar guice-5.1.0.jar datarouter-secret-0.0.119.jar javafx-con
+ trols-19.0.2.1.jar formsfx-core-11.6.0.jar jakarta.annotation-api-1.3.5
+ .jar commons-logging-1.1.1.jar scala-reflect-2.12.2.jar java-uuid-gener
+ ator-4.0.1.jar spock-core-0.7-groovy-2.0.jar ftypes-string_sjs0.6_2.10-
+ 0.0.1.jar commons-fileupload-1.4.jar datarouter-conveyor-0.0.119.jar ko
+ tlin-stdlib-common-1.7.10.jar opensaml-messaging-impl-4.0.1.jar CIMRead
+ er-2.12-3.0.1-5.1.1.jar override_2.12-1.1.0.jar datarouter-email-0.0.11
+ 9.jar serializer-2.7.2.jar ftypes-string_2.10-0.0.1.jar scalajs-library
+ _2.10-0.6.5.jar jln-event-0.1.6.jar spring-expression-5.3.18.jar spring
+ -aop-5.3.18.jar checker-qual-3.12.0.jar spring-jcl-6.0.3.jar jsr305-3.0
+ .2.jar string-3.3.3.jar override-properties-7.23.64.jar ftypes-string_2
+ .11-0.0.1.jar magic-string-0.26.7.jar string-metric-1.0.jar datarouter-
+ job-0.0.119.jar jprotobuf-2.4.15.jar istack-commons-runtime-3.0.8.jar d
+ atarouter-types-0.0.119.jar string-manipulation-0.0.1.jar micrometer-co
+ mmons-1.10.2.jar extractor_2.11-2.1.0.jar datarouter-http-client-0.0.11
+ 9.jar kotlin-stdlib-1.7.10.jar xmlsec-2.1.4.jar ftypes-array_sjs0.6_2.1
+ 1-0.0.1.jar spring-boot-starter-2.3.1.RELEASE.jar protobuf-java-3.15.8.
+ jar shapeless_2.12-2.3.2.jar opensaml-saml-impl-4.0.1.jar error_prone_a
+ nnotations-2.11.0.jar datarouter-enum-0.0.119.jar ftypes-vals_sjs0.6_2.
+ 11-0.1.17.jar j2objc-annotations-1.3.jar string-manipulator-1.0.2.jar d
+ atarouter-logging-0.0.119.jar de.huxhorn.sulky.ulid-8.3.0.jar CfgReader
+ -7.0.5.jar ftypes-string_sjs0.6_2.11-0.0.1.jar xalan-2.7.2.jar datarout
+ er-inject-0.0.119.jar hibernate-validator-8.0.0.Final.jar transmittable
+ -thread-local-2.14.0.jar javafx-graphics-19.0.2.1.jar javafx-controls-1
+ 9.0.2.1-win.jar jln-model-0.1.6.jar cryptacular-1.2.4.jar spring-boot-s
+ tarter-validation-3.0.1.jar override_2.11-1.1.0.jar hamcrest-core-1.3.j
+ ar spring-context-5.3.18.jar txw2-2.3.2.jar opensaml-security-impl-4.0.
+ 1.jar logback-core-1.2.11.jar macro-compat_2.11-1.1.1.jar annotations-1
+ 3.0.jar gson-2.10.jar log4j-1.2-api-2.17.1.jar micrometer-observation-1
+ .10.2.jar macro-compat_2.12-1.1.1.jar javax.servlet-api-4.0.1.jar httpc
+ lient-4.5.12.jar log4j-core-2.17.1.jar bcprov-jdk15on-1.64.jar logback-
+ classic-1.2.11.jar aopalliance-1.0.jar woodstox-core-5.0.3.jar java-sup
+ port-8.0.0.jar metrics-core-4.1.4.jar jln-exception-0.1.6.jar jstl-api-
+ 1.2.jar spring-boot-autoconfigure-2.3.1.RELEASE.jar snakeyaml-1.26.jar 
+ QiunetUtils-7.0.5.jar shapeless_2.11-2.3.2.jar javafx-fxml-19.0.2.1-win
+ .jar gradle-override-plugin-4.0.0.jar grpc-context-1.27.2.jar activatio
+ n-1.1.jar extractor_2.12-2.1.0.jar opencensus-exporter-metrics-util-0.3
+ 1.1.jar jakarta.validation-api-3.0.2.jar untyper_2.12-1.1.0.jar scalajs
+ -library_2.11-0.6.5.jar parso-2.0.14.jar FastInfoset-1.2.16.jar ftypes-
+ vals_2.10-0.1.17.jar spring-webmvc-6.0.3.jar ftypes-vals_2.11-0.1.17.ja
+ r listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar dataro
+ uter-model-0.0.119.jar jakarta.activation-api-1.2.1.jar fastjson-1.2.83
+ .jar javafx-fxml-19.0.2.1.jar datarouter-storage-0.0.119.jar javax.serv
+ let.jsp.jstl-1.2.5.jar slf4j-api-1.7.36.jar ftypes-array_2.10-0.0.1.jar
+  bcpkix-jdk15on-1.64.jar opensaml-core-4.0.1.jar ftypes-array_sjs0.6_2.
+ 10-0.0.1.jar datarouter-task-tracker-0.0.119.jar javafx-base-19.0.2.1-w
+ in.jar javafx-base-19.0.2.1.jar tomcat-embed-el-10.1.4.jar symmetric-cs
+ v-3.5.19.jar untyper_2.11-1.1.0.jar jul-to-slf4j-1.7.30.jar jaxb-runtim
+ e-2.3.2.jar spring-boot-configuration-processor-3.0.1.jar velocity-engi
+ ne-core-2.2.jar datarouter-web-0.0.119.jar opensaml-security-api-4.0.1.
+ jar classmate-1.5.1.jar commons-codec-1.14.jar guava-31.1-jre.jar sprin
+ g-web-6.0.3.jar spring-boot-starter-logging-2.3.1.RELEASE.jar kotlin-st
+ dlib-jdk8-1.7.10.jar opensaml-saml-api-4.0.1.jar commons-io-2.7.jar dat
+ arouter-gson-0.0.119.jar httpcore-4.4.13.jar spring-beans-6.0.3.jar exc
+ eptions-1.0.0.jar opensaml-xmlsec-api-4.0.1.jar jakarta.servlet-api-6.0
+ .0.jar datarouter-binary-dto-0.0.119.jar jprotobuf-protoparser-1.0.1.ja
+ r jboss-logging-3.4.1.Final.jar spock-feature-override-extension-0.01.j
+ ar sourcemap-codec-1.4.8.jar scopt_2.12-4.0.0-RC2.jar kotlin-stdlib-jdk
+ 7-1.7.10.jar
+
