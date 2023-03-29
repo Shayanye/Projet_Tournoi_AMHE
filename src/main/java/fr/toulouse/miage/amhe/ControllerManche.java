@@ -80,12 +80,27 @@ public class ControllerManche implements  Initializable{
             this.tournoi.getListeParticipantArentrer().remove(RecupererJoueurtournoi(MP1.getValue()));
             this.tournoi.getListeParticipantArentrer().remove(RecupererJoueurtournoi(MP2.getValue()));
             nombre_actuel = this.tournoi.getListeManche().size()+1;
-            ControllerManche cm= new ControllerManche(this.tournoi,this.choix);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_manches_4.fxml"));
-            loader.setController(cm);
-            Parent root = loader.load();
-            Stage window = (Stage) remplirtournoiGestion.getScene().getWindow();
-            window.setScene(new Scene(root, 600, 400));
+            if(this.tournoi.getListeManche().size()==(this.tournoi.getNbVainqueursNecessairesPool()-1)){
+                this.tournoi.ajouterMessage("Le gagnant du tournoi "+ this.tournoi.getNom()+ " est "+ this.tournoi.getListeParticipantGagnant().get(0).getNom());
+                try {
+                    file.CréerFileTournoiFini();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                ControllerLancement CL = new ControllerLancement(this.tournoi, this.choix);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("lancementTournoi.fxml"));
+                loader.setController(CL);
+                Parent root = loader.load();
+                Stage window = (Stage) remplirtournoiGestion.getScene().getWindow();
+                window.setScene(new Scene(root, 600, 400));
+            }else{
+                ControllerManche cm = new ControllerManche(this.tournoi, this.choix);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Rentrer_manches_4.fxml"));
+                loader.setController(cm);
+                Parent root = loader.load();
+                Stage window = (Stage) remplirtournoiGestion.getScene().getWindow();
+                window.setScene(new Scene(root, 600, 400));
+            }
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Champs incomplets");
@@ -168,9 +183,6 @@ public class ControllerManche implements  Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(nombre_actuel>this.tournoi.getNbVainqueursNecessairesPool()-1){
-            nombre_actuel=nombre_actuel-1;
-        }
         // initialise les champs de texte
         manchecb.setText("Manche "+ nombre_actuel+" sur "+(this.tournoi.getNbVainqueursNecessairesPool()-1));
         numManche.setText("M"+nombre_actuel);
@@ -178,13 +190,6 @@ public class ControllerManche implements  Initializable{
         if(this.tournoi.getListeParticipantArentrer().size()==0 && this.tournoi.getListeManche().size()!=this.tournoi.getNbVainqueursNecessairesPool()-1) {
             remplirParticipantArentrer();
             // sinon si il y a toutes les manches on annonce le gagnant et on crée le fichier CSV de sauvegarde
-        }else if(this.tournoi.getListeManche().size()==this.tournoi.getNbVainqueursNecessairesPool()-1){
-            this.tournoi.ajouterMessage("Le gagnant du tournoi "+ this.tournoi.getNom()+ " est "+ this.tournoi.getListeParticipantGagnant().get(0).getNom());
-            try {
-                file.CréerFileTournoiFini();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         }
         // On rempli les combobox de tous les participants à rentrer
         for(Participant p : this.tournoi.getListeParticipantArentrer()) {
