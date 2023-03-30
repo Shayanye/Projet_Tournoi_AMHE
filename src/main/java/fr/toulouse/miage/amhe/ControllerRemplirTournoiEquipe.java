@@ -118,6 +118,6 @@ public class ControllerRemplirTournoiEquipe implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       numEquipe.setText("Rentrez l'équipe n°"+this.tournoi.getListeParticipant().size()+1+" et ses 4 participants");
+       numEquipe.setText("Rentrez l'équipe n°"+(this.tournoi.getListeParticipant().size()+1)+" et ses 4 participants");
     }
 }
